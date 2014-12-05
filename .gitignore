@@ -5,6 +5,9 @@
 obj
 bin
 test-results
+/HvzAndroid/obj/
+/HvzAndroid/bin/
+/HvzAndroid/test-results/
 
 # VS sometimes writes these for no apparent reason
 _UpgradeReport_Files
