@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net;
+using System.Json;
 
 using Android.App;
 using Android.Content;
@@ -9,11 +11,9 @@ using Android.OS;
 
 namespace HvZAndroid
 {
-	[Activity (Label = "HvZAndroid", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "Humans vs Zombies @ RIT", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
-		int count = 1;
-
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -21,13 +21,20 @@ namespace HvZAndroid
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
-			// Get our button from the layout resource,
-			// and attach an event to it
-			Button button = FindViewById<Button> (Resource.Id.myButton);
-			
-			button.Click += delegate {
-				button.Text = string.Format ("{0} clicks!", count++);
-			};
+			TextView text = FindViewById<TextView> (Resource.Id.resultView);
+
+			string url = "ChangeMe";
+			var httpReq = (HttpWebRequest)HttpWebRequest.Create (new Uri (url));
+
+			httpReq.BeginGetResponse ((ar) => {
+				var request = (HttpWebRequest)ar.AsyncState;
+				using(var response = (HttpWebResponse)request.EndGetResponse(ar)) {
+					var s = response.GetResponseStream();
+					var j = (JsonObject)JsonObject.Load(s);
+					string status = j["status"];
+					RunOnUiThread(() => {text.Text = status;});
+				}
+			}, httpReq);
 		}
 	}
 }
