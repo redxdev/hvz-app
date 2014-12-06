@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("HvZAndroid.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("Hvz.Resource", IsApplication=true)]
 
-namespace HvZAndroid
+namespace Hvz
 {
 	
 	
@@ -61,7 +61,7 @@ namespace HvZAndroid
 		{
 			
 			// aapt resource value: 0x7f050000
-			public const int resultView = 2131034112;
+			public const int statusText = 2131034112;
 			
 			static Id()
 			{
@@ -92,8 +92,11 @@ namespace HvZAndroid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f040001
+			public const int app_name = 2130968577;
+			
 			// aapt resource value: 0x7f040000
-			public const int app_name = 2130968576;
+			public const int hello = 2130968576;
 			
 			static String()
 			{

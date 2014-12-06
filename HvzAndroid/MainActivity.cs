@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Net;
-using System.Json;
 
 using Android.App;
 using Android.Content;
@@ -9,7 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-namespace HvZAndroid
+namespace Hvz
 {
 	[Activity (Label = "Humans vs Zombies @ RIT", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
@@ -21,20 +19,37 @@ namespace HvZAndroid
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
-			TextView text = FindViewById<TextView> (Resource.Id.resultView);
+            TextView text = FindViewById<TextView>(Resource.Id.statusText);
 
-			string url = "ChangeMe";
-			var httpReq = (HttpWebRequest)HttpWebRequest.Create (new Uri (url));
+            Api.HvzClient client = new Hvz.Api.HvzClient();
+            /*
+            client.GetGameStatus((response) =>
+                {
+                    RunOnUiThread(() => {
+                        text.Text = string.Format(
+                            "Response: {0}\n" +
+                            "Game status: {1}\n" +
+                            "Start time: {2}\n" +
+                            "End time: {3}",
+                            response.StatusCode,
+                            response.Game,
+                            response.Start,
+                            response.End
+                        );
+                    });
+                });*/
 
-			httpReq.BeginGetResponse ((ar) => {
-				var request = (HttpWebRequest)ar.AsyncState;
-				using(var response = (HttpWebResponse)request.EndGetResponse(ar)) {
-					var s = response.GetResponseStream();
-					var j = (JsonObject)JsonObject.Load(s);
-					string status = j["status"];
-					RunOnUiThread(() => {text.Text = status;});
-				}
-			}, httpReq);
+            client.GetTeamStatus((response) =>
+                {
+                    RunOnUiThread(() => {
+                        text.Text = string.Format(
+                            "Humans: {0}\n" +
+                            "Zombies: {1}",
+                            response.HumanCount,
+                            response.ZombieCount
+                        );
+                    });
+                });
 		}
 	}
 }

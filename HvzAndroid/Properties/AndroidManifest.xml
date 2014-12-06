@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="edu.rit.hvz.HvzAndroid">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="HvzAndroid.HvzAndroid">
 	<uses-sdk />
-	<application android:label="HvZ @ RIT"></application>
+	<application android:label="HvzAndroid"></application>
 </manifest>
