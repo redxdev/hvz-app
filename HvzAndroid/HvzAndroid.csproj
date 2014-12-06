@@ -64,6 +64,12 @@
     <Compile Include="Api\GameUtils.cs" />
     <Compile Include="Api\Game\Player.cs" />
     <Compile Include="Api\Game\Badge.cs" />
+    <Compile Include="Api\Response\PlayerListResponse.cs" />
+    <Compile Include="Api\Response\InfectionListResponse.cs" />
+    <Compile Include="Api\Game\Infection.cs" />
+    <Compile Include="Api\Game\Profile.cs" />
+    <Compile Include="Api\Game\HumanId.cs" />
+    <Compile Include="Api\Response\ProfileResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

@@ -6,9 +6,9 @@ namespace Hvz.Api.Game
 {
     public class Player
     {
-        public static Player BuildFromJson(JObject json)
+        public static Player BuildFromJson(JObject json, Player build = null)
         {
-            Player p = new Player();
+            Player p = build ?? new Player();
             p.Id = (int)json["id"];
             p.FullName = (string)json["fullname"];
 

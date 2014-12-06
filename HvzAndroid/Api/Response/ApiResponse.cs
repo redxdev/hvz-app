@@ -13,7 +13,12 @@ namespace Hvz.Api.Response
             apiResponse.StatusCode = restResponse.StatusCode;
             if (apiResponse.StatusCode != HttpStatusCode.OK)
             {
+                apiResponse.Status = ResponseStatus.Error;
                 apiResponse.Errors.Add(restResponse.StatusDescription);
+            }
+            else
+            {
+                apiResponse.Status = ResponseStatus.Ok;
             }
 
             return apiResponse;
