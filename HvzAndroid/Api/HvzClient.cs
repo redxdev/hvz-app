@@ -94,6 +94,18 @@ namespace Hvz.Api
                     callback(result);
                 });
         }
+
+        public void SetClan(string clan, Action<ApiResponse> callback)
+        {
+            var request = new RestRequest(ApiConfiguration.SetClanEndpoint, Method.POST);
+            request.AddUrlSegment("apikey", ApiKey);
+            request.AddParameter("clan", clan);
+            client.ExecuteAsync(request, (response) =>
+                {
+                    var result = ApiResponse.BuildResponse<ApiResponse>(response);
+                    callback(result);
+                });
+        }
     }
 }
 

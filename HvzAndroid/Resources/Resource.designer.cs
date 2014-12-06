@@ -60,6 +60,9 @@ namespace Hvz
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050009
+			public const int clanText = 2131034121;
+			
 			// aapt resource value: 0x7f050007
 			public const int infectionListText = 2131034119;
 			

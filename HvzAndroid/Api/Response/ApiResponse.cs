@@ -11,14 +11,14 @@ namespace Hvz.Api.Response
         {
             var apiResponse = new T();
             apiResponse.StatusCode = restResponse.StatusCode;
-            if (apiResponse.StatusCode != HttpStatusCode.OK)
+            if (apiResponse.StatusCode == HttpStatusCode.OK)
             {
-                apiResponse.Status = ResponseStatus.Error;
-                apiResponse.Errors.Add(restResponse.StatusDescription);
+                apiResponse.Status = ResponseStatus.Ok;
             }
             else
             {
-                apiResponse.Status = ResponseStatus.Ok;
+                apiResponse.Status = ResponseStatus.Error;
+                apiResponse.Errors.Add(restResponse.StatusDescription);
             }
 
             return apiResponse;

@@ -17,6 +17,7 @@ namespace Hvz.Api
         public const string InfectionListEndpoint = "/infections/{page}?maxPerPage={maxPerPage}";
 
         public const string ProfileEndpoint = "/profile?apikey={apikey}";
+        public const string SetClanEndpoint = "/profile/clan?apikey={apikey}";
 	}
 }
 

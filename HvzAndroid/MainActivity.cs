@@ -145,6 +145,17 @@ namespace Hvz
                         );
                     });
                 });
+
+            TextView clanText = FindViewById<TextView>(Resource.Id.clanText);
+            client.SetClan("API Clan!", (response) =>
+                {
+                    RunOnUiThread(() => {
+                        clanText.Text = string.Format(
+                            "Clan result: {0}",
+                            response.Status
+                        );
+                    });
+                });
 		}
 	}
 }

@@ -60,6 +60,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/profileText" />
+            <TextView
+                android:text="Loading Set Clan..."
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/clanText" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
