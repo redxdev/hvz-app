@@ -151,8 +151,30 @@ namespace Hvz
                 {
                     RunOnUiThread(() => {
                         clanText.Text = string.Format(
-                            "Clan result: {0}",
+                            "Set Clan: {0}",
                             response.Status
+                        );
+                    });
+                });
+
+            TextView rulesetListText = FindViewById<TextView>(Resource.Id.rulesetListText);
+            client.GetRulesets((response) =>
+                {
+                    RunOnUiThread(() => {
+                        rulesetListText.Text = string.Format(
+                            "Ruleset Count: {0}",
+                            response.Rulesets.Count
+                        );
+                    });
+                });
+
+            TextView missionListText = FindViewById<TextView>(Resource.Id.missionListText);
+            client.GetMissionList((response) =>
+                {
+                    RunOnUiThread(() => {
+                        missionListText.Text = string.Format(
+                            "Mission Count: {0}",
+                            response.Missions.Count
                         );
                     });
                 });

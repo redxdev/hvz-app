@@ -70,6 +70,10 @@
     <Compile Include="Api\Game\Profile.cs" />
     <Compile Include="Api\Game\HumanId.cs" />
     <Compile Include="Api\Response\ProfileResponse.cs" />
+    <Compile Include="Api\Game\Ruleset.cs" />
+    <Compile Include="Api\Response\RulesetListResponse.cs" />
+    <Compile Include="Api\Game\Mission.cs" />
+    <Compile Include="Api\Response\MissionListResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

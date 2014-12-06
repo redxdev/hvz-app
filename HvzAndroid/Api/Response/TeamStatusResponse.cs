@@ -26,4 +26,3 @@ namespace Hvz.Api.Response
         public int ZombieCount { get; set; }
     }
 }
-

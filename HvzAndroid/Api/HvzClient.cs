@@ -106,6 +106,27 @@ namespace Hvz.Api
                     callback(result);
                 });
         }
+
+        public void GetRulesets(Action<RulesetListResponse> callback)
+        {
+            var request = new RestRequest(ApiConfiguration.RulesetListEndpoint, Method.GET);
+            client.ExecuteAsync(request, (response) =>
+                {
+                    var result = RulesetListResponse.BuildResponse(response);
+                    callback(result);
+                });
+        }
+
+        public void GetMissionList(Action<MissionListResponse> callback)
+        {
+            var request = new RestRequest(ApiConfiguration.MissionListEndpoint, Method.GET);
+            request.AddUrlSegment("apikey", ApiKey);
+            client.ExecuteAsync(request, (response) =>
+                {
+                    var result = MissionListResponse.BuildResponse(response);
+                    callback(result);
+                });
+        }
     }
 }
 
