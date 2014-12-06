@@ -13,7 +13,7 @@ namespace Hvz.Api
 
         public HvzClient()
         {
-            this.client = new RestClient(ApiConfiguration.ApiUri);
+            this.client = new RestClient(ApiConfiguration.BaseUrl + ApiConfiguration.ApiUrl);
         }
 
         public string ApiKey { get; set; }
@@ -33,6 +33,16 @@ namespace Hvz.Api
             client.ExecuteAsync(request, (response) =>
                 {
                     var result = TeamStatusResponse.BuildResponse(response);
+                    callback(result);
+                });
+        }
+
+        public void GetPlayerInfo(int id, Action<PlayerInfoResponse> callback)
+        {
+            var request = new RestRequest(string.Format(ApiConfiguration.PlayerInfoEndpoint, id), Method.GET);
+            client.ExecuteAsync(request, (response) =>
+                {
+                    var result = PlayerInfoResponse.BuildResponse(response);
                     callback(result);
                 });
         }

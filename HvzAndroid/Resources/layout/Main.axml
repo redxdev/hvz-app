@@ -6,9 +6,21 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:text="Loading..."
+        android:text="Loading Status..."
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/statusText" />
+    <TextView
+        android:text="Loading Team Status..."
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teamStatusText" />
+    <TextView
+        android:text="Loading Player 1's Info..."
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/playerInfoText" />
 </LinearLayout>

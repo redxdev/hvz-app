@@ -27,6 +27,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <ConsolePause>false</ConsolePause>
+    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -59,6 +60,10 @@
     <Compile Include="Api\Response\GameStatusResponse.cs" />
     <Compile Include="Api\TimeUtils.cs" />
     <Compile Include="Api\Response\TeamStatusResponse.cs" />
+    <Compile Include="Api\Response\PlayerInfoResponse.cs" />
+    <Compile Include="Api\GameUtils.cs" />
+    <Compile Include="Api\Game\Player.cs" />
+    <Compile Include="Api\Game\Badge.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -74,6 +79,7 @@
   <ItemGroup>
     <Folder Include="Api\" />
     <Folder Include="Api\Response\" />
+    <Folder Include="Api\Game\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="restsharp">
