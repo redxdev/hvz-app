@@ -74,6 +74,8 @@
     <Compile Include="Api\Response\RulesetListResponse.cs" />
     <Compile Include="Api\Game\Mission.cs" />
     <Compile Include="Api\Response\MissionListResponse.cs" />
+    <Compile Include="Api\Response\RegisterInfectionResponse.cs" />
+    <Compile Include="Api\Response\AntivirusResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

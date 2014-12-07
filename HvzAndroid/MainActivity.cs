@@ -178,6 +178,34 @@ namespace Hvz
                         );
                     });
                 });
+
+            TextView registerInfectionText = FindViewById<TextView>(Resource.Id.registerInfectionText);
+            client.RegisterInfection("2sqbrtct", "as23kfji", (response) =>
+                {
+                    RunOnUiThread(() => {
+                        registerInfectionText.Text = string.Format(
+                            "Errors: {0}\n" +
+                            "Human: {1}\n" +
+                            "Zombie: {2}",
+                            response.Errors.Count,
+                            response.HumanName,
+                            response.ZombieName
+                        );
+                    });
+                });
+
+            TextView registerAntivirusText = FindViewById<TextView>(Resource.Id.registerAntivirusText);
+            client.RegisterAntivirus("ffybguzt", "uru7a6qh", (response) =>
+                {
+                    RunOnUiThread(() => {
+                        registerAntivirusText.Text = string.Format(
+                            "Errors: {0}\n" +
+                            "Zombie: {1}",
+                            response.Errors.Count,
+                            response.ZombieName
+                        );
+                    });
+                });
 		}
 	}
 }

@@ -84,6 +84,12 @@ namespace Hvz
 			// aapt resource value: 0x7f050008
 			public const int profileText = 2131034120;
 			
+			// aapt resource value: 0x7f05000d
+			public const int registerAntivirusText = 2131034125;
+			
+			// aapt resource value: 0x7f05000c
+			public const int registerInfectionText = 2131034124;
+			
 			// aapt resource value: 0x7f05000a
 			public const int rulesetListText = 2131034122;
 			

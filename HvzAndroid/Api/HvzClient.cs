@@ -127,6 +127,40 @@ namespace Hvz.Api
                     callback(result);
                 });
         }
+
+        public void RegisterInfection(string humanId, string zombieId, Action<RegisterInfectionResponse> callback, double? latitude = null, double? longitude = null)
+        {
+            var request = new RestRequest(ApiConfiguration.RegisterInfectionEndpoint, Method.POST);
+            request.AddUrlSegment("apikey", ApiKey);
+            request.AddParameter("human", humanId);
+            request.AddParameter("zombie", zombieId);
+
+            if (latitude.HasValue && longitude.HasValue)
+            {
+                request.AddParameter("latitude", latitude.Value);
+                request.AddParameter("longitude", longitude.Value);
+            }
+
+            client.ExecuteAsync(request, (response) =>
+                {
+                    var result = RegisterInfectionResponse.BuildResponse(response);
+                    callback(result);
+                });
+        }
+
+        public void RegisterAntivirus(string antivirus, string zombieId, Action<AntivirusResponse> callback)
+        {
+            var request = new RestRequest(ApiConfiguration.AntivirusEndpoint, Method.POST);
+            request.AddUrlSegment("apikey", ApiKey);
+            request.AddParameter("antivirus", antivirus);
+            request.AddParameter("zombie", zombieId);
+
+            client.ExecuteAsync(request, (response) =>
+                {
+                    var result = AntivirusResponse.BuildResponse(response);
+                    callback(result);
+                });
+        }
     }
 }
 

@@ -78,6 +78,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/missionListText" />
+            <TextView
+                android:text="Registering Infection..."
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/registerInfectionText" />
+            <TextView
+                android:text="Registering Antivirus..."
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/registerAntivirusText" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
