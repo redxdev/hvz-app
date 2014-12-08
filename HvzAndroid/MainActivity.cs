@@ -7,11 +7,18 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
+using Hvz.Api;
+
 namespace Hvz
 {
 	[Activity (Label = "Humans vs Zombies @ RIT", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
+        private HvzClient client = null;
+
+        private TextView humanCount = null;
+        private TextView zombieCount = null;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -19,192 +26,20 @@ namespace Hvz
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
-            Api.HvzClient client = new Hvz.Api.HvzClient() { ApiKey = Api.ApiConfiguration.DevApiKey };
+            humanCount = FindViewById<TextView>(Resource.Id.humanCount);
+            zombieCount = FindViewById<TextView>(Resource.Id.zombieCount);
 
-			TextView statusText = FindViewById<TextView>(Resource.Id.statusText);
-            client.GetGameStatus((response) =>
+            client = new HvzClient() { ApiKey = ApiConfiguration.DevApiKey };
+
+            client.GetTeamStatus((response) =>
                 {
-                    RunOnUiThread(() => {
-                        statusText.Text = string.Format(
-                            "Response: {0}\n" +
-                            "Game status: {1}\n" +
-                            "Start time: {2}\n" +
-                            "End time: {3}",
-                            response.StatusCode,
-                            response.Game,
-                            response.Start,
-                            response.End
-                        );
-                    });
-                });
-
-			TextView teamStatusText = FindViewById<TextView>(Resource.Id.teamStatusText);
-			client.GetTeamStatus((response) =>
-			    {
-			        RunOnUiThread(() => {
-			            teamStatusText.Text = string.Format(
-			                "Humans: {0}\n" +
-			                "Zombies: {1}",
-			                response.HumanCount,
-			                response.ZombieCount
-			            );
-			        });
-			    });
-
-            TextView playerinfoText = FindViewById<TextView>(Resource.Id.playerInfoText);
-            client.GetPlayerInfo(1, (response) =>
-                {
-                    RunOnUiThread(() => {
-                        playerinfoText.Text = string.Format(
-                            "Id: {0}\n" +
-                            "Name: {1}\n" +
-                            "Team: {2}\n" +
-                            "Tags: {3}\n" +
-                            "Clan: {4}\n" +
-                            "Avatar: {5}\n" +
-                            "Badge Count: {6}",
-                            response.Player.Id,
-                            response.Player.FullName,
-                            response.Player.Team,
-                            response.Player.HumansTagged,
-                            response.Player.Clan,
-                            response.Player.Avatar,
-                            response.Player.Badges.Count
-                        );
-                    });
-                });
-
-            TextView playerListText = FindViewById<TextView>(Resource.Id.playerListText);
-            client.GetPlayerList(0, (response) =>
-                {
-                    RunOnUiThread(() => {
-                        playerListText.Text = string.Format(
-                            "Players on this page: {0}\n" +
-                            "Has more pages: {1}",
-                            response.Players.Count,
-                            response.HasMorePages
-                        );
-                    });
-                });
-
-            TextView playerSearchText = FindViewById<TextView>(Resource.Id.playerSearchText);
-            client.SearchPlayerList("sam", (response) =>
-                {
-                    RunOnUiThread(() => {
-                        playerSearchText.Text = string.Format(
-                            "Players on this page: {0}\n" +
-                            "Has more pages: {1}",
-                            response.Players.Count,
-                            response.HasMorePages
-                        );
-                    });
-                });
-
-            TextView infectionListText = FindViewById<TextView>(Resource.Id.infectionListText);
-            client.GetInfectionList(0, (response) =>
-                {
-                    RunOnUiThread(() => {
-                        infectionListText.Text = string.Format(
-                            "Infections on this page: {0}\n" +
-                            "Has more pages: {1}",
-                            response.Infections.Count,
-                            response.HasMorePages
-                        );
-                    });
-                });
-
-            TextView profileText = FindViewById<TextView>(Resource.Id.profileText);
-            client.GetProfile((response) =>
-                {
-                    RunOnUiThread(() => {
-                        profileText.Text = string.Format(
-                            "Id: {0}\n" +
-                            "Name: {1}\n" +
-                            "Team: {2}\n" +
-                            "Tags: {3}\n" +
-                            "Clan: {4}\n" +
-                            "Avatar: {5}\n" +
-                            "Badge Count: {6}\n" +
-                            "Api Key: {7}\n" +
-                            "Email: {8}\n" +
-                            "Zombie Id: {9}\n" +
-                            "Human Id Count: {10}\n" +
-                            "Infection Count: {11}",
-                            response.Profile.Id,
-                            response.Profile.FullName,
-                            response.Profile.Team,
-                            response.Profile.HumansTagged,
-                            response.Profile.Clan,
-                            response.Profile.Avatar,
-                            response.Profile.Badges.Count,
-                            response.Profile.ApiKey,
-                            response.Profile.Email,
-                            response.Profile.ZombieId,
-                            response.Profile.HumanIds.Count,
-                            response.Profile.Infections.Count
-                        );
-                    });
-                });
-
-            TextView clanText = FindViewById<TextView>(Resource.Id.clanText);
-            client.SetClan("API Clan!", (response) =>
-                {
-                    RunOnUiThread(() => {
-                        clanText.Text = string.Format(
-                            "Set Clan: {0}",
-                            response.Status
-                        );
-                    });
-                });
-
-            TextView rulesetListText = FindViewById<TextView>(Resource.Id.rulesetListText);
-            client.GetRulesets((response) =>
-                {
-                    RunOnUiThread(() => {
-                        rulesetListText.Text = string.Format(
-                            "Ruleset Count: {0}",
-                            response.Rulesets.Count
-                        );
-                    });
-                });
-
-            TextView missionListText = FindViewById<TextView>(Resource.Id.missionListText);
-            client.GetMissionList((response) =>
-                {
-                    RunOnUiThread(() => {
-                        missionListText.Text = string.Format(
-                            "Mission Count: {0}",
-                            response.Missions.Count
-                        );
-                    });
-                });
-
-            TextView registerInfectionText = FindViewById<TextView>(Resource.Id.registerInfectionText);
-            client.RegisterInfection("2sqbrtct", "as23kfji", (response) =>
-                {
-                    RunOnUiThread(() => {
-                        registerInfectionText.Text = string.Format(
-                            "Errors: {0}\n" +
-                            "Human: {1}\n" +
-                            "Zombie: {2}",
-                            response.Errors.Count,
-                            response.HumanName,
-                            response.ZombieName
-                        );
-                    });
-                });
-
-            TextView registerAntivirusText = FindViewById<TextView>(Resource.Id.registerAntivirusText);
-            client.RegisterAntivirus("ffybguzt", "uru7a6qh", (response) =>
-                {
-                    RunOnUiThread(() => {
-                        registerAntivirusText.Text = string.Format(
-                            "Errors: {0}\n" +
-                            "Zombie: {1}",
-                            response.Errors.Count,
-                            response.ZombieName
-                        );
-                    });
+                    if(response.Status == Hvz.Api.Response.ApiResponse.ResponseStatus.Ok)
+                    {
+                        RunOnUiThread(() => {
+                            humanCount.Text = response.HumanCount.ToString();
+                            zombieCount.Text = response.ZombieCount.ToString();
+                        });
+                    }
                 });
 		}
 	}

@@ -1,95 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:minWidth="25px"
-    android:minHeight="25px">
-    <ScrollView
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView1">
-        <LinearLayout
-            android:orientation="vertical"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/linearLayout1">
-            <TextView
-                android:text="Loading Status..."
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/statusText" />
-            <TextView
-                android:text="Loading Team Status..."
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/teamStatusText" />
-            <TextView
-                android:text="Loading Player Info..."
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/playerInfoText" />
-            <TextView
-                android:text="Loading Player List..."
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/playerListText" />
-            <TextView
-                android:text="Loading Player Search..."
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/playerSearchText" />
-            <TextView
-                android:text="Loading Infection List..."
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/infectionListText" />
-            <TextView
-                android:text="Loading Profile..."
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/profileText" />
-            <TextView
-                android:text="Loading Set Clan..."
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/clanText" />
-            <TextView
-                android:text="Loading Ruleset List..."
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rulesetListText" />
-            <TextView
-                android:text="Loading Mission List..."
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/missionListText" />
-            <TextView
-                android:text="Registering Infection..."
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/registerInfectionText" />
-            <TextView
-                android:text="Registering Antivirus..."
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/registerAntivirusText" />
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+<ScrollView xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/contentView">
+    <LinearLayout
+        p1:orientation="vertical"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="match_parent"
+        p1:layout_height="match_parent"
+        p1:id="@+id/contentLayout">
+        <TextView
+            p1:text="..."
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/humanCount"
+            p1:gravity="center_horizontal"
+            p1:textSize="80dp" />
+        <TextView
+            p1:text="Humans"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/humansText"
+            p1:gravity="center_horizontal"
+            p1:textSize="20dp" />
+        <Space
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/space1"
+            p1:minHeight="30dp" />
+        <TextView
+            p1:text="..."
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/zombieCount"
+            p1:gravity="center_horizontal"
+            p1:textSize="80dp" />
+        <TextView
+            p1:text="Zombies"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/zombiesText"
+            p1:gravity="center_horizontal"
+            p1:textSize="20dp" />
+    </LinearLayout>
+</ScrollView>

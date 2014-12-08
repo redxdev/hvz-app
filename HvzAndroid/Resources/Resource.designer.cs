@@ -60,47 +60,26 @@ namespace Hvz
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050009
-			public const int clanText = 2131034121;
-			
-			// aapt resource value: 0x7f050007
-			public const int infectionListText = 2131034119;
-			
 			// aapt resource value: 0x7f050001
-			public const int linearLayout1 = 2131034113;
-			
-			// aapt resource value: 0x7f05000b
-			public const int missionListText = 2131034123;
-			
-			// aapt resource value: 0x7f050004
-			public const int playerInfoText = 2131034116;
-			
-			// aapt resource value: 0x7f050005
-			public const int playerListText = 2131034117;
-			
-			// aapt resource value: 0x7f050006
-			public const int playerSearchText = 2131034118;
-			
-			// aapt resource value: 0x7f050008
-			public const int profileText = 2131034120;
-			
-			// aapt resource value: 0x7f05000d
-			public const int registerAntivirusText = 2131034125;
-			
-			// aapt resource value: 0x7f05000c
-			public const int registerInfectionText = 2131034124;
-			
-			// aapt resource value: 0x7f05000a
-			public const int rulesetListText = 2131034122;
+			public const int contentLayout = 2131034113;
 			
 			// aapt resource value: 0x7f050000
-			public const int scrollView1 = 2131034112;
+			public const int contentView = 2131034112;
 			
 			// aapt resource value: 0x7f050002
-			public const int statusText = 2131034114;
+			public const int humanCount = 2131034114;
 			
 			// aapt resource value: 0x7f050003
-			public const int teamStatusText = 2131034115;
+			public const int humansText = 2131034115;
+			
+			// aapt resource value: 0x7f050004
+			public const int space1 = 2131034116;
+			
+			// aapt resource value: 0x7f050005
+			public const int zombieCount = 2131034117;
+			
+			// aapt resource value: 0x7f050006
+			public const int zombiesText = 2131034118;
 			
 			static Id()
 			{
