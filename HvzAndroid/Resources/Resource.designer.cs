@@ -646,29 +646,29 @@ namespace Hvz
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f050037
-			public const int abc_background_cache_hint_selector_material_dark = 2131034167;
-			
 			// aapt resource value: 0x7f050038
-			public const int abc_background_cache_hint_selector_material_light = 2131034168;
+			public const int abc_background_cache_hint_selector_material_dark = 2131034168;
+			
+			// aapt resource value: 0x7f050039
+			public const int abc_background_cache_hint_selector_material_light = 2131034169;
 			
 			// aapt resource value: 0x7f050004
 			public const int abc_input_method_navigation_guard = 2131034116;
 			
-			// aapt resource value: 0x7f050039
-			public const int abc_primary_text_disable_only_material_dark = 2131034169;
-			
 			// aapt resource value: 0x7f05003a
-			public const int abc_primary_text_disable_only_material_light = 2131034170;
+			public const int abc_primary_text_disable_only_material_dark = 2131034170;
 			
 			// aapt resource value: 0x7f05003b
-			public const int abc_primary_text_material_dark = 2131034171;
+			public const int abc_primary_text_disable_only_material_light = 2131034171;
 			
 			// aapt resource value: 0x7f05003c
-			public const int abc_primary_text_material_light = 2131034172;
+			public const int abc_primary_text_material_dark = 2131034172;
 			
 			// aapt resource value: 0x7f05003d
-			public const int abc_search_url_text = 2131034173;
+			public const int abc_primary_text_material_light = 2131034173;
+			
+			// aapt resource value: 0x7f05003e
+			public const int abc_search_url_text = 2131034174;
 			
 			// aapt resource value: 0x7f050005
 			public const int abc_search_url_text_normal = 2131034117;
@@ -679,11 +679,11 @@ namespace Hvz
 			// aapt resource value: 0x7f050007
 			public const int abc_search_url_text_selected = 2131034119;
 			
-			// aapt resource value: 0x7f05003e
-			public const int abc_secondary_text_material_dark = 2131034174;
-			
 			// aapt resource value: 0x7f05003f
-			public const int abc_secondary_text_material_light = 2131034175;
+			public const int abc_secondary_text_material_dark = 2131034175;
+			
+			// aapt resource value: 0x7f050040
+			public const int abc_secondary_text_material_light = 2131034176;
 			
 			// aapt resource value: 0x7f050008
 			public const int accent_material_dark = 2131034120;
@@ -727,6 +727,9 @@ namespace Hvz
 			// aapt resource value: 0x7f050015
 			public const int button_material_light = 2131034133;
 			
+			// aapt resource value: 0x7f050037
+			public const int card_text = 2131034167;
+			
 			// aapt resource value: 0x7f050000
 			public const int cardview_dark_background = 2131034112;
 			
@@ -764,7 +767,7 @@ namespace Hvz
 			public const int hint_foreground_material_light = 2131034141;
 			
 			// aapt resource value: 0x7f050035
-			public const int human_background = 2131034165;
+			public const int human = 2131034165;
 			
 			// aapt resource value: 0x7f05001e
 			public const int link_text_material_dark = 2131034142;
@@ -836,7 +839,7 @@ namespace Hvz
 			public const int switch_thumb_normal_material_light = 2131034164;
 			
 			// aapt resource value: 0x7f050036
-			public const int zombie_background = 2131034166;
+			public const int zombie = 2131034166;
 			
 			static Color()
 			{
@@ -1228,6 +1231,9 @@ namespace Hvz
 			// aapt resource value: 0x7f090040
 			public const int content_frame = 2131296320;
 			
+			// aapt resource value: 0x7f090045
+			public const int day_count = 2131296325;
+			
 			// aapt resource value: 0x7f09002f
 			public const int decor_content_parent = 2131296303;
 			
@@ -1264,6 +1270,15 @@ namespace Hvz
 			// aapt resource value: 0x7f09000d
 			public const int homeAsUp = 2131296269;
 			
+			// aapt resource value: 0x7f090046
+			public const int hour_count = 2131296326;
+			
+			// aapt resource value: 0x7f090044
+			public const int human_card = 2131296324;
+			
+			// aapt resource value: 0x7f090049
+			public const int human_count = 2131296329;
+			
 			// aapt resource value: 0x7f090026
 			public const int icon = 2131296294;
 			
@@ -1284,6 +1299,9 @@ namespace Hvz
 			
 			// aapt resource value: 0x7f090015
 			public const int middle = 2131296277;
+			
+			// aapt resource value: 0x7f090047
+			public const int minute_count = 2131296327;
 			
 			// aapt resource value: 0x7f090042
 			public const int nav_menu_item_label = 2131296322;
@@ -1339,6 +1357,9 @@ namespace Hvz
 			// aapt resource value: 0x7f09003e
 			public const int search_voice_btn = 2131296318;
 			
+			// aapt resource value: 0x7f090048
+			public const int second_count = 2131296328;
+			
 			// aapt resource value: 0x7f09002a
 			public const int shortcut = 2131296298;
 			
@@ -1374,6 +1395,12 @@ namespace Hvz
 			
 			// aapt resource value: 0x7f09001d
 			public const int wrap_content = 2131296285;
+			
+			// aapt resource value: 0x7f09004a
+			public const int zombie_card = 2131296330;
+			
+			// aapt resource value: 0x7f09004b
+			public const int zombie_count = 2131296331;
 			
 			static Id()
 			{
@@ -1483,7 +1510,10 @@ namespace Hvz
 			public const int NavMenuSection = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int support_simple_spinner_dropdown_item = 2130903066;
+			public const int Status = 2130903066;
+			
+			// aapt resource value: 0x7f03001b
+			public const int support_simple_spinner_dropdown_item = 2130903067;
 			
 			static Layout()
 			{

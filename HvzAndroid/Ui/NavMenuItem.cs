@@ -2,7 +2,7 @@
 
 using Android.Content;
 
-namespace Hvz
+namespace Hvz.Ui
 {
     public class NavMenuItem : INavDrawerItem
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hvz
+namespace Hvz.Ui
 {
     public class NavMenuSection : INavDrawerItem
     {

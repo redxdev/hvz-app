@@ -38,6 +38,11 @@ namespace Hvz.Api.Response
 
                     result.Start = TimeUtils.UnixTimeStampToDateTime(start);
                     result.End = TimeUtils.UnixTimeStampToDateTime(end);
+
+                    result.Days = (int)json["game"]["time"]["days"];
+                    result.Hours = (int)json["game"]["time"]["hours"];
+                    result.Minutes = (int)json["game"]["time"]["minutes"];
+                    result.Seconds = (int)json["game"]["time"]["seconds"];
                 }
             }
 
@@ -56,6 +61,14 @@ namespace Hvz.Api.Response
         public DateTime Start { get; set; }
 
         public DateTime End { get; set; }
+
+        public int Days { get; set; }
+
+        public int Hours { get; set; }
+
+        public int Minutes { get; set; }
+
+        public int Seconds { get; set; }
     }
 }
 

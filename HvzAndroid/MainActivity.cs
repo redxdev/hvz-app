@@ -10,6 +10,7 @@ using Android.Support.V4.Widget;
 using Android.Support.V7.App;
 
 using Hvz.Api;
+using Hvz.Ui;
 
 namespace Hvz
 {
@@ -23,6 +24,8 @@ namespace Hvz
         private ListView drawerListView = null;
 
         private INavDrawerItem[] navDrawerItems = null;
+
+        private StatusFragment statusFragment = null;
 
         public override DrawerLayout DrawerLayout { get { return drawerLayout; } }
 
@@ -48,10 +51,20 @@ namespace Hvz
             client = new HvzClient() { ApiKey = ApiConfiguration.DevApiKey };
 
             this.OnSetupNavDrawer();
+
+            statusFragment = new StatusFragment(client);
+            replaceFragment(statusFragment);
         }
 
         protected override void OnNavItemSelected(INavDrawerItem item)
         {
+        }
+
+        protected void replaceFragment(Fragment fragment)
+        {
+            var transaction = FragmentManager.BeginTransaction();
+            transaction.Replace(Resource.Id.content_frame, fragment);
+            transaction.Commit();
         }
 	}
 }

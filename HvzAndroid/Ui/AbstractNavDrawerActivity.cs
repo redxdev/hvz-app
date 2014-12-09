@@ -12,7 +12,7 @@ using Android.Widget;
 using Android.Support.V4.Widget;
 using Android.Support.V7.App;
 
-namespace Hvz
+namespace Hvz.Ui
 {
     public abstract class AbstractNavDrawerActivity : Activity, ListView.IOnItemClickListener
     {

@@ -27,7 +27,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <ConsolePause>false</ConsolePause>
-    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -91,11 +91,12 @@
     <Compile Include="Api\Response\MissionListResponse.cs" />
     <Compile Include="Api\Response\RegisterInfectionResponse.cs" />
     <Compile Include="Api\Response\AntivirusResponse.cs" />
-    <Compile Include="INavDrawerItem.cs" />
-    <Compile Include="NavMenuSection.cs" />
-    <Compile Include="NavMenuItem.cs" />
-    <Compile Include="NavDrawerAdaptor.cs" />
-    <Compile Include="AbstractNavDrawerActivity.cs" />
+    <Compile Include="Ui\AbstractNavDrawerActivity.cs" />
+    <Compile Include="Ui\INavDrawerItem.cs" />
+    <Compile Include="Ui\NavDrawerAdaptor.cs" />
+    <Compile Include="Ui\NavMenuItem.cs" />
+    <Compile Include="Ui\NavMenuSection.cs" />
+    <Compile Include="StatusFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -110,12 +111,14 @@
     <AndroidResource Include="Resources\layout\NavMenuSection.axml" />
     <AndroidResource Include="Resources\layout\NavMenuItem.axml" />
     <AndroidResource Include="Resources\values\Colors.xml" />
+    <AndroidResource Include="Resources\layout\Status.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Api\" />
     <Folder Include="Api\Response\" />
     <Folder Include="Api\Game\" />
+    <Folder Include="Ui\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="restsharp">

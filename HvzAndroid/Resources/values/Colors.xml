@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <resources>
-	<item name="human_background" type="color">#ff7519</item>
-	<item name="zombie_background" type="color">#31e636</item>
+	<item name="human" type="color">#ff7519</item>
+	<item name="zombie" type="color">#31e636</item>
+	<item name="card_text" type="color">#333</item>
 </resources>
