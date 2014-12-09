@@ -11,15 +11,26 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Android.Support.V4.Widget;
 
 using Hvz.Api;
 using Hvz.Api.Response;
 
 namespace Hvz
 {
-    public class StatusFragment : Fragment
+    public class StatusFragment : Fragment, SwipeRefreshLayout.IOnRefreshListener
     {
         private HvzClient client = null;
+
+        private SwipeRefreshLayout refreshLayout = null;
+
+        private TextView humanCount = null;
+        private TextView zombieCount = null;
+
+        private TextView dayCount = null;
+        private TextView hourCount = null;
+        private TextView minuteCount = null;
+        private TextView secondCount = null;
 
         public StatusFragment(HvzClient client)
         {
@@ -43,20 +54,28 @@ namespace Hvz
             RefreshStatus();
         }
 
+        public override void OnStart()
+        {
+            base.OnStart();
+
+            refreshLayout = this.View.FindViewById<SwipeRefreshLayout>(Resource.Id.refresh_layout);
+            refreshLayout.SetOnRefreshListener(this);
+
+            humanCount = this.View.FindViewById<TextView>(Resource.Id.human_count);
+            zombieCount = this.View.FindViewById<TextView>(Resource.Id.zombie_count);
+
+            dayCount = this.View.FindViewById<TextView>(Resource.Id.day_count);
+            hourCount = this.View.FindViewById<TextView>(Resource.Id.hour_count);
+            minuteCount = this.View.FindViewById<TextView>(Resource.Id.minute_count);
+            secondCount = this.View.FindViewById<TextView>(Resource.Id.second_count);
+            refreshLayout = this.View.FindViewById<SwipeRefreshLayout>(Resource.Id.refresh_layout);
+        }
+
         public void RefreshStatus()
         {
             this.client.GetTeamStatus((response) =>
                 {
                     this.Activity.RunOnUiThread(() => {
-                        var humanCount = this.View.FindViewById<TextView>(Resource.Id.human_count);
-                        var zombieCount = this.View.FindViewById<TextView>(Resource.Id.zombie_count);
-
-                        if(humanCount == null || zombieCount == null)
-                        {
-                            Log.Error("HvzApp", "Could not find humanCount or zombieCount TextView");
-                            return;
-                        }
-
                         switch(response.Status)
                         {
                             case ApiResponse.ResponseStatus.Ok:
@@ -75,16 +94,7 @@ namespace Hvz
             this.client.GetGameStatus((response) =>
                 {
                     this.Activity.RunOnUiThread(() => {
-                        var dayCount = this.View.FindViewById<TextView>(Resource.Id.day_count);
-                        var hourCount = this.View.FindViewById<TextView>(Resource.Id.hour_count);
-                        var minuteCount = this.View.FindViewById<TextView>(Resource.Id.minute_count);
-                        var secondCount = this.View.FindViewById<TextView>(Resource.Id.second_count);
-
-                        if(dayCount == null || hourCount == null || minuteCount == null || secondCount == null)
-                        {
-                            Log.Error("HvzApp", "Could not find time TextViews");
-                            return;
-                        }
+                        refreshLayout.Refreshing = false;
 
                         switch(response.Status)
                         {
@@ -114,6 +124,11 @@ namespace Hvz
                         }
                     });
                 });
+        }
+
+        public void OnRefresh()
+        {
+            RefreshStatus();
         }
     }
 }

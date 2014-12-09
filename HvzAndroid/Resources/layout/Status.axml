@@ -1,123 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/refresh_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/human_card"
-            android:layout_gravity="center"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginLeft="4dp"
-            android:elevation="2dp"
-            card_view:cardBackgroundColor="#fff"
-            card_view:cardCornerRadius="0dp">
-            <LinearLayout
-                android:orientation="vertical"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/human_card"
+                android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/day_count"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
+                android:elevation="2dp"
+                card_view:cardBackgroundColor="#fff"
+                card_view:cardCornerRadius="0dp">
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="- DAYS"
-                    android:textSize="30dp"
-                    android:textColor="@color/card_text" />
-                <TextView
-                    android:id="@+id/hour_count"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="- HOURS"
-                    android:textSize="30dp"
-                    android:textColor="@color/card_text" />
-                <TextView
-                    android:id="@+id/minute_count"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="- MINUTES"
-                    android:textSize="30dp"
-                    android:textColor="@color/card_text" />
-                <TextView
-                    android:id="@+id/second_count"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="- SECONDS"
-                    android:textSize="30dp"
-                    android:textColor="@color/card_text" />
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/human_card"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginLeft="4dp"
-            android:elevation="2dp"
-            card_view:cardBackgroundColor="@color/human"
-            card_view:cardCornerRadius="0dp">
-            <LinearLayout
-                android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/day_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="- DAYS"
+                        android:textSize="30dp"
+                        android:textColor="@color/card_text" />
+                    <TextView
+                        android:id="@+id/hour_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="- HOURS"
+                        android:textSize="30dp"
+                        android:textColor="@color/card_text" />
+                    <TextView
+                        android:id="@+id/minute_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="- MINUTES"
+                        android:textSize="30dp"
+                        android:textColor="@color/card_text" />
+                    <TextView
+                        android:id="@+id/second_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="- SECONDS"
+                        android:textSize="30dp"
+                        android:textColor="@color/card_text" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/human_card"
+                android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/human_count"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
+                android:elevation="2dp"
+                card_view:cardBackgroundColor="@color/human"
+                card_view:cardCornerRadius="0dp">
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="-"
-                    android:textSize="80dp"
-                    android:textColor="@color/card_text" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="Humans"
-                    android:textSize="20dp"
-                    android:textColor="@color/card_text" />
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/zombie_card"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginLeft="4dp"
-            android:elevation="2dp"
-            card_view:cardBackgroundColor="@color/zombie"
-            card_view:cardCornerRadius="0dp">
-            <LinearLayout
-                android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/human_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="-"
+                        android:textSize="80dp"
+                        android:textColor="@color/card_text" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Humans"
+                        android:textSize="20dp"
+                        android:textColor="@color/card_text" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/zombie_card"
+                android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/zombie_count"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
+                android:elevation="2dp"
+                card_view:cardBackgroundColor="@color/zombie"
+                card_view:cardCornerRadius="0dp">
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="-"
-                    android:textSize="80dp"
-                    android:textColor="@color/card_text" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="Zombies"
-                    android:textSize="20dp"
-                    android:textColor="@color/card_text" />
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
-</ScrollView>
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/zombie_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="-"
+                        android:textSize="80dp"
+                        android:textColor="@color/card_text" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Zombies"
+                        android:textSize="20dp"
+                        android:textColor="@color/card_text" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>

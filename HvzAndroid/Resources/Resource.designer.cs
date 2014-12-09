@@ -1231,8 +1231,8 @@ namespace Hvz
 			// aapt resource value: 0x7f090040
 			public const int content_frame = 2131296320;
 			
-			// aapt resource value: 0x7f090045
-			public const int day_count = 2131296325;
+			// aapt resource value: 0x7f090046
+			public const int day_count = 2131296326;
 			
 			// aapt resource value: 0x7f09002f
 			public const int decor_content_parent = 2131296303;
@@ -1270,14 +1270,14 @@ namespace Hvz
 			// aapt resource value: 0x7f09000d
 			public const int homeAsUp = 2131296269;
 			
-			// aapt resource value: 0x7f090046
-			public const int hour_count = 2131296326;
+			// aapt resource value: 0x7f090047
+			public const int hour_count = 2131296327;
 			
-			// aapt resource value: 0x7f090044
-			public const int human_card = 2131296324;
+			// aapt resource value: 0x7f090045
+			public const int human_card = 2131296325;
 			
-			// aapt resource value: 0x7f090049
-			public const int human_count = 2131296329;
+			// aapt resource value: 0x7f09004a
+			public const int human_count = 2131296330;
 			
 			// aapt resource value: 0x7f090026
 			public const int icon = 2131296294;
@@ -1300,8 +1300,8 @@ namespace Hvz
 			// aapt resource value: 0x7f090015
 			public const int middle = 2131296277;
 			
-			// aapt resource value: 0x7f090047
-			public const int minute_count = 2131296327;
+			// aapt resource value: 0x7f090048
+			public const int minute_count = 2131296328;
 			
 			// aapt resource value: 0x7f090042
 			public const int nav_menu_item_label = 2131296322;
@@ -1326,6 +1326,9 @@ namespace Hvz
 			
 			// aapt resource value: 0x7f09002b
 			public const int radio = 2131296299;
+			
+			// aapt resource value: 0x7f090044
+			public const int refresh_layout = 2131296324;
 			
 			// aapt resource value: 0x7f090035
 			public const int search_badge = 2131296309;
@@ -1357,8 +1360,8 @@ namespace Hvz
 			// aapt resource value: 0x7f09003e
 			public const int search_voice_btn = 2131296318;
 			
-			// aapt resource value: 0x7f090048
-			public const int second_count = 2131296328;
+			// aapt resource value: 0x7f090049
+			public const int second_count = 2131296329;
 			
 			// aapt resource value: 0x7f09002a
 			public const int shortcut = 2131296298;
@@ -1396,11 +1399,11 @@ namespace Hvz
 			// aapt resource value: 0x7f09001d
 			public const int wrap_content = 2131296285;
 			
-			// aapt resource value: 0x7f09004a
-			public const int zombie_card = 2131296330;
-			
 			// aapt resource value: 0x7f09004b
-			public const int zombie_count = 2131296331;
+			public const int zombie_card = 2131296331;
+			
+			// aapt resource value: 0x7f09004c
+			public const int zombie_count = 2131296332;
 			
 			static Id()
 			{

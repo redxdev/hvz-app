@@ -58,6 +58,12 @@ namespace Hvz
 
         protected override void OnNavItemSelected(INavDrawerItem item)
         {
+            switch (item.Id)
+            {
+                case 1:
+                    replaceFragment(statusFragment);
+                    break;
+            }
         }
 
         protected void replaceFragment(Fragment fragment)
