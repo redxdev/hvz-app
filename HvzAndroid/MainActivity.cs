@@ -13,7 +13,7 @@ using Hvz.Api;
 
 namespace Hvz
 {
-	[Activity (Label = "Humans vs Zombies @ RIT", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "Status", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : AbstractNavDrawerActivity
 	{
         private HvzClient client = null;
@@ -52,10 +52,6 @@ namespace Hvz
 
         protected override void OnNavItemSelected(INavDrawerItem item)
         {
-            new AlertDialog.Builder(this)
-                .SetTitle("Selected Item")
-                .SetMessage("Selected item " + item.Label)
-                .Show();
         }
 	}
 }

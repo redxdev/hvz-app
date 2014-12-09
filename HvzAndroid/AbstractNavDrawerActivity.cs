@@ -57,12 +57,7 @@ namespace Hvz
             this.ActionBar.SetDisplayHomeAsUpEnabled(true);
             this.ActionBar.SetHomeButtonEnabled(true);
 
-            this.DrawerToggle = new ActionBarDrawerToggle(
-                this,
-                this.DrawerLayout,
-                Resource.String.nav_drawer_open,
-                Resource.String.nav_drawer_close
-            );
+            this.DrawerToggle = new NavDrawerToggle(this);
         }
 
         protected override void OnPostCreate(Bundle savedInstanceState)
@@ -102,6 +97,27 @@ namespace Hvz
         public virtual void OnItemClick(AdapterView parent, View view, int position, long id)
         {
             this.SelectItem(position);
+        }
+
+        private class NavDrawerToggle : ActionBarDrawerToggle
+        {
+            private AbstractNavDrawerActivity activity = null;
+
+            public NavDrawerToggle(AbstractNavDrawerActivity activity)
+                : base(activity, activity.DrawerLayout, Resource.String.nav_drawer_open, Resource.String.nav_drawer_close)
+            {
+                this.activity = activity;
+            }
+
+            public override void OnDrawerClosed(View drawerView)
+            {
+                activity.InvalidateOptionsMenu();
+            }
+
+            public override void OnDrawerOpened(View drawerView)
+            {
+                activity.InvalidateOptionsMenu();
+            }
         }
     }
 }

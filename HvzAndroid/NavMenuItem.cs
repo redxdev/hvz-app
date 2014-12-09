@@ -6,12 +6,13 @@ namespace Hvz
 {
     public class NavMenuItem : INavDrawerItem
     {
-        public static NavMenuItem Create(int id, string label, Context context, bool shouldUpdateActionBarTitle = true)
+        public static NavMenuItem Create(int id, string label, Context context, bool enabled = true, bool shouldUpdateActionBarTitle = true)
         {
             var item = new NavMenuItem()
             {
                 Id = id,
                 Label = label,
+                Enabled = enabled,
                 ShouldUpdateActionBarTitle = shouldUpdateActionBarTitle
             };
 
