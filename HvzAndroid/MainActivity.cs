@@ -25,8 +25,6 @@ namespace Hvz
 
         private INavDrawerItem[] navDrawerItems = null;
 
-        private StatusFragment statusFragment = null;
-
         public override DrawerLayout DrawerLayout { get { return drawerLayout; } }
 
         public override ListView DrawerListView { get { return drawerListView; } }
@@ -38,22 +36,22 @@ namespace Hvz
 			base.OnCreate (bundle);
 
 			// Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Main);
+			SetContentView (Resource.Layout.main);
 
             this.drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             this.drawerListView = FindViewById<ListView>(Resource.Id.left_drawer);
             this.navDrawerItems = new INavDrawerItem[]
             {
                     NavMenuSection.Create(0, "Humans vs Zombies"),
-                    NavMenuItem.Create(1, "Status", this)
+                    NavMenuItem.Create(1, "Status", this),
+                    NavMenuItem.Create(2, "Players", this)
             };
 
             client = new HvzClient() { ApiKey = ApiConfiguration.DevApiKey };
 
             this.OnSetupNavDrawer();
 
-            statusFragment = new StatusFragment(client);
-            replaceFragment(statusFragment);
+            replaceFragment(new StatusFragment(client));
         }
 
         protected override void OnNavItemSelected(INavDrawerItem item)
@@ -61,7 +59,11 @@ namespace Hvz
             switch (item.Id)
             {
                 case 1:
-                    replaceFragment(statusFragment);
+                    replaceFragment(new StatusFragment(client));
+                    break;
+
+                case 2:
+                    replaceFragment(new PlayersFragment(client));
                     break;
             }
         }

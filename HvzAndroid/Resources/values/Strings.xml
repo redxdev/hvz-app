@@ -3,4 +3,7 @@
 	<string name="app_name">Humans vs Zombies @ RIT</string>
 	<string name="nav_drawer_open">Open navigation drawer</string>
 	<string name="nav_drawer_close">Close navigation drawer</string>
+	<string name="api_err_team_status">Unable to retrieve team status</string>
+	<string name="api_err_game_status">Unable to retrieve game status</string>
+	<string name="api_err_player_list">Unable to retrieve player list</string>
 </resources>

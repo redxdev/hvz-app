@@ -14,7 +14,7 @@ using Android.Support.V7.App;
 
 namespace Hvz.Ui
 {
-    public abstract class AbstractNavDrawerActivity : Activity, ListView.IOnItemClickListener
+    public abstract class AbstractNavDrawerActivity : Activity
     {
         public abstract DrawerLayout DrawerLayout { get; }
 
@@ -48,11 +48,11 @@ namespace Hvz.Ui
         {
             this.DrawerListView.Adapter = new NavDrawerAdaptor(
                 this,
-                Resource.Layout.NavMenuItem,
+                Resource.Layout.nav_menu_item,
                 this.NavDrawerItems
             );
 
-            this.DrawerListView.OnItemClickListener = this;
+            this.DrawerListView.ItemClick += (sender, e) => {this.SelectItem(e.Position);};
 
             this.ActionBar.SetDisplayHomeAsUpEnabled(true);
             this.ActionBar.SetHomeButtonEnabled(true);
@@ -94,11 +94,6 @@ namespace Hvz.Ui
             return base.OnKeyDown(keyCode, e);
         }
 
-        public virtual void OnItemClick(AdapterView parent, View view, int position, long id)
-        {
-            this.SelectItem(position);
-        }
-
         private class NavDrawerToggle : ActionBarDrawerToggle
         {
             private AbstractNavDrawerActivity activity = null;
@@ -111,11 +106,13 @@ namespace Hvz.Ui
 
             public override void OnDrawerClosed(View drawerView)
             {
+                base.OnDrawerClosed(drawerView);
                 activity.InvalidateOptionsMenu();
             }
 
             public override void OnDrawerOpened(View drawerView)
             {
+                base.OnDrawerOpened(drawerView);
                 activity.InvalidateOptionsMenu();
             }
         }

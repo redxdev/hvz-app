@@ -18,7 +18,7 @@ using Hvz.Api.Response;
 
 namespace Hvz
 {
-    public class StatusFragment : Fragment, SwipeRefreshLayout.IOnRefreshListener
+    public class StatusFragment : Fragment
     {
         private HvzClient client = null;
 
@@ -32,6 +32,8 @@ namespace Hvz
         private TextView minuteCount = null;
         private TextView secondCount = null;
 
+        private bool loading = false;
+
         public StatusFragment(HvzClient client)
         {
             this.client = client;
@@ -44,7 +46,7 @@ namespace Hvz
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            return inflater.Inflate(Resource.Layout.Status, container, false);
+            return inflater.Inflate(Resource.Layout.status_fragment, container, false);
         }
 
         public override void OnAttach(Activity activity)
@@ -59,7 +61,7 @@ namespace Hvz
             base.OnStart();
 
             refreshLayout = this.View.FindViewById<SwipeRefreshLayout>(Resource.Id.refresh_layout);
-            refreshLayout.SetOnRefreshListener(this);
+            refreshLayout.Refresh += (sender, e) => {RefreshStatus();};
 
             humanCount = this.View.FindViewById<TextView>(Resource.Id.human_count);
             zombieCount = this.View.FindViewById<TextView>(Resource.Id.zombie_count);
@@ -73,8 +75,16 @@ namespace Hvz
 
         public void RefreshStatus()
         {
+            if (loading)
+                return;
+
+            loading = true;
+
             this.client.GetTeamStatus((response) =>
                 {
+                    if(Activity == null)
+                        return;
+
                     this.Activity.RunOnUiThread(() => {
                         switch(response.Status)
                         {
@@ -86,6 +96,7 @@ namespace Hvz
                             case ApiResponse.ResponseStatus.Error:
                                 humanCount.Text = "Err";
                                 zombieCount.Text = "Err";
+                                Toast.MakeText(this.Activity, Resource.String.api_err_team_status, ToastLength.Short);
                                 break;
                         }
                     });
@@ -93,8 +104,12 @@ namespace Hvz
 
             this.client.GetGameStatus((response) =>
                 {
+                    if(Activity == null)
+                        return;
+
                     this.Activity.RunOnUiThread(() => {
                         refreshLayout.Refreshing = false;
+                        loading = false;
 
                         switch(response.Status)
                         {
@@ -120,15 +135,11 @@ namespace Hvz
                                 hourCount.Text = "? HOURS";
                                 minuteCount.Text = "? MINUTES";
                                 secondCount.Text = "? SECONDS";
+                                Toast.MakeText(this.Activity, Resource.String.api_err_game_status, ToastLength.Short);
                                 break;
                         }
                     });
                 });
-        }
-
-        public void OnRefresh()
-        {
-            RefreshStatus();
         }
     }
 }

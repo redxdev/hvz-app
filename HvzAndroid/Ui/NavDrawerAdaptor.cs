@@ -42,7 +42,7 @@ namespace Hvz.Ui
         {
             if (convertView == null)
             {
-                convertView = inflater.Inflate(Resource.Layout.NavMenuItem, parentView, false);
+                convertView = inflater.Inflate(Resource.Layout.nav_menu_item, parentView, false);
             }
 
             TextView label = convertView.FindViewById<TextView>(Resource.Id.nav_menu_item_label);
@@ -55,7 +55,7 @@ namespace Hvz.Ui
         {
             if(convertView == null)
             {
-                convertView = inflater.Inflate(Resource.Layout.NavMenuSection, parentView, false);
+                convertView = inflater.Inflate(Resource.Layout.nav_menu_section, parentView, false);
             }
 
             TextView label = convertView.FindViewById<TextView>(Resource.Id.nav_menu_section_label);

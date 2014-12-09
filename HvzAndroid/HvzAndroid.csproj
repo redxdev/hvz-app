@@ -97,6 +97,8 @@
     <Compile Include="Ui\NavMenuItem.cs" />
     <Compile Include="Ui\NavMenuSection.cs" />
     <Compile Include="StatusFragment.cs" />
+    <Compile Include="PlayersFragment.cs" />
+    <Compile Include="Ui\PlayerAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -107,11 +109,13 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
-    <AndroidResource Include="Resources\layout\Main.axml" />
-    <AndroidResource Include="Resources\layout\NavMenuSection.axml" />
-    <AndroidResource Include="Resources\layout\NavMenuItem.axml" />
     <AndroidResource Include="Resources\values\Colors.xml" />
-    <AndroidResource Include="Resources\layout\Status.axml" />
+    <AndroidResource Include="Resources\layout\nav_menu_item.axml" />
+    <AndroidResource Include="Resources\layout\nav_menu_section.axml" />
+    <AndroidResource Include="Resources\layout\main.axml" />
+    <AndroidResource Include="Resources\layout\status_fragment.axml" />
+    <AndroidResource Include="Resources\layout\players_fragment.axml" />
+    <AndroidResource Include="Resources\layout\player_card.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
