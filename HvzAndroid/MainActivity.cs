@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -8,15 +7,14 @@ using Android.Widget;
 using Android.OS;
 using Android.Support.V4.Widget;
 using Android.Support.V7.App;
-
 using Hvz.Api;
 using Hvz.Ui;
 
 namespace Hvz
 {
-	[Activity (Label = "Status", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Status", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : AbstractNavDrawerActivity
-	{
+    {
         private HvzClient client = null;
 
         private DrawerLayout drawerLayout = null;
@@ -31,12 +29,12 @@ namespace Hvz
 
         public override INavDrawerItem[] NavDrawerItems { get { return navDrawerItems; } }
 
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
 
-			// Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.main);
+            // Set our view from the "main" layout resource
+            SetContentView(Resource.Layout.main);
 
             this.drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             this.drawerListView = FindViewById<ListView>(Resource.Id.left_drawer);
@@ -74,7 +72,7 @@ namespace Hvz
             transaction.Replace(Resource.Id.content_frame, fragment);
             transaction.Commit();
         }
-	}
+    }
 }
 
 

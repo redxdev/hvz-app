@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HvzAndroid", "HvzAndroid\HvzAndroid.csproj", "{A40E68A3-0835-4DC5-856D-DF5D6EFBBF99}"
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HvzAndroid", "HvzAndroid\HvzAndroid.csproj", "{3636932E-B528-403C-BD32-20871478B666}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,12 +11,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A40E68A3-0835-4DC5-856D-DF5D6EFBBF99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A40E68A3-0835-4DC5-856D-DF5D6EFBBF99}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A40E68A3-0835-4DC5-856D-DF5D6EFBBF99}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A40E68A3-0835-4DC5-856D-DF5D6EFBBF99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3636932E-B528-403C-BD32-20871478B666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3636932E-B528-403C-BD32-20871478B666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3636932E-B528-403C-BD32-20871478B666}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3636932E-B528-403C-BD32-20871478B666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3636932E-B528-403C-BD32-20871478B666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3636932E-B528-403C-BD32-20871478B666}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = HvzAndroid\HvzAndroid.csproj
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

@@ -61,13 +61,21 @@ namespace Hvz.Ui
             }
 
             vh.PlayerName.Text = player.FullName;
+            vh.HumanTags.Text = "Tags: " + player.HumansTagged.ToString();
+            vh.Clan.Text = "Clan: " + player.Clan ?? "none" ;
         }
 
         private class ViewHolder : RecyclerView.ViewHolder
         {
             public CardView PlayerCard { get; private set; }
+
             public ImageView AvatarImage { get; private set; }
+
             public TextView PlayerName { get; private set; }
+
+            public TextView HumanTags { get; private set; }
+
+            public TextView Clan { get; private set; }
 
             public ViewHolder(View view)
                 : base(view)
@@ -75,6 +83,8 @@ namespace Hvz.Ui
                 this.PlayerCard = view.FindViewById<CardView>(Resource.Id.player_card);
                 this.AvatarImage = view.FindViewById<ImageView>(Resource.Id.avatar_image);
                 this.PlayerName = view.FindViewById<TextView>(Resource.Id.player_name);
+                this.HumanTags = view.FindViewById<TextView>(Resource.Id.human_tags);
+                this.Clan = view.FindViewById<TextView>(Resource.Id.clan);
             }
         }
     }
