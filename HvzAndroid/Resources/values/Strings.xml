@@ -4,16 +4,16 @@
 	<string name="nav_drawer_open">Open navigation drawer</string>
 	<string name="nav_drawer_close">Close navigation drawer</string>
     <string name="api_err_bad_key">
-        Uh oh, it doesn't look like you have an api key set up! Open up settings to set your api key.
+        Uh oh, it doesn\'t look like you have an api key set up! Open up settings to set your api key.
     </string>
 	<string name="api_err_team_status">Unable to retrieve team status</string>
 	<string name="api_err_game_status">Unable to retrieve game status</string>
 	<string name="api_err_player_list">Unable to retrieve player list</string>
-    <string name="api_err_mission_list">Unable to retrieve mission list</string>
+    <string name="api_err_mission_list">Unable to retrieve mission list. Is your api key correct?</string>
     <string name="settings_api_key_help">
         Don\'t know where to look? Head to hvz.rit.edu, log in, and go to your profile page. Your Api key must be activated by an admin before you can use it.
     </string>
     <string name="settings_api_change">Saved api key, testing connectivity...</string>
-    <string name="settings_api_test_ok">Success: You're good to go!</string>
+    <string name="settings_api_test_ok">Success: You\'re good to go!</string>
     <string name="settings_api_test_error">Unable to query api. Maybe the api key is incorrect?</string>
 </resources>
