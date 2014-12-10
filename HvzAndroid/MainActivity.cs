@@ -12,7 +12,7 @@ using Hvz.Ui;
 
 namespace Hvz
 {
-    [Activity(Label = "Status", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "HvZ @ RIT", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : AbstractNavDrawerActivity
     {
         private HvzClient client = null;

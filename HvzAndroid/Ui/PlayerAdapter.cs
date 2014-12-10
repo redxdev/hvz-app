@@ -17,7 +17,7 @@ using Hvz.Api.Game;
 using Hvz.Api.Response;
 
 namespace Hvz.Ui
-{	
+{
     public class PlayerAdapter : RecyclerView.Adapter
     {
         public List<Player> Players { get; set; }
@@ -62,7 +62,16 @@ namespace Hvz.Ui
 
             vh.PlayerName.Text = player.FullName;
             vh.HumanTags.Text = "Tags: " + player.HumansTagged.ToString();
-            vh.Clan.Text = "Clan: " + player.Clan ?? "none" ;
+            vh.Clan.Text = "Clan: " + (string.IsNullOrWhiteSpace(player.Clan) ? "none" : player.Clan);
+
+            if (string.IsNullOrWhiteSpace(player.Avatar))
+            {
+                vh.AvatarImage.SetImageResource(Resource.Drawable.placeholder);
+            }
+            else
+            {
+                Koush.UrlImageViewHelper.SetUrlDrawable(vh.AvatarImage, ApiConfiguration.BaseUrl + "/" + player.Avatar, Resource.Drawable.placeholder);
+            }
         }
 
         private class ViewHolder : RecyclerView.ViewHolder

@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="Hvz.Android" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
 	<uses-sdk />
-	<application android:label="Humans vs Zombeis @ RIT" android:icon="@drawable/Icon"></application>
+	<application android:label="Humans vs Zombeis @ RIT"
+               android:icon="@drawable/Icon"
+               android:theme="@android:style/Theme.Material.Light">
+  </application>
 </manifest>

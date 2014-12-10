@@ -26,9 +26,13 @@ namespace Hvz
 
         private RecyclerView recyclerView = null;
 
+        private LinearLayoutManager layoutManager = null;
+
         private PlayerAdapter adapter = null;
 
         private bool loading = false;
+
+        private int currentPage = 0;
 
         public PlayersFragment(HvzClient client)
         {
@@ -55,11 +59,16 @@ namespace Hvz
             base.OnStart();
 
             recyclerView = this.View.FindViewById<RecyclerView>(Resource.Id.recycler_view);
-            recyclerView.SetLayoutManager(new LinearLayoutManager(this.Activity));
+
+            layoutManager = new LinearLayoutManager(this.Activity);
+            recyclerView.SetLayoutManager(layoutManager);
+
             recyclerView.SetItemAnimator(new DefaultItemAnimator());
 
             adapter = new PlayerAdapter(this.Activity);
             recyclerView.SetAdapter(adapter);
+
+            recyclerView.SetOnScrollListener(new OnScrollListener(this));
 
             LoadPage(0);
         }
@@ -73,16 +82,20 @@ namespace Hvz
 
             client.GetPlayerList(page, (response) =>
                 {
-                    if(Activity == null)
+                    if (Activity == null)
                         return;
 
-                    this.Activity.RunOnUiThread(() => {
-                        switch(response.Status)
+                    this.Activity.RunOnUiThread(() =>
+                    {
+                        switch (response.Status)
                         {
                             case ApiResponse.ResponseStatus.Ok:
                                 int start = adapter.Players.Count;
                                 adapter.Players.AddRange(response.Players);
                                 adapter.NotifyItemRangeInserted(start, response.Players.Count);
+
+                                if (page > currentPage)
+                                    currentPage = page;
                                 break;
 
                             case ApiResponse.ResponseStatus.Error:
@@ -93,6 +106,26 @@ namespace Hvz
                         loading = false;
                     });
                 });
+        }
+
+        private class OnScrollListener : RecyclerView.OnScrollListener
+        {
+            private PlayersFragment fragment = null;
+
+            public OnScrollListener(PlayersFragment fragment)
+                : base()
+            {
+                this.fragment = fragment;
+            }
+
+            public override void OnScrolled(RecyclerView recyclerView, int dx, int dy)
+            {
+                if (fragment.layoutManager.ChildCount + fragment.layoutManager.FindFirstVisibleItemPosition() >=
+                    fragment.layoutManager.ItemCount)
+                {
+                    fragment.LoadPage(fragment.currentPage + 1);
+                }
+            }
         }
     }
 }
