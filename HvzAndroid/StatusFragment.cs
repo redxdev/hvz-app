@@ -22,8 +22,6 @@ namespace Hvz
     {
         private HvzClient client = null;
 
-        private SwipeRefreshLayout refreshLayout = null;
-
         private TextView humanCount = null;
         private TextView zombieCount = null;
 
@@ -60,9 +58,6 @@ namespace Hvz
         {
             base.OnStart();
 
-            refreshLayout = this.View.FindViewById<SwipeRefreshLayout>(Resource.Id.refresh_layout);
-            refreshLayout.Refresh += (sender, e) => {RefreshStatus();};
-
             humanCount = this.View.FindViewById<TextView>(Resource.Id.human_count);
             zombieCount = this.View.FindViewById<TextView>(Resource.Id.zombie_count);
 
@@ -70,7 +65,6 @@ namespace Hvz
             hourCount = this.View.FindViewById<TextView>(Resource.Id.hour_count);
             minuteCount = this.View.FindViewById<TextView>(Resource.Id.minute_count);
             secondCount = this.View.FindViewById<TextView>(Resource.Id.second_count);
-            refreshLayout = this.View.FindViewById<SwipeRefreshLayout>(Resource.Id.refresh_layout);
         }
 
         public void RefreshStatus()
@@ -108,7 +102,6 @@ namespace Hvz
                         return;
 
                     this.Activity.RunOnUiThread(() => {
-                        refreshLayout.Refreshing = false;
                         loading = false;
 
                         switch(response.Status)

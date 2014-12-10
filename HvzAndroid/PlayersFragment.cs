@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Android.Support.V4.Widget;
 using Android.Support.V7.Widget;
 
 using Hvz.Api;
@@ -33,6 +34,8 @@ namespace Hvz
         private Button sortButton = null;
 
         private string sortBy = "team";
+
+        private string currentSearch = "";
 
         private bool loading = false;
 
@@ -99,6 +102,19 @@ namespace Hvz
                 })
                 .Show();
 
+            var searchButton = this.View.FindViewById<Button>(Resource.Id.search_button);
+            searchButton.Click += (sender, args) =>
+            {
+                EditText input = new EditText(this.Activity);
+                input.Text = currentSearch;
+
+                new AlertDialog.Builder(this.Activity)
+                    .SetTitle("Search")
+                    .SetView(input)
+                    .SetPositiveButton("Search", (o, eventArgs) => SearchList(input.Text))
+                    .Show();
+            };
+
             LoadPage(0);
         }
 
@@ -150,12 +166,63 @@ namespace Hvz
 
         private void RefreshList()
         {
+            if (loading)
+                return;
+
             int count = adapter.Players.Count;
             adapter.Players.Clear();
             adapter.NotifyItemRangeRemoved(0, count);
 
             currentPage = 0;
             LoadPage(0);
+        }
+
+        private void SearchList(string term)
+        {
+            currentSearch = term;
+
+            if (loading)
+                return;
+
+            if (term.Length < 3)
+            {
+                Toast.MakeText(this.Activity, "Search must have a minimum of three characters", ToastLength.Long);
+                return;
+            }
+
+            int count = adapter.Players.Count;
+            adapter.Players.Clear();
+            adapter.NotifyItemRangeRemoved(0, count);
+
+            currentPage = 0;
+            loading = true;
+
+            sortButton.Text = "---";
+            sortBy = "search";
+
+            client.SearchPlayerList(term, (response) =>
+            {
+                if (Activity == null)
+                    return;
+
+                this.Activity.RunOnUiThread(() =>
+                {
+                    switch (response.Status)
+                    {
+                        case ApiResponse.ResponseStatus.Ok:
+                            int start = adapter.Players.Count;
+                            adapter.Players.AddRange(response.Players);
+                            adapter.NotifyItemRangeInserted(start, response.Players.Count);
+                            break;
+
+                        case ApiResponse.ResponseStatus.Error:
+                            Toast.MakeText(this.Activity, Resource.String.api_err_player_list, ToastLength.Short);
+                            break;
+                    }
+
+                    loading = false;
+                });
+            });
         }
 
         private class OnScrollListener : RecyclerView.OnScrollListener

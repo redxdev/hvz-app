@@ -12,9 +12,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right">
         <Button
-            android:id="@+id/sort_button"
-            android:layout_width="match_parent"
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Search"
+            android:drawableLeft="@android:drawable/ic_menu_search" />
+        <Button
+            android:id="@+id/sort_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:text="Team" />
     </LinearLayout>
 </FrameLayout>
