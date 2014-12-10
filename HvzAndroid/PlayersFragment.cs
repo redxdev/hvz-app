@@ -30,6 +30,10 @@ namespace Hvz
 
         private PlayerAdapter adapter = null;
 
+        private Button sortButton = null;
+
+        private string sortBy = "team";
+
         private bool loading = false;
 
         private int currentPage = 0;
@@ -70,10 +74,46 @@ namespace Hvz
 
             recyclerView.SetOnScrollListener(new OnScrollListener(this));
 
+            sortButton = this.View.FindViewById<Button>(Resource.Id.sort_button);
+            sortButton.Click += (sender, args) => new AlertDialog.Builder(this.Activity)
+                .SetTitle("Sort Method")
+                .SetItems(new string[] {"Team", "Clan", "Mods"}, (o, eventArgs) =>
+                {
+                    switch (eventArgs.Which)
+                    {
+                        case 0:
+                            sortButton.Text = "Team";
+                            ChangeSortMethod(GameUtils.SortByTeam);
+                            break;
+
+                        case 1:
+                            sortButton.Text = "Clan";
+                            ChangeSortMethod(GameUtils.SortByClan);
+                            break;
+
+                        case 2:
+                            sortButton.Text = "Mods";
+                            ChangeSortMethod(GameUtils.SortByMods);
+                            break;
+                    }
+                })
+                .Show();
+
             LoadPage(0);
         }
 
-        private void LoadPage(int page, string sort = GameUtils.SortByTeam)
+        private void ChangeSortMethod(string newMethod)
+        {
+            string method = newMethod.ToLower();
+            if (method == sortBy)
+                return;
+
+            sortBy = method;
+
+            RefreshList();
+        }
+
+        private void LoadPage(int page)
         {
             if (loading)
                 return;
@@ -105,7 +145,17 @@ namespace Hvz
 
                         loading = false;
                     });
-                });
+                }, 10, sortBy);
+        }
+
+        private void RefreshList()
+        {
+            int count = adapter.Players.Count;
+            adapter.Players.Clear();
+            adapter.NotifyItemRangeRemoved(0, count);
+
+            currentPage = 0;
+            LoadPage(0);
         }
 
         private class OnScrollListener : RecyclerView.OnScrollListener
