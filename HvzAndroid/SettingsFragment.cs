@@ -73,8 +73,30 @@ namespace Hvz
                 client.ApiKey = apiKeyInput.Text;
                 Log.Debug("HvzAndroid", "Changed api key to \"" + client.ApiKey + "\"");
 
-                Toast.MakeText(this.Activity, "Saved api key", ToastLength.Short)
+                Toast.MakeText(this.Activity, Resource.String.settings_api_change, ToastLength.Short)
                     .Show();
+
+                client.TestApiKey(response =>
+                {
+                    if (this.Activity == null)
+                        return;
+
+                    this.Activity.RunOnUiThread(() =>
+                    {
+                        switch (response.Status)
+                        {
+                            case ApiResponse.ResponseStatus.Ok:
+                                Toast.MakeText(this.Activity, Resource.String.settings_api_test_ok, ToastLength.Long)
+                                    .Show();
+                                break;
+
+                            case ApiResponse.ResponseStatus.Error:
+                                Toast.MakeText(this.Activity, Resource.String.settings_api_test_error, ToastLength.Long)
+                                    .Show();
+                                break;
+                        }
+                    });
+                });
             };
         }
     }

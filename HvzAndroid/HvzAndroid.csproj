@@ -105,6 +105,7 @@
     <Compile Include="Api\Response\TeamStatusResponse.cs" />
     <Compile Include="Api\TimeUtils.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MissionsFragment.cs" />
     <Compile Include="PlayersFragment.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="StatusFragment.cs" />
     <Compile Include="Ui\AbstractNavDrawerActivity.cs" />
     <Compile Include="Ui\INavDrawerItem.cs" />
+    <Compile Include="Ui\MissionAdapter.cs" />
     <Compile Include="Ui\NavDrawerAdaptor.cs" />
     <Compile Include="Ui\NavMenuItem.cs" />
     <Compile Include="Ui\NavMenuSection.cs" />
@@ -130,6 +132,10 @@
     <AndroidResource Include="Resources\layout\settings_fragment.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\missions_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\mission_card.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />

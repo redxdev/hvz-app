@@ -161,6 +161,18 @@ namespace Hvz.Api
                     callback(result);
                 });
         }
+
+        public void TestApiKey(Action<ApiResponse> callback)
+        {
+            var request = new RestRequest(ApiConfiguration.TestApiKeyEndpoint, Method.GET);
+            request.AddUrlSegment("apikey", ApiKey);
+
+            client.ExecuteAsync(request, response =>
+            {
+                var result = ApiResponse.BuildResponse<ApiResponse>(response);
+                callback(result);
+            });
+        }
     }
 }
 

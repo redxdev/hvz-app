@@ -23,5 +23,7 @@ namespace Hvz.Api
 
         public const string RegisterInfectionEndpoint = "/register_infection?apikey={apikey}";
         public const string AntivirusEndpoint = "/antivirus?apikey={apikey}";
+
+	    public const string TestApiKeyEndpoint = "/test/key?apikey={apikey}";
 	}
 }
