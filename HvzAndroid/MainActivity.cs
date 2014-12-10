@@ -1,7 +1,9 @@
 ﻿using System;
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.Runtime;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
@@ -15,6 +17,8 @@ namespace Hvz
     [Activity(Label = "HvZ @ RIT", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : AbstractNavDrawerActivity
     {
+        public const string PrefsName = "HvzAndroidPrefs";
+
         private HvzClient client = null;
 
         private DrawerLayout drawerLayout = null;
@@ -42,14 +46,22 @@ namespace Hvz
             {
                     NavMenuSection.Create(0, "Humans vs Zombies"),
                     NavMenuItem.Create(1, "Status", this),
-                    NavMenuItem.Create(2, "Players", this)
+                    NavMenuItem.Create(2, "Players", this),
+                    NavMenuItem.Create(3, "Settings", this)
             };
 
-            client = new HvzClient() { ApiKey = ApiConfiguration.DevApiKey };
+            var settings = GetSharedPreferences(PrefsName, 0);
+            var apiKey = settings.GetString("apikey", string.Empty);
+
+            Log.Debug("HvzAndroid", "Using api key \"" + apiKey + "\"");
+
+            client = new HvzClient() { ApiKey = apiKey };
 
             this.OnSetupNavDrawer();
 
-            replaceFragment(new StatusFragment(client));
+            ReplaceFragment(new StatusFragment(client));
+
+            this.ActionBar.Title = "Status";
         }
 
         protected override void OnNavItemSelected(INavDrawerItem item)
@@ -57,16 +69,20 @@ namespace Hvz
             switch (item.Id)
             {
                 case 1:
-                    replaceFragment(new StatusFragment(client));
+                    ReplaceFragment(new StatusFragment(client));
                     break;
 
                 case 2:
-                    replaceFragment(new PlayersFragment(client));
+                    ReplaceFragment(new PlayersFragment(client));
+                    break;
+
+                case 3:
+                    ReplaceFragment(new SettingsFragment(client));
                     break;
             }
         }
 
-        protected void replaceFragment(Fragment fragment)
+        private void ReplaceFragment(Fragment fragment)
         {
             var transaction = FragmentManager.BeginTransaction();
             transaction.Replace(Resource.Id.content_frame, fragment);

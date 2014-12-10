@@ -3,6 +3,6 @@
 	<uses-sdk />
 	<application android:label="Humans vs Zombeis @ RIT"
                android:icon="@drawable/Icon"
-               android:theme="@android:style/Theme.Material.Light">
+               android:theme="@style/HumanTheme">
   </application>
 </manifest>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <style name="HumanTheme" parent="@android:style/Theme.Material.Light">
+        <item name="android:colorPrimaryDark" type="color">@color/human_dark</item>
+        <item name="android:colorPrimary" type="color">@color/human</item>
+    </style>
+</resources>

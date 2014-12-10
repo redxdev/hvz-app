@@ -23,8 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:text="PLAYER"
-            android:textColor="@color/card_text" />
+            android:text="PLAYER" />
         <TextView
             android:id="@+id/human_tags"
             android:layout_toRightOf="@id/avatar_image"
@@ -32,8 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="Tags: -"
-            android:textColor="@color/card_text" />
+            android:text="Tags: -" />
         <TextView
             android:id="@+id/clan"
             android:layout_toRightOf="@id/avatar_image"
@@ -41,7 +39,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="Clan: -"
-            android:textColor="@color/card_text" />
+            android:text="Clan: -" />
     </RelativeLayout>
 </android.support.v7.widget.CardView>

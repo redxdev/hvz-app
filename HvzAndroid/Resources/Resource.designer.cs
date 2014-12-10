@@ -727,9 +727,6 @@ namespace Hvz
 			// aapt resource value: 0x7f050015
 			public const int button_material_light = 2131034133;
 			
-			// aapt resource value: 0x7f050037
-			public const int card_text = 2131034167;
-			
 			// aapt resource value: 0x7f050000
 			public const int cardview_dark_background = 2131034112;
 			
@@ -768,6 +765,9 @@ namespace Hvz
 			
 			// aapt resource value: 0x7f050035
 			public const int human = 2131034165;
+			
+			// aapt resource value: 0x7f050036
+			public const int human_dark = 2131034166;
 			
 			// aapt resource value: 0x7f05001e
 			public const int link_text_material_dark = 2131034142;
@@ -838,8 +838,8 @@ namespace Hvz
 			// aapt resource value: 0x7f050034
 			public const int switch_thumb_normal_material_light = 2131034164;
 			
-			// aapt resource value: 0x7f050036
-			public const int zombie = 2131034166;
+			// aapt resource value: 0x7f050037
+			public const int zombie = 2131034167;
 			
 			static Color()
 			{
@@ -1222,6 +1222,9 @@ namespace Hvz
 			// aapt resource value: 0x7f090016
 			public const int always = 2131296278;
 			
+			// aapt resource value: 0x7f09004b
+			public const int api_key_input = 2131296331;
+			
 			// aapt resource value: 0x7f090045
 			public const int avatar_image = 2131296325;
 			
@@ -1240,8 +1243,8 @@ namespace Hvz
 			// aapt resource value: 0x7f090040
 			public const int content_frame = 2131296320;
 			
-			// aapt resource value: 0x7f09004c
-			public const int day_count = 2131296332;
+			// aapt resource value: 0x7f09004d
+			public const int day_count = 2131296333;
 			
 			// aapt resource value: 0x7f09002f
 			public const int decor_content_parent = 2131296303;
@@ -1279,14 +1282,14 @@ namespace Hvz
 			// aapt resource value: 0x7f09000d
 			public const int homeAsUp = 2131296269;
 			
-			// aapt resource value: 0x7f09004d
-			public const int hour_count = 2131296333;
+			// aapt resource value: 0x7f09004e
+			public const int hour_count = 2131296334;
 			
-			// aapt resource value: 0x7f09004b
-			public const int human_card = 2131296331;
+			// aapt resource value: 0x7f09004c
+			public const int human_card = 2131296332;
 			
-			// aapt resource value: 0x7f090050
-			public const int human_count = 2131296336;
+			// aapt resource value: 0x7f090051
+			public const int human_count = 2131296337;
 			
 			// aapt resource value: 0x7f090047
 			public const int human_tags = 2131296327;
@@ -1312,8 +1315,8 @@ namespace Hvz
 			// aapt resource value: 0x7f090015
 			public const int middle = 2131296277;
 			
-			// aapt resource value: 0x7f09004e
-			public const int minute_count = 2131296334;
+			// aapt resource value: 0x7f09004f
+			public const int minute_count = 2131296335;
 			
 			// aapt resource value: 0x7f090042
 			public const int nav_menu_item_label = 2131296322;
@@ -1378,8 +1381,8 @@ namespace Hvz
 			// aapt resource value: 0x7f09003e
 			public const int search_voice_btn = 2131296318;
 			
-			// aapt resource value: 0x7f09004f
-			public const int second_count = 2131296335;
+			// aapt resource value: 0x7f090050
+			public const int second_count = 2131296336;
 			
 			// aapt resource value: 0x7f09002a
 			public const int shortcut = 2131296298;
@@ -1420,11 +1423,11 @@ namespace Hvz
 			// aapt resource value: 0x7f09001d
 			public const int wrap_content = 2131296285;
 			
-			// aapt resource value: 0x7f090051
-			public const int zombie_card = 2131296337;
-			
 			// aapt resource value: 0x7f090052
-			public const int zombie_count = 2131296338;
+			public const int zombie_card = 2131296338;
+			
+			// aapt resource value: 0x7f090053
+			public const int zombie_count = 2131296339;
 			
 			static Id()
 			{
@@ -1540,10 +1543,13 @@ namespace Hvz
 			public const int players_fragment = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int status_fragment = 2130903068;
+			public const int settings_fragment = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int support_simple_spinner_dropdown_item = 2130903069;
+			public const int status_fragment = 2130903069;
+			
+			// aapt resource value: 0x7f03001e
+			public const int support_simple_spinner_dropdown_item = 2130903070;
 			
 			static Layout()
 			{
@@ -1623,6 +1629,9 @@ namespace Hvz
 			
 			// aapt resource value: 0x7f0b0011
 			public const int nav_drawer_open = 2131427345;
+			
+			// aapt resource value: 0x7f0b0016
+			public const int settings_api_key_help = 2131427350;
 			
 			static String()
 			{
@@ -1972,6 +1981,9 @@ namespace Hvz
 			
 			// aapt resource value: 0x7f070002
 			public const int CardView_Light = 2131165186;
+			
+			// aapt resource value: 0x7f0700ee
+			public const int HumanTheme = 2131165422;
 			
 			// aapt resource value: 0x7f070064
 			public const int Platform_AppCompat = 2131165284;

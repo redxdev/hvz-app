@@ -108,6 +108,7 @@
     <Compile Include="PlayersFragment.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsFragment.cs" />
     <Compile Include="StatusFragment.cs" />
     <Compile Include="Ui\AbstractNavDrawerActivity.cs" />
     <Compile Include="Ui\INavDrawerItem.cs" />
@@ -126,6 +127,9 @@
     <AndroidResource Include="Resources\layout\status_fragment.axml" />
     <AndroidResource Include="Resources\layout\main.axml" />
     <AndroidResource Include="Resources\layout\nav_menu_item.axml" />
+    <AndroidResource Include="Resources\layout\settings_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />
@@ -133,8 +137,11 @@
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
-    <AndroidResource Include="Resources\values\Colors.xml" />
+    <AndroidResource Include="Resources\values\Colors.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\drawable\placeholder.png" />
+    <AndroidResource Include="Resources\values\Styles.xml" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="json.net">
