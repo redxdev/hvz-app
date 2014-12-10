@@ -90,7 +90,8 @@ namespace Hvz
                             case ApiResponse.ResponseStatus.Error:
                                 humanCount.Text = "Err";
                                 zombieCount.Text = "Err";
-                                Toast.MakeText(this.Activity, Resource.String.api_err_team_status, ToastLength.Short);
+                                Toast.MakeText(this.Activity, Resource.String.api_err_team_status, ToastLength.Short)
+                                    .Show();
                                 break;
                         }
                     });
@@ -128,7 +129,8 @@ namespace Hvz
                                 hourCount.Text = "? HOURS";
                                 minuteCount.Text = "? MINUTES";
                                 secondCount.Text = "? SECONDS";
-                                Toast.MakeText(this.Activity, Resource.String.api_err_game_status, ToastLength.Short);
+                                Toast.MakeText(this.Activity, Resource.String.api_err_game_status, ToastLength.Short)
+                                    .Show();
                                 break;
                         }
                     });

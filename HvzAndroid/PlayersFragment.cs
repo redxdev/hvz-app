@@ -155,7 +155,8 @@ namespace Hvz
                                 break;
 
                             case ApiResponse.ResponseStatus.Error:
-                                Toast.MakeText(this.Activity, Resource.String.api_err_player_list, ToastLength.Short);
+                                Toast.MakeText(this.Activity, Resource.String.api_err_player_list, ToastLength.Short)
+                                    .Show();
                                 break;
                         }
 
@@ -186,7 +187,8 @@ namespace Hvz
 
             if (term.Length < 3)
             {
-                Toast.MakeText(this.Activity, "Search must have a minimum of three characters", ToastLength.Long);
+                Toast.MakeText(this.Activity, "Search must have a minimum of three characters", ToastLength.Long)
+                    .Show();
                 return;
             }
 
@@ -216,7 +218,8 @@ namespace Hvz
                             break;
 
                         case ApiResponse.ResponseStatus.Error:
-                            Toast.MakeText(this.Activity, Resource.String.api_err_player_list, ToastLength.Short);
+                            Toast.MakeText(this.Activity, Resource.String.api_err_player_list, ToastLength.Short)
+                                .Show();
                             break;
                     }
 
