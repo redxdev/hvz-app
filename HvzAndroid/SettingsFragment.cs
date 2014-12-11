@@ -13,7 +13,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V4.Widget;
 using Android.Support.V7.Widget;
-
+using Android.Views.InputMethods;
 using Hvz.Api;
 using Hvz.Api.Game;
 using Hvz.Api.Response;
@@ -64,6 +64,9 @@ namespace Hvz
             var saveButton = this.View.FindViewById<Button>(Resource.Id.save_button);
             saveButton.Click += (sender, args) =>
             {
+                var imm = (InputMethodManager) this.Activity.GetSystemService(Context.InputMethodService);
+                imm.HideSoftInputFromWindow(apiKeyInput.ApplicationWindowToken, 0);
+
                 string apikey = apiKeyInput.Text.Trim();
                 if (apikey.Length != 32)
                 {

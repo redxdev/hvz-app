@@ -13,7 +13,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V4.Widget;
 using Android.Support.V7.Widget;
-
+using Android.Views.InputMethods;
 using Hvz.Api;
 using Hvz.Api.Game;
 using Hvz.Api.Response;
@@ -65,6 +65,10 @@ namespace Hvz
             var submitButton = this.View.FindViewById<Button>(Resource.Id.submit_button);
             submitButton.Click += (sender, args) =>
             {
+                var imm = (InputMethodManager) this.Activity.GetSystemService(Context.InputMethodService);
+                imm.HideSoftInputFromWindow(antivirusIdInput.ApplicationWindowToken, 0);
+                imm.HideSoftInputFromWindow(zombieIdInput.ApplicationWindowToken, 0);
+
                 if (client.ApiKey.Length != 32)
                 {
                     Toast.MakeText(this.Activity, Resource.String.api_err_bad_key, ToastLength.Long)
