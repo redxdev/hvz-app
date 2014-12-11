@@ -1222,8 +1222,8 @@ namespace Hvz
 			// aapt resource value: 0x7f090016
 			public const int always = 2131296278;
 			
-			// aapt resource value: 0x7f090051
-			public const int api_key_input = 2131296337;
+			// aapt resource value: 0x7f090056
+			public const int api_key_input = 2131296342;
 			
 			// aapt resource value: 0x7f09004a
 			public const int avatar_image = 2131296330;
@@ -1243,8 +1243,8 @@ namespace Hvz
 			// aapt resource value: 0x7f090043
 			public const int content_frame = 2131296323;
 			
-			// aapt resource value: 0x7f090054
-			public const int day_count = 2131296340;
+			// aapt resource value: 0x7f090059
+			public const int day_count = 2131296345;
 			
 			// aapt resource value: 0x7f09002f
 			public const int decor_content_parent = 2131296303;
@@ -1282,14 +1282,20 @@ namespace Hvz
 			// aapt resource value: 0x7f09000d
 			public const int homeAsUp = 2131296269;
 			
-			// aapt resource value: 0x7f090055
-			public const int hour_count = 2131296341;
-			
-			// aapt resource value: 0x7f090053
-			public const int human_card = 2131296339;
+			// aapt resource value: 0x7f09005a
+			public const int hour_count = 2131296346;
 			
 			// aapt resource value: 0x7f090058
-			public const int human_count = 2131296344;
+			public const int human_card = 2131296344;
+			
+			// aapt resource value: 0x7f09005d
+			public const int human_count = 2131296349;
+			
+			// aapt resource value: 0x7f09004f
+			public const int human_id_input = 2131296335;
+			
+			// aapt resource value: 0x7f090050
+			public const int human_scan_button = 2131296336;
 			
 			// aapt resource value: 0x7f09004c
 			public const int human_tags = 2131296332;
@@ -1321,8 +1327,8 @@ namespace Hvz
 			// aapt resource value: 0x7f090015
 			public const int middle = 2131296277;
 			
-			// aapt resource value: 0x7f090056
-			public const int minute_count = 2131296342;
+			// aapt resource value: 0x7f09005b
+			public const int minute_count = 2131296347;
 			
 			// aapt resource value: 0x7f090047
 			public const int mission_body = 2131296327;
@@ -1363,14 +1369,14 @@ namespace Hvz
 			// aapt resource value: 0x7f090041
 			public const int recycler_view = 2131296321;
 			
-			// aapt resource value: 0x7f090050
-			public const int ruleset_body = 2131296336;
+			// aapt resource value: 0x7f090055
+			public const int ruleset_body = 2131296341;
 			
-			// aapt resource value: 0x7f09004f
-			public const int ruleset_title = 2131296335;
+			// aapt resource value: 0x7f090054
+			public const int ruleset_title = 2131296340;
 			
-			// aapt resource value: 0x7f090052
-			public const int save_button = 2131296338;
+			// aapt resource value: 0x7f090057
+			public const int save_button = 2131296343;
 			
 			// aapt resource value: 0x7f090035
 			public const int search_badge = 2131296309;
@@ -1402,8 +1408,8 @@ namespace Hvz
 			// aapt resource value: 0x7f09003e
 			public const int search_voice_btn = 2131296318;
 			
-			// aapt resource value: 0x7f090057
-			public const int second_count = 2131296343;
+			// aapt resource value: 0x7f09005c
+			public const int second_count = 2131296348;
 			
 			// aapt resource value: 0x7f09002a
 			public const int shortcut = 2131296298;
@@ -1426,6 +1432,9 @@ namespace Hvz
 			// aapt resource value: 0x7f09003c
 			public const int submit_area = 2131296316;
 			
+			// aapt resource value: 0x7f090053
+			public const int submit_button = 2131296339;
+			
 			// aapt resource value: 0x7f09000b
 			public const int tabMode = 2131296267;
 			
@@ -1444,11 +1453,17 @@ namespace Hvz
 			// aapt resource value: 0x7f09001d
 			public const int wrap_content = 2131296285;
 			
-			// aapt resource value: 0x7f090059
-			public const int zombie_card = 2131296345;
+			// aapt resource value: 0x7f09005e
+			public const int zombie_card = 2131296350;
 			
-			// aapt resource value: 0x7f09005a
-			public const int zombie_count = 2131296346;
+			// aapt resource value: 0x7f09005f
+			public const int zombie_count = 2131296351;
+			
+			// aapt resource value: 0x7f090051
+			public const int zombie_id_input = 2131296337;
+			
+			// aapt resource value: 0x7f090052
+			public const int zombie_scan_button = 2131296338;
 			
 			static Id()
 			{
@@ -1576,19 +1591,22 @@ namespace Hvz
 			public const int players_fragment = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int ruleset_card = 2130903072;
+			public const int register_infection_fragment = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int rulesets_fragment = 2130903073;
+			public const int ruleset_card = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int settings_fragment = 2130903074;
+			public const int rulesets_fragment = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int status_fragment = 2130903075;
+			public const int settings_fragment = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int support_simple_spinner_dropdown_item = 2130903076;
+			public const int status_fragment = 2130903076;
+			
+			// aapt resource value: 0x7f030025
+			public const int support_simple_spinner_dropdown_item = 2130903077;
 			
 			static Layout()
 			{
@@ -1675,23 +1693,32 @@ namespace Hvz
 			// aapt resource value: 0x7f0b0010
 			public const int app_name = 2131427344;
 			
+			// aapt resource value: 0x7f0b001c
+			public const int infect_err_generic = 2131427356;
+			
+			// aapt resource value: 0x7f0b001a
+			public const int infect_err_human_id_length = 2131427354;
+			
+			// aapt resource value: 0x7f0b001b
+			public const int infect_err_zombie_id_length = 2131427355;
+			
 			// aapt resource value: 0x7f0b0012
 			public const int nav_drawer_close = 2131427346;
 			
 			// aapt resource value: 0x7f0b0011
 			public const int nav_drawer_open = 2131427345;
 			
-			// aapt resource value: 0x7f0b001b
-			public const int settings_api_change = 2131427355;
-			
-			// aapt resource value: 0x7f0b001a
-			public const int settings_api_key_help = 2131427354;
+			// aapt resource value: 0x7f0b001e
+			public const int settings_api_change = 2131427358;
 			
 			// aapt resource value: 0x7f0b001d
-			public const int settings_api_test_error = 2131427357;
+			public const int settings_api_key_help = 2131427357;
 			
-			// aapt resource value: 0x7f0b001c
-			public const int settings_api_test_ok = 2131427356;
+			// aapt resource value: 0x7f0b0020
+			public const int settings_api_test_error = 2131427360;
+			
+			// aapt resource value: 0x7f0b001f
+			public const int settings_api_test_ok = 2131427359;
 			
 			static String()
 			{

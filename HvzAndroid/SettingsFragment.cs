@@ -59,7 +59,8 @@ namespace Hvz
             var saveButton = this.View.FindViewById<Button>(Resource.Id.save_button);
             saveButton.Click += (sender, args) =>
             {
-                if (apiKeyInput.Text.Length != 32)
+                string apikey = apiKeyInput.Text.Trim();
+                if (apikey.Length != 32)
                 {
                     Toast.MakeText(this.Activity, "Api key must be 32 characters long", ToastLength.Long)
                         .Show();
@@ -67,10 +68,10 @@ namespace Hvz
                 }
 
                 var editor = settings.Edit();
-                editor.PutString("apikey", apiKeyInput.Text);
+                editor.PutString("apikey", apikey);
                 editor.Commit();
 
-                client.ApiKey = apiKeyInput.Text;
+                client.ApiKey = apikey;
                 Log.Debug("HvzAndroid", "Changed api key to \"" + client.ApiKey + "\"");
 
                 Toast.MakeText(this.Activity, Resource.String.settings_api_change, ToastLength.Short)

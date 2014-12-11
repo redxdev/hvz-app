@@ -18,7 +18,9 @@ namespace Hvz.Api.Response
             else
             {
                 apiResponse.Status = ResponseStatus.Error;
-                apiResponse.Errors.Add(restResponse.StatusDescription);
+
+                if(apiResponse.StatusCode != HttpStatusCode.BadRequest)
+                    apiResponse.Errors.Add(restResponse.StatusDescription);
             }
 
             return apiResponse;

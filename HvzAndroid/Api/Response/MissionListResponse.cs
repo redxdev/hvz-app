@@ -27,7 +27,7 @@ namespace Hvz.Api.Response
                 var json = JObject.Parse(response.Content);
 
                 JArray errors = (JArray)json["errors"];
-                foreach (JObject obj in errors)
+                foreach (JValue obj in errors)
                 {
                     result.Errors.Add((string)obj);
                 }
