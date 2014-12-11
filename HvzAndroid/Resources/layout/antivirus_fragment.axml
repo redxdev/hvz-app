@@ -16,17 +16,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
-                android:id="@+id/human_id_input"
+                android:id="@+id/antivirus_id_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:singleLine="true"
-                android:hint="human id" />
-            <Button
-                android:id="@+id/human_scan_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Scan" />
+                android:hint="antivirus" />
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -51,10 +46,5 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Submit" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Note: QR code scanning will not work if an id has already been used by the human." />
     </LinearLayout>
 </android.support.v7.widget.CardView>

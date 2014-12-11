@@ -111,6 +111,7 @@
     <Compile Include="Api\Response\TeamStatusResponse.cs" />
     <Compile Include="Api\TimeUtils.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="AntivirusFragment.cs" />
     <Compile Include="RulesetsFragment.cs" />
     <Compile Include="MissionsFragment.cs" />
     <Compile Include="InfectionsFragment.cs" />
@@ -156,6 +157,7 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ruleset_card.axml" />
     <AndroidResource Include="Resources\layout\register_infection_fragment.axml" />
+    <AndroidResource Include="Resources\layout\antivirus_fragment.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />
