@@ -103,6 +103,7 @@ namespace Hvz
                             {
                                 case ApiResponse.ResponseStatus.Ok:
                                     antivirusIdInput.Text = string.Empty;
+                                    zombieIdInput.Text = string.Empty;
                                     Toast.MakeText(this.Activity, string.Format("{0} has taken an antivirus and become human once more!", response.ZombieName), ToastLength.Long)
                                         .Show();
                                     break;
