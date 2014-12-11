@@ -1723,20 +1723,26 @@ namespace Hvz
 			// aapt resource value: 0x7f0b0010
 			public const int app_name = 2131427344;
 			
-			// aapt resource value: 0x7f0b001e
-			public const int infect_err_antivirus_generic = 2131427358;
+			// aapt resource value: 0x7f0b001c
+			public const int infect_antivirus_submit = 2131427356;
 			
-			// aapt resource value: 0x7f0b001d
-			public const int infect_err_antivirus_id_length = 2131427357;
+			// aapt resource value: 0x7f0b0020
+			public const int infect_err_antivirus_generic = 2131427360;
 			
 			// aapt resource value: 0x7f0b001f
-			public const int infect_err_generic = 2131427359;
+			public const int infect_err_antivirus_id_length = 2131427359;
+			
+			// aapt resource value: 0x7f0b0021
+			public const int infect_err_generic = 2131427361;
+			
+			// aapt resource value: 0x7f0b001d
+			public const int infect_err_human_id_length = 2131427357;
+			
+			// aapt resource value: 0x7f0b001e
+			public const int infect_err_zombie_id_length = 2131427358;
 			
 			// aapt resource value: 0x7f0b001b
-			public const int infect_err_human_id_length = 2131427355;
-			
-			// aapt resource value: 0x7f0b001c
-			public const int infect_err_zombie_id_length = 2131427356;
+			public const int infect_submit = 2131427355;
 			
 			// aapt resource value: 0x7f0b0012
 			public const int nav_drawer_close = 2131427346;
@@ -1744,17 +1750,17 @@ namespace Hvz
 			// aapt resource value: 0x7f0b0011
 			public const int nav_drawer_open = 2131427345;
 			
-			// aapt resource value: 0x7f0b0021
-			public const int settings_api_change = 2131427361;
-			
-			// aapt resource value: 0x7f0b0020
-			public const int settings_api_key_help = 2131427360;
-			
 			// aapt resource value: 0x7f0b0023
-			public const int settings_api_test_error = 2131427363;
+			public const int settings_api_change = 2131427363;
 			
 			// aapt resource value: 0x7f0b0022
-			public const int settings_api_test_ok = 2131427362;
+			public const int settings_api_key_help = 2131427362;
+			
+			// aapt resource value: 0x7f0b0025
+			public const int settings_api_test_error = 2131427365;
+			
+			// aapt resource value: 0x7f0b0024
+			public const int settings_api_test_ok = 2131427364;
 			
 			static String()
 			{

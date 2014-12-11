@@ -16,6 +16,8 @@
     <string name="api_err_mission_list">Unable to retrieve mission list. Is your api key correct?</string>
     <string name="api_err_profile">Unable to retrieve profile. Is your api key correct?</string>
 
+    <string name="infect_submit">Please wait, infecting player...</string>
+    <string name="infect_antivirus_submit">Please wait, using antivirus...</string>
     <string name="infect_err_human_id_length">Invalid human id (must be 8 characters long)</string>
     <string name="infect_err_zombie_id_length">Invalid zombie id (must be 8 characters long)</string>
     <string name="infect_err_antivirus_id_length">Invalid antivirus (must be 8 characters long)</string>

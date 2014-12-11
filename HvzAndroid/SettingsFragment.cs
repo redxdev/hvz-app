@@ -62,54 +62,58 @@ namespace Hvz
             apiKeyInput.Text = settings.GetString("apikey", apiKeyInput.Text);
 
             var saveButton = this.View.FindViewById<Button>(Resource.Id.save_button);
-            saveButton.Click += (sender, args) =>
+            saveButton.Click -= Submit;
+            saveButton.Click += Submit;
+        }
+
+        public void Submit(object sender, EventArgs args)
+        {
+            var imm = (InputMethodManager)this.Activity.GetSystemService(Context.InputMethodService);
+            imm.HideSoftInputFromWindow(apiKeyInput.ApplicationWindowToken, 0);
+
+            string apikey = apiKeyInput.Text.Trim();
+            if (apikey.Length != 32)
             {
-                var imm = (InputMethodManager) this.Activity.GetSystemService(Context.InputMethodService);
-                imm.HideSoftInputFromWindow(apiKeyInput.ApplicationWindowToken, 0);
-
-                string apikey = apiKeyInput.Text.Trim();
-                if (apikey.Length != 32)
-                {
-                    Toast.MakeText(this.Activity, "Api key must be 32 characters long", ToastLength.Long)
-                        .Show();
-                    return;
-                }
-
-                var editor = settings.Edit();
-                editor.PutString("apikey", apikey);
-                editor.Commit();
-
-                client.ApiKey = apikey;
-                Log.Debug("HvzAndroid", "Changed api key to \"" + client.ApiKey + "\"");
-
-                Toast.MakeText(this.Activity, Resource.String.settings_api_change, ToastLength.Short)
+                Toast.MakeText(this.Activity, "Api key must be 32 characters long", ToastLength.Long)
                     .Show();
+                return;
+            }
 
-                client.TestApiKey(response =>
+            var settings = this.Activity.GetSharedPreferences(MainActivity.PrefsName, 0);
+            var editor = settings.Edit();
+            editor.PutString("apikey", apikey);
+            editor.Commit();
+
+            client.ApiKey = apikey;
+            Log.Debug("HvzAndroid", "Changed api key to \"" + client.ApiKey + "\"");
+
+            Toast.MakeText(this.Activity, Resource.String.settings_api_change, ToastLength.Short)
+                .Show();
+
+            client.TestApiKey(response =>
+            {
+                if (this.Activity == null)
+                    return;
+
+                this.Activity.RunOnUiThread(() =>
                 {
                     if (this.Activity == null)
                         return;
 
-                    this.Activity.RunOnUiThread(() =>
+                    switch (response.Status)
                     {
-                        if (this.Activity == null)
-                            return;
+                        case ApiResponse.ResponseStatus.Ok:
+                            Toast.MakeText(this.Activity, Resource.String.settings_api_test_ok, ToastLength.Long)
+                                .Show();
+                            break;
 
-                        switch (response.Status)
-                        {
-                            case ApiResponse.ResponseStatus.Ok:
-                                Toast.MakeText(this.Activity, Resource.String.settings_api_test_ok, ToastLength.Long)
-                                    .Show();
-                                break;
-
-                            case ApiResponse.ResponseStatus.Error:
-                                Toast.MakeText(this.Activity, Resource.String.settings_api_test_error, ToastLength.Long)
-                                    .Show();
-                                break;
-                        }
-                    });
+                        case ApiResponse.ResponseStatus.Error:
+                            Toast.MakeText(this.Activity, Resource.String.settings_api_test_error, ToastLength.Long)
+                                .Show();
+                            break;
+                    }
                 });
-            };
+            });
         }
     }
 }

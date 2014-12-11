@@ -63,68 +63,8 @@ namespace Hvz
             zombieIdInput = this.View.FindViewById<EditText>(Resource.Id.zombie_id_input);
 
             var submitButton = this.View.FindViewById<Button>(Resource.Id.submit_button);
-            submitButton.Click += (sender, args) =>
-            {
-                var imm = (InputMethodManager)this.Activity.GetSystemService(Context.InputMethodService);
-                imm.HideSoftInputFromWindow(humanIdInput.ApplicationWindowToken, 0);
-                imm.HideSoftInputFromWindow(zombieIdInput.ApplicationWindowToken, 0);
-
-                if (client.ApiKey.Length != 32)
-                {
-                    Toast.MakeText(this.Activity, Resource.String.api_err_bad_key, ToastLength.Long)
-                        .Show();
-                }
-                else
-                {
-                    string humanId = humanIdInput.Text.Trim();
-                    string zombieId = zombieIdInput.Text.Trim();
-
-                    if (humanId.Length != 8)
-                    {
-                        Toast.MakeText(this.Activity, Resource.String.infect_err_human_id_length, ToastLength.Long)
-                            .Show();
-                        return;
-                    }
-
-                    if (zombieId.Length != 8)
-                    {
-                        Toast.MakeText(this.Activity, Resource.String.infect_err_zombie_id_length, ToastLength.Long)
-                            .Show();
-                        return;
-                    }
-
-                    client.RegisterInfection(humanId, zombieId, response =>
-                    {
-                        if (this.Activity == null)
-                            return;
-
-                        this.Activity.RunOnUiThread(() =>
-                        {
-                            if (this.Activity == null)
-                                return;
-
-                            switch (response.Status)
-                            {
-                                case ApiResponse.ResponseStatus.Ok:
-                                    humanIdInput.Text = string.Empty;
-                                    Toast.MakeText(this.Activity, string.Format("{0} has joined the horde, courtesy of {1}", response.HumanName, response.ZombieName), ToastLength.Long)
-                                        .Show();
-                                    break;
-
-                                case ApiResponse.ResponseStatus.Error:
-                                    Toast.MakeText(this.Activity, Resource.String.infect_err_generic, ToastLength.Short)
-                                        .Show();
-                                    foreach (string error in response.Errors)
-                                    {
-                                        Toast.MakeText(this.Activity, error, ToastLength.Short)
-                                            .Show();
-                                    }
-                                    break;
-                            }
-                        });
-                    }); // TODO: location support
-                }
-            };
+            submitButton.Click -= Submit;
+            submitButton.Click += Submit;
 
             var humanScanButton = this.View.FindViewById<Button>(Resource.Id.human_scan_button);
             humanScanButton.Click += async (sender, args) =>
@@ -146,6 +86,72 @@ namespace Hvz
             {
                 Toast.MakeText(this.Activity, Resource.String.api_err_bad_key, ToastLength.Long)
                     .Show();
+            }
+        }
+
+        public void Submit(object sender, EventArgs args)
+        {
+            var imm = (InputMethodManager)this.Activity.GetSystemService(Context.InputMethodService);
+            imm.HideSoftInputFromWindow(humanIdInput.ApplicationWindowToken, 0);
+            imm.HideSoftInputFromWindow(zombieIdInput.ApplicationWindowToken, 0);
+
+            if (client.ApiKey.Length != 32)
+            {
+                Toast.MakeText(this.Activity, Resource.String.api_err_bad_key, ToastLength.Long)
+                    .Show();
+            }
+            else
+            {
+                string humanId = humanIdInput.Text.Trim();
+                string zombieId = zombieIdInput.Text.Trim();
+
+                if (humanId.Length != 8)
+                {
+                    Toast.MakeText(this.Activity, Resource.String.infect_err_human_id_length, ToastLength.Long)
+                        .Show();
+                    return;
+                }
+
+                if (zombieId.Length != 8)
+                {
+                    Toast.MakeText(this.Activity, Resource.String.infect_err_zombie_id_length, ToastLength.Long)
+                        .Show();
+                    return;
+                }
+
+                Toast.MakeText(this.Activity, Resource.String.infect_submit, ToastLength.Short)
+                    .Show();
+
+                client.RegisterInfection(humanId, zombieId, response =>
+                {
+                    if (this.Activity == null)
+                        return;
+
+                    this.Activity.RunOnUiThread(() =>
+                    {
+                        if (this.Activity == null)
+                            return;
+
+                        switch (response.Status)
+                        {
+                            case ApiResponse.ResponseStatus.Ok:
+                                humanIdInput.Text = string.Empty;
+                                Toast.MakeText(this.Activity, string.Format("{0} has joined the horde, courtesy of {1}", response.HumanName, response.ZombieName), ToastLength.Long)
+                                    .Show();
+                                break;
+
+                            case ApiResponse.ResponseStatus.Error:
+                                Toast.MakeText(this.Activity, Resource.String.infect_err_generic, ToastLength.Short)
+                                    .Show();
+                                foreach (string error in response.Errors)
+                                {
+                                    Toast.MakeText(this.Activity, error, ToastLength.Short)
+                                        .Show();
+                                }
+                                break;
+                        }
+                    });
+                }); // TODO: location support
             }
         }
     }
