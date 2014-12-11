@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="Hvz.Android" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" android:installLocation="auto" package="edu.rit.hvz.android">
 	<uses-sdk />
-	<application android:label="Humans vs Zombeis @ RIT" android:icon="@drawable/Icon" android:theme="@style/HumanTheme"></application>
+	<application android:label="HvZ @ RIT" android:icon="@drawable/Icon" android:theme="@style/HumanTheme"></application>
 	<uses-permission android:name="android.permission.CAMERA" />
 </manifest>

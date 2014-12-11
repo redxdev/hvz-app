@@ -62,7 +62,7 @@ namespace Hvz
             antivirusIdInput = this.View.FindViewById<EditText>(Resource.Id.antivirus_id_input);
             zombieIdInput = this.View.FindViewById<EditText>(Resource.Id.zombie_id_input);
 
-            /*var submitButton = this.View.FindViewById<Button>(Resource.Id.submit_button);
+            var submitButton = this.View.FindViewById<Button>(Resource.Id.submit_button);
             submitButton.Click += (sender, args) =>
             {
                 if (client.ApiKey.Length != 32)
@@ -72,12 +72,12 @@ namespace Hvz
                 }
                 else
                 {
-                    string humanId = humanIdInput.Text.Trim();
+                    string antivirusId = antivirusIdInput.Text.Trim();
                     string zombieId = zombieIdInput.Text.Trim();
 
-                    if (humanId.Length != 8)
+                    if (antivirusId.Length != 8)
                     {
-                        Toast.MakeText(this.Activity, Resource.String.infect_err_human_id_length, ToastLength.Long)
+                        Toast.MakeText(this.Activity, Resource.String.infect_err_antivirus_id_length, ToastLength.Long)
                             .Show();
                         return;
                     }
@@ -89,7 +89,7 @@ namespace Hvz
                         return;
                     }
 
-                    client.RegisterInfection(humanId, zombieId, response =>
+                    client.RegisterAntivirus(antivirusId, zombieId, response =>
                     {
                         if (this.Activity == null)
                             return;
@@ -102,13 +102,13 @@ namespace Hvz
                             switch (response.Status)
                             {
                                 case ApiResponse.ResponseStatus.Ok:
-                                    humanIdInput.Text = string.Empty;
-                                    Toast.MakeText(this.Activity, string.Format("{0} has joined the horde, courtesy of {1}", response.HumanName, response.ZombieName), ToastLength.Long)
+                                    antivirusIdInput.Text = string.Empty;
+                                    Toast.MakeText(this.Activity, string.Format("{0} has taken an antivirus and become human once more!", response.ZombieName), ToastLength.Long)
                                         .Show();
                                     break;
 
                                 case ApiResponse.ResponseStatus.Error:
-                                    Toast.MakeText(this.Activity, Resource.String.infect_err_generic, ToastLength.Short)
+                                    Toast.MakeText(this.Activity, Resource.String.infect_err_antivirus_generic, ToastLength.Short)
                                         .Show();
                                     foreach (string error in response.Errors)
                                     {
@@ -118,9 +118,9 @@ namespace Hvz
                                     break;
                             }
                         });
-                    }); // TODO: location support
+                    });
                 }
-            };*/
+            };
 
             var zombieScanButton = this.View.FindViewById<Button>(Resource.Id.zombie_scan_button);
             zombieScanButton.Click += async (sender, args) =>

@@ -61,7 +61,14 @@ namespace Hvz
 
             Log.Debug("HvzAndroid", "Using api key \"" + apiKey + "\"");
 
-            client = new HvzClient() { ApiKey = apiKey };
+            if (HvzClient.Instance == null)
+            {
+                client = new HvzClient() {ApiKey = apiKey};
+            }
+            else
+            {
+                client = HvzClient.Instance;
+            }
 
             this.OnSetupNavDrawer();
 

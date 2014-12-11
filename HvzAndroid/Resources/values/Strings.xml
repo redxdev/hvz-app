@@ -17,6 +17,10 @@
 
     <string name="infect_err_human_id_length">Invalid human id (must be 8 characters long)</string>
     <string name="infect_err_zombie_id_length">Invalid zombie id (must be 8 characters long)</string>
+    <string name="infect_err_antivirus_id_length">Invalid antivirus (must be 8 characters long)</string>
+    <string name="infect_err_antivirus_generic">
+        Unable to register the antivirus. Make sure both ids are correct.
+    </string>
     <string name="infect_err_generic">
         Unable to register the infection. Make sure both ids are correct.
     </string>
