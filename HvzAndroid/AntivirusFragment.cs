@@ -47,7 +47,7 @@ namespace Hvz
             antivirusIdInput = view.FindViewById<EditText>(Resource.Id.antivirus_id_input);
             zombieIdInput = view.FindViewById<EditText>(Resource.Id.zombie_id_input);
 
-            var submitButton = this.View.FindViewById<Button>(Resource.Id.submit_button);
+            var submitButton = view.FindViewById<Button>(Resource.Id.submit_button);
             submitButton.Click += Submit;
 
             var zombieScanButton = this.View.FindViewById<Button>(Resource.Id.zombie_scan_button);
