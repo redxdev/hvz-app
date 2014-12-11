@@ -1646,7 +1646,10 @@ namespace Hvz
 			public const int api_err_game_status = 2131427349;
 			
 			// aapt resource value: 0x7f0b0017
-			public const int api_err_mission_list = 2131427351;
+			public const int api_err_infection_list = 2131427351;
+			
+			// aapt resource value: 0x7f0b0018
+			public const int api_err_mission_list = 2131427352;
 			
 			// aapt resource value: 0x7f0b0016
 			public const int api_err_player_list = 2131427350;
@@ -1663,17 +1666,17 @@ namespace Hvz
 			// aapt resource value: 0x7f0b0011
 			public const int nav_drawer_open = 2131427345;
 			
-			// aapt resource value: 0x7f0b0019
-			public const int settings_api_change = 2131427353;
+			// aapt resource value: 0x7f0b001a
+			public const int settings_api_change = 2131427354;
 			
-			// aapt resource value: 0x7f0b0018
-			public const int settings_api_key_help = 2131427352;
+			// aapt resource value: 0x7f0b0019
+			public const int settings_api_key_help = 2131427353;
+			
+			// aapt resource value: 0x7f0b001c
+			public const int settings_api_test_error = 2131427356;
 			
 			// aapt resource value: 0x7f0b001b
-			public const int settings_api_test_error = 2131427355;
-			
-			// aapt resource value: 0x7f0b001a
-			public const int settings_api_test_ok = 2131427354;
+			public const int settings_api_test_ok = 2131427355;
 			
 			static String()
 			{

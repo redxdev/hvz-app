@@ -15,8 +15,11 @@ namespace Hvz.Api.Game
             i.ZombieName = (string)json["zombie"];
             i.ZombieId = (int)json["zombie_id"];
             i.Time = TimeUtils.UnixTimeStampToDateTime((int)json["time"]);
-            i.Latitude = (double?)json["latitude"];
-            i.Longitude = (double?)json["longitude"];
+            if (json["latitude"].Type != JTokenType.Null && json["longitude"].Type != JTokenType.Null)
+            {
+                i.Latitude = (double)json["latitude"];
+                i.Longitude = (double)json["longitude"];
+            }
 
             return i;
         }

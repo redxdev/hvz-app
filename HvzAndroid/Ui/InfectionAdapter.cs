@@ -47,31 +47,15 @@ namespace Hvz.Ui
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            Player player = Players[position];
+            var infection = Infections[position];
             ViewHolder vh = holder as ViewHolder;
-            if (player.Team == GameUtils.Team.Human)
-            {
-                // vh.PlayerCard.SetCardBackgroundColor(Resource.Color.human); // doesn't work for some reason
-                vh.PlayerCard.SetBackgroundResource(Resource.Color.human);
-            }
-            else
-            {
-                // vh.PlayerCard.SetCardBackgroundColor(Resource.Color.zombie); // doesn't work for some reason
-                vh.PlayerCard.SetBackgroundResource(Resource.Color.zombie);
-            }
 
-            vh.PlayerName.Text = player.FullName;
-            vh.HumanTags.Text = "Tags: " + player.HumansTagged.ToString();
-            vh.Clan.Text = "Clan: " + (string.IsNullOrWhiteSpace(player.Clan) ? "none" : player.Clan);
-
-            if (string.IsNullOrWhiteSpace(player.Avatar))
-            {
-                vh.AvatarImage.SetImageResource(Resource.Drawable.placeholder);
-            }
-            else
-            {
-                Koush.UrlImageViewHelper.SetUrlDrawable(vh.AvatarImage, ApiConfiguration.BaseUrl + "/" + player.Avatar, Resource.Drawable.placeholder);
-            }
+            vh.InfectionText.Text = string.Format(
+                "{0} was infected by {1} {2}",
+                infection.HumanName,
+                infection.ZombieName,
+                TimeUtils.PrettyDate(infection.Time)
+                );
         }
 
         private class ViewHolder : RecyclerView.ViewHolder

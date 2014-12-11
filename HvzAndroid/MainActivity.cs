@@ -80,6 +80,7 @@ namespace Hvz
                     break;
 
                 case 3:
+                    ReplaceFragment(new InfectionsFragment(client));
                     break;
 
                 case 4:
