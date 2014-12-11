@@ -52,8 +52,9 @@ namespace Hvz
                     NavMenuItem.Create(4, "Missions", this),
                     NavMenuItem.Create(5, "Register Infection", this),
                     NavMenuItem.Create(6, "Antivirus", this),
-                    NavMenuItem.Create(7, "Rules", this),
-                    NavMenuItem.Create(8, "Settings", this)
+                    NavMenuItem.Create(7, "Profile", this),
+                    NavMenuItem.Create(8, "Rules", this),
+                    NavMenuItem.Create(9, "Settings", this)
             };
 
             var settings = GetSharedPreferences(PrefsName, 0);
@@ -106,10 +107,14 @@ namespace Hvz
                     break;
 
                 case 7:
-                    ReplaceFragment(new RulesetsFragment(client));
+                    ReplaceFragment(new ProfileFragment(client));
                     break;
 
                 case 8:
+                    ReplaceFragment(new RulesetsFragment(client));
+                    break;
+
+                case 9:
                     ReplaceFragment(new SettingsFragment(client));
                     break;
             }

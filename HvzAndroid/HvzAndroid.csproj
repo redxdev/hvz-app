@@ -119,6 +119,7 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterInfectionFragment.cs" />
+    <Compile Include="ProfileFragment.cs" />
     <Compile Include="SettingsFragment.cs" />
     <Compile Include="StatusFragment.cs" />
     <Compile Include="Ui\AbstractNavDrawerActivity.cs" />
@@ -158,6 +159,9 @@
     <AndroidResource Include="Resources\layout\ruleset_card.axml" />
     <AndroidResource Include="Resources\layout\register_infection_fragment.axml" />
     <AndroidResource Include="Resources\layout\antivirus_fragment.axml" />
+    <AndroidResource Include="Resources\layout\profile_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />
