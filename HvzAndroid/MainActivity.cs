@@ -47,8 +47,10 @@ namespace Hvz
                     NavMenuSection.Create(0, "Humans vs Zombies"),
                     NavMenuItem.Create(1, "Status", this),
                     NavMenuItem.Create(2, "Players", this),
-                    NavMenuItem.Create(3, "Missions", this),
-                    NavMenuItem.Create(4, "Settings", this)
+                    NavMenuItem.Create(3, "Infections", this),
+                    NavMenuItem.Create(4, "Missions", this),
+                    NavMenuItem.Create(5, "Rules", this),
+                    NavMenuItem.Create(6, "Settings", this)
             };
 
             var settings = GetSharedPreferences(PrefsName, 0);
@@ -78,10 +80,16 @@ namespace Hvz
                     break;
 
                 case 3:
-                    ReplaceFragment(new MissionsFragment(client));
                     break;
 
                 case 4:
+                    ReplaceFragment(new MissionsFragment(client));
+                    break;
+
+                case 5:
+                    break;
+
+                case 6:
                     ReplaceFragment(new SettingsFragment(client));
                     break;
             }

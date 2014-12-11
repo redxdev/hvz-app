@@ -117,6 +117,7 @@
     <Compile Include="Ui\NavDrawerAdaptor.cs" />
     <Compile Include="Ui\NavMenuItem.cs" />
     <Compile Include="Ui\NavMenuSection.cs" />
+    <Compile Include="Ui\InfectionAdapter.cs" />
     <Compile Include="Ui\PlayerAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +137,10 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\mission_card.axml" />
+    <AndroidResource Include="Resources\layout\infections_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\infection_card.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />
