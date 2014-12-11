@@ -40,30 +40,14 @@ namespace Hvz
             this.client = client;
         }
 
-        public override void OnCreate(Bundle savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
-        }
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            return inflater.Inflate(Resource.Layout.antivirus_fragment, container, false);
-        }
+            var view = inflater.Inflate(Resource.Layout.antivirus_fragment, container, false);
 
-        public override void OnAttach(Activity activity)
-        {
-            base.OnAttach(activity);
-        }
-
-        public override void OnStart()
-        {
-            base.OnStart();
-
-            antivirusIdInput = this.View.FindViewById<EditText>(Resource.Id.antivirus_id_input);
-            zombieIdInput = this.View.FindViewById<EditText>(Resource.Id.zombie_id_input);
+            antivirusIdInput = view.FindViewById<EditText>(Resource.Id.antivirus_id_input);
+            zombieIdInput = view.FindViewById<EditText>(Resource.Id.zombie_id_input);
 
             var submitButton = this.View.FindViewById<Button>(Resource.Id.submit_button);
-            submitButton.Click -= Submit;
             submitButton.Click += Submit;
 
             var zombieScanButton = this.View.FindViewById<Button>(Resource.Id.zombie_scan_button);
@@ -73,6 +57,13 @@ namespace Hvz
                 if (result != null)
                     zombieIdInput.Text = result;
             };
+
+            return view;
+        }
+
+        public override void OnStart()
+        {
+            base.OnStart();
 
             if (client.ApiKey.Length != 32)
             {

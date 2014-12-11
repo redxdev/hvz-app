@@ -58,19 +58,9 @@ namespace Hvz
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            return inflater.Inflate(Resource.Layout.players_fragment, container, false);
-        }
+            var view = inflater.Inflate(Resource.Layout.players_fragment, container, false);
 
-        public override void OnAttach(Activity activity)
-        {
-            base.OnAttach(activity);
-        }
-
-        public override void OnStart()
-        {
-            base.OnStart();
-
-            recyclerView = this.View.FindViewById<RecyclerView>(Resource.Id.recycler_view);
+            recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recycler_view);
 
             layoutManager = new LinearLayoutManager(this.Activity);
             recyclerView.SetLayoutManager(layoutManager);
@@ -82,10 +72,10 @@ namespace Hvz
 
             recyclerView.SetOnScrollListener(new OnScrollListener(this));
 
-            sortButton = this.View.FindViewById<Button>(Resource.Id.sort_button);
+            sortButton = view.FindViewById<Button>(Resource.Id.sort_button);
             sortButton.Click += (sender, args) => new AlertDialog.Builder(this.Activity)
                 .SetTitle("Sort Method")
-                .SetItems(new string[] {"Team", "Clan", "Mods"}, (o, eventArgs) =>
+                .SetItems(new string[] { "Team", "Clan", "Mods" }, (o, eventArgs) =>
                 {
                     switch (eventArgs.Which)
                     {
@@ -107,7 +97,7 @@ namespace Hvz
                 })
                 .Show();
 
-            var searchButton = this.View.FindViewById<Button>(Resource.Id.search_button);
+            var searchButton = view.FindViewById<Button>(Resource.Id.search_button);
             searchButton.Click += (sender, args) =>
             {
                 EditText input = new EditText(this.Activity);
@@ -119,6 +109,13 @@ namespace Hvz
                     .SetPositiveButton("Search", (o, eventArgs) => SearchList(input.Text))
                     .Show();
             };
+
+            return view;
+        }
+
+        public override void OnStart()
+        {
+            base.OnStart();
 
             LoadPage(0);
         }

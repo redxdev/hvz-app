@@ -45,30 +45,22 @@ namespace Hvz
             this.client = client;
         }
 
-        public override void OnCreate(Bundle savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
-        }
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            return inflater.Inflate(Resource.Layout.profile_fragment, container, false);
-        }
+            var view = inflater.Inflate(Resource.Layout.profile_fragment, container, false);
 
-        public override void OnAttach(Activity activity)
-        {
-            base.OnAttach(activity);
+            playerCard = view.FindViewById<CardView>(Resource.Id.player_card);
+            nameText = view.FindViewById<TextView>(Resource.Id.player_name);
+            emailText = view.FindViewById<TextView>(Resource.Id.player_email);
+            teamText = view.FindViewById<TextView>(Resource.Id.player_team);
+            clanText = view.FindViewById<TextView>(Resource.Id.player_clan);
+
+            return view;
         }
 
         public override void OnStart()
         {
             base.OnStart();
-
-            playerCard = this.View.FindViewById<CardView>(Resource.Id.player_card);
-            nameText = this.View.FindViewById<TextView>(Resource.Id.player_name);
-            emailText = this.View.FindViewById<TextView>(Resource.Id.player_email);
-            teamText = this.View.FindViewById<TextView>(Resource.Id.player_team);
-            clanText = this.View.FindViewById<TextView>(Resource.Id.player_clan);
 
             if (client.ApiKey.Length != 32)
             {

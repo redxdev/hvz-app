@@ -44,26 +44,17 @@ namespace Hvz
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            return inflater.Inflate(Resource.Layout.settings_fragment, container, false);
-        }
+            var view = inflater.Inflate(Resource.Layout.settings_fragment, container, false);
 
-        public override void OnAttach(Activity activity)
-        {
-            base.OnAttach(activity);
-        }
-
-        public override void OnStart()
-        {
-            base.OnStart();
-
-            apiKeyInput = this.View.FindViewById<EditText>(Resource.Id.api_key_input);
+            apiKeyInput = view.FindViewById<EditText>(Resource.Id.api_key_input);
 
             var settings = this.Activity.GetSharedPreferences(MainActivity.PrefsName, 0);
-            apiKeyInput.Text = settings.GetString("apikey", apiKeyInput.Text);
+            apiKeyInput.Text = settings.GetString("apikey", string.Empty);
 
-            var saveButton = this.View.FindViewById<Button>(Resource.Id.save_button);
-            saveButton.Click -= Submit;
+            var saveButton = view.FindViewById<Button>(Resource.Id.save_button);
             saveButton.Click += Submit;
+
+            return view;
         }
 
         public void Submit(object sender, EventArgs args)

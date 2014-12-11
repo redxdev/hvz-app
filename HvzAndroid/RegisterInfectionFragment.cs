@@ -40,33 +40,17 @@ namespace Hvz
             this.client = client;
         }
 
-        public override void OnCreate(Bundle savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
-        }
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            return inflater.Inflate(Resource.Layout.register_infection_fragment, container, false);
-        }
+            var view = inflater.Inflate(Resource.Layout.register_infection_fragment, container, false);
 
-        public override void OnAttach(Activity activity)
-        {
-            base.OnAttach(activity);
-        }
+            humanIdInput = view.FindViewById<EditText>(Resource.Id.human_id_input);
+            zombieIdInput = view.FindViewById<EditText>(Resource.Id.zombie_id_input);
 
-        public override void OnStart()
-        {
-            base.OnStart();
-
-            humanIdInput = this.View.FindViewById<EditText>(Resource.Id.human_id_input);
-            zombieIdInput = this.View.FindViewById<EditText>(Resource.Id.zombie_id_input);
-
-            var submitButton = this.View.FindViewById<Button>(Resource.Id.submit_button);
-            submitButton.Click -= Submit;
+            var submitButton = view.FindViewById<Button>(Resource.Id.submit_button);
             submitButton.Click += Submit;
 
-            var humanScanButton = this.View.FindViewById<Button>(Resource.Id.human_scan_button);
+            var humanScanButton = view.FindViewById<Button>(Resource.Id.human_scan_button);
             humanScanButton.Click += async (sender, args) =>
             {
                 string result = await client.ScanQRId(this.Activity, GameUtils.Team.Human);
@@ -74,13 +58,20 @@ namespace Hvz
                     humanIdInput.Text = result;
             };
 
-            var zombieScanButton = this.View.FindViewById<Button>(Resource.Id.zombie_scan_button);
+            var zombieScanButton = view.FindViewById<Button>(Resource.Id.zombie_scan_button);
             zombieScanButton.Click += async (sender, args) =>
             {
                 string result = await client.ScanQRId(this.Activity, GameUtils.Team.Zombie);
                 if (result != null)
                     zombieIdInput.Text = result;
             };
+
+            return view;
+        }
+
+        public override void OnStart()
+        {
+            base.OnStart();
 
             if (client.ApiKey.Length != 32)
             {

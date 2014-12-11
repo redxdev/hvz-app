@@ -41,26 +41,11 @@ namespace Hvz
             this.client = client;
         }
 
-        public override void OnCreate(Bundle savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
-        }
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            return inflater.Inflate(Resource.Layout.missions_fragment, container, false);
-        }
-
-        public override void OnAttach(Activity activity)
-        {
-            base.OnAttach(activity);
-        }
-
-        public override void OnStart()
-        {
-            base.OnStart();
-
-            recyclerView = this.View.FindViewById<RecyclerView>(Resource.Id.recycler_view);
+            var view = inflater.Inflate(Resource.Layout.missions_fragment, container, false);
+            
+            recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recycler_view);
 
             layoutManager = new LinearLayoutManager(this.Activity);
             recyclerView.SetLayoutManager(layoutManager);
@@ -69,6 +54,13 @@ namespace Hvz
 
             adapter = new MissionAdapter(this.Activity);
             recyclerView.SetAdapter(adapter);
+
+            return view;
+        }
+
+        public override void OnStart()
+        {
+            base.OnStart();
 
             if (client.ApiKey.Length != 32)
             {

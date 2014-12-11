@@ -48,19 +48,9 @@ namespace Hvz
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            return inflater.Inflate(Resource.Layout.rulesets_fragment, container, false);
-        }
+            var view = inflater.Inflate(Resource.Layout.rulesets_fragment, container, false);
 
-        public override void OnAttach(Activity activity)
-        {
-            base.OnAttach(activity);
-        }
-
-        public override void OnStart()
-        {
-            base.OnStart();
-
-            recyclerView = this.View.FindViewById<RecyclerView>(Resource.Id.recycler_view);
+            recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recycler_view);
 
             layoutManager = new LinearLayoutManager(this.Activity);
             recyclerView.SetLayoutManager(layoutManager);
@@ -69,6 +59,13 @@ namespace Hvz
 
             adapter = new RulesetAdapter(this.Activity);
             recyclerView.SetAdapter(adapter);
+
+            return view;
+        }
+
+        public override void OnStart()
+        {
+            base.OnStart();
 
             client.GetRulesets(response =>
             {

@@ -28,6 +28,8 @@ namespace Hvz
 
         private INavDrawerItem[] navDrawerItems = null;
 
+        private int currentNavId = 1;
+
         public override DrawerLayout DrawerLayout { get { return drawerLayout; } }
 
         public override ListView DrawerListView { get { return drawerListView; } }
@@ -73,13 +75,39 @@ namespace Hvz
 
             this.OnSetupNavDrawer();
 
-            ReplaceFragment(new StatusFragment(client));
+            if (bundle == null)
+            {
+                ReplaceFragment(new StatusFragment(client));
 
-            this.ActionBar.Title = "Status";
+                this.ActionBar.Title = "Status";
+            }
+            else
+            {
+                INavDrawerItem item = this.navDrawerItems[bundle.GetInt("current_nav_id", 1)];
+                if (item.Type == NavDrawerItemType.Item)
+                {
+                    currentNavId = item.Id;
+                    this.ActionBar.Title = item.Label;
+                }
+                else
+                {
+                    ReplaceFragment(new StatusFragment(client));
+
+                    this.ActionBar.Title = "Status";
+                }
+            }
+        }
+
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            base.OnSaveInstanceState(outState);
+
+            outState.PutInt("current_nav_id", currentNavId);
         }
 
         protected override void OnNavItemSelected(INavDrawerItem item)
         {
+            currentNavId = item.Id;
             switch (item.Id)
             {
                 case 1:

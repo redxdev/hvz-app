@@ -42,14 +42,19 @@ namespace Hvz
             this.client = client;
         }
 
-        public override void OnCreate(Bundle savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
-        }
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            return inflater.Inflate(Resource.Layout.status_fragment, container, false);
+            var view = inflater.Inflate(Resource.Layout.status_fragment, container, false);
+
+            humanCount = view.FindViewById<TextView>(Resource.Id.human_count);
+            zombieCount = view.FindViewById<TextView>(Resource.Id.zombie_count);
+
+            dayCount = view.FindViewById<TextView>(Resource.Id.day_count);
+            hourCount = view.FindViewById<TextView>(Resource.Id.hour_count);
+            minuteCount = view.FindViewById<TextView>(Resource.Id.minute_count);
+            secondCount = view.FindViewById<TextView>(Resource.Id.second_count);
+
+            return view;
         }
 
         public override void OnAttach(Activity activity)
@@ -57,19 +62,6 @@ namespace Hvz
             base.OnAttach(activity);
 
             RefreshStatus();
-        }
-
-        public override void OnStart()
-        {
-            base.OnStart();
-
-            humanCount = this.View.FindViewById<TextView>(Resource.Id.human_count);
-            zombieCount = this.View.FindViewById<TextView>(Resource.Id.zombie_count);
-
-            dayCount = this.View.FindViewById<TextView>(Resource.Id.day_count);
-            hourCount = this.View.FindViewById<TextView>(Resource.Id.hour_count);
-            minuteCount = this.View.FindViewById<TextView>(Resource.Id.minute_count);
-            secondCount = this.View.FindViewById<TextView>(Resource.Id.second_count);
         }
 
         public void RefreshStatus()
