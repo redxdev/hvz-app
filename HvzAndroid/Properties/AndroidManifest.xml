@@ -3,4 +3,5 @@
 	<uses-sdk android:minSdkVersion="15" />
 	<application android:label="HvZ @ RIT" android:icon="@drawable/Icon" android:theme="@style/HumanTheme"></application>
 	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.INTERNET" />
 </manifest>
