@@ -1228,8 +1228,8 @@ namespace Hvz
 			// aapt resource value: 0x7f09003f
 			public const int antivirus_id_input = 2131296319;
 			
-			// aapt resource value: 0x7f090056
-			public const int api_key_input = 2131296342;
+			// aapt resource value: 0x7f090052
+			public const int api_key_input = 2131296338;
 			
 			// aapt resource value: 0x7f09004d
 			public const int avatar_image = 2131296333;
@@ -1300,11 +1300,11 @@ namespace Hvz
 			// aapt resource value: 0x7f09005d
 			public const int human_count = 2131296349;
 			
-			// aapt resource value: 0x7f090052
-			public const int human_id_input = 2131296338;
+			// aapt resource value: 0x7f090054
+			public const int human_id_input = 2131296340;
 			
-			// aapt resource value: 0x7f090053
-			public const int human_scan_button = 2131296339;
+			// aapt resource value: 0x7f090055
+			public const int human_scan_button = 2131296341;
 			
 			// aapt resource value: 0x7f09004f
 			public const int human_tags = 2131296335;
@@ -1375,14 +1375,14 @@ namespace Hvz
 			// aapt resource value: 0x7f090044
 			public const int recycler_view = 2131296324;
 			
-			// aapt resource value: 0x7f090055
-			public const int ruleset_body = 2131296341;
-			
-			// aapt resource value: 0x7f090054
-			public const int ruleset_title = 2131296340;
-			
 			// aapt resource value: 0x7f090057
-			public const int save_button = 2131296343;
+			public const int ruleset_body = 2131296343;
+			
+			// aapt resource value: 0x7f090056
+			public const int ruleset_title = 2131296342;
+			
+			// aapt resource value: 0x7f090053
+			public const int save_button = 2131296339;
 			
 			// aapt resource value: 0x7f090035
 			public const int search_badge = 2131296309;
@@ -1600,28 +1600,31 @@ namespace Hvz
 			public const int players_fragment = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int register_infection_fragment = 2130903073;
+			public const int profile_fragment = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int ruleset_card = 2130903074;
+			public const int register_infection_fragment = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int rulesets_fragment = 2130903075;
+			public const int ruleset_card = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int settings_fragment = 2130903076;
+			public const int rulesets_fragment = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int status_fragment = 2130903077;
+			public const int settings_fragment = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int support_simple_spinner_dropdown_item = 2130903078;
+			public const int status_fragment = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int zxingscanneractivitylayout = 2130903079;
+			public const int support_simple_spinner_dropdown_item = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int zxingscannerfragmentlayout = 2130903080;
+			public const int zxingscanneractivitylayout = 2130903080;
+			
+			// aapt resource value: 0x7f030029
+			public const int zxingscannerfragmentlayout = 2130903081;
 			
 			static Layout()
 			{
