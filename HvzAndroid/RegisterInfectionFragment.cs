@@ -18,6 +18,7 @@ using Hvz.Api;
 using Hvz.Api.Game;
 using Hvz.Api.Response;
 using Hvz.Ui;
+using Java.IO;
 
 namespace Hvz
 {
@@ -114,7 +115,20 @@ namespace Hvz
             };
 
             var humanScanButton = this.View.FindViewById<Button>(Resource.Id.human_scan_button);
+            humanScanButton.Click += async (sender, args) =>
+            {
+                string result = await client.ScanQRId(this.Activity, GameUtils.Team.Human);
+                if (result != null)
+                    humanIdInput.Text = result;
+            };
 
+            var zombieScanButton = this.View.FindViewById<Button>(Resource.Id.zombie_scan_button);
+            zombieScanButton.Click += async (sender, args) =>
+            {
+                string result = await client.ScanQRId(this.Activity, GameUtils.Team.Zombie);
+                if (result != null)
+                    zombieIdInput.Text = result;
+            };
 
             if (client.ApiKey.Length != 32)
             {
