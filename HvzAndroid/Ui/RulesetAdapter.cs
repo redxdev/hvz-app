@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V7.Widget;
 using Android.Text;
+using Android.Webkit;
 using Hvz.Api;
 using Hvz.Api.Game;
 using Hvz.Api.Response;
@@ -47,20 +48,21 @@ namespace Hvz.Ui
             var ruleset = Rulesets[position];
             ViewHolder vh = holder as ViewHolder;
             vh.Title.Text = ruleset.Title;
-            vh.Body.TextFormatted = Html.FromHtml(ruleset.Body);
+            vh.Body.Settings.JavaScriptEnabled = false;
+            vh.Body.LoadData(ruleset.Body, "text/html", "utf-8");
         }
 
         private class ViewHolder : RecyclerView.ViewHolder
         {
             public TextView Title { get; set; }
 
-            public TextView Body { get; set; }
+            public WebView Body { get; set; }
 
             public ViewHolder(View view)
                 : base(view)
             {
                 this.Title = view.FindViewById<TextView>(Resource.Id.ruleset_title);
-                this.Body = view.FindViewById<TextView>(Resource.Id.ruleset_body);
+                this.Body = view.FindViewById<WebView>(Resource.Id.ruleset_webview);
             }
         }
     }

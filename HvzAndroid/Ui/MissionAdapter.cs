@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V7.Widget;
 using Android.Text;
+using Android.Webkit;
 using Hvz.Api;
 using Hvz.Api.Game;
 using Hvz.Api.Response;
@@ -47,20 +48,21 @@ namespace Hvz.Ui
             var mission = Missions[position];
             ViewHolder vh = holder as ViewHolder;
             vh.Title.Text = mission.Title;
-            vh.Body.TextFormatted = Html.FromHtml(mission.Body);
+            vh.Body.Settings.JavaScriptEnabled = false;
+            vh.Body.LoadData(mission.Body, "text/html", "utf-8");
         }
 
         private class ViewHolder : RecyclerView.ViewHolder
         {
             public TextView Title { get; set; }
 
-            public TextView Body { get; set; }
+            public WebView Body { get; set; }
 
             public ViewHolder(View view)
                 : base(view)
             {
                 this.Title = view.FindViewById<TextView>(Resource.Id.mission_title);
-                this.Body = view.FindViewById<TextView>(Resource.Id.mission_body);
+                this.Body = view.FindViewById<WebView>(Resource.Id.mission_webview);
             }
         }
     }

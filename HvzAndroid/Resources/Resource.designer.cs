@@ -1336,11 +1336,11 @@ namespace Hvz
 			// aapt resource value: 0x7f09005e
 			public const int minute_count = 2131296350;
 			
-			// aapt resource value: 0x7f090049
-			public const int mission_body = 2131296329;
-			
 			// aapt resource value: 0x7f090048
 			public const int mission_title = 2131296328;
+			
+			// aapt resource value: 0x7f090049
+			public const int mission_webview = 2131296329;
 			
 			// aapt resource value: 0x7f09004a
 			public const int nav_menu_item_label = 2131296330;
@@ -1384,11 +1384,11 @@ namespace Hvz
 			// aapt resource value: 0x7f090044
 			public const int recycler_view = 2131296324;
 			
-			// aapt resource value: 0x7f090058
-			public const int ruleset_body = 2131296344;
-			
 			// aapt resource value: 0x7f090057
 			public const int ruleset_title = 2131296343;
+			
+			// aapt resource value: 0x7f090058
+			public const int ruleset_webview = 2131296344;
 			
 			// aapt resource value: 0x7f09005a
 			public const int save_button = 2131296346;

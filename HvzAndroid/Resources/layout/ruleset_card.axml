@@ -16,11 +16,9 @@
             android:layout_height="wrap_content"
             android:textSize="40sp"
             android:text="TITLE" />
-        <TextView
-            android:id="@+id/ruleset_body"
+        <WebView
+            android:id="@+id/ruleset_webview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="BODY" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </android.support.v7.widget.CardView>
