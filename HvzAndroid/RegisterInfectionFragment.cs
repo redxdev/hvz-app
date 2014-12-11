@@ -194,7 +194,7 @@ namespace Hvz
         public void OnLocationChanged(Location location)
         {
             lastLocation = location;
-            locationStatus.Text = "Location: SENDING";
+            locationStatus.Text = string.Format("Location: SENDING (accuracy: {0})", location.Accuracy);
         }
 
         public void OnProviderDisabled(string provider)
