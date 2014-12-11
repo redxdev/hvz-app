@@ -6,6 +6,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Locations;
 using Android.OS;
 using Android.Runtime;
 using Android.Util;
@@ -22,13 +23,19 @@ using Java.IO;
 
 namespace Hvz
 {
-    public class RegisterInfectionFragment : Fragment
+    public class RegisterInfectionFragment : Fragment, ILocationListener
     {
         private HvzClient client = null;
 
         private EditText humanIdInput = null;
 
         private EditText zombieIdInput = null;
+
+        private TextView locationStatus = null;
+
+        private LocationManager locationManager = null;
+
+        private Location lastLocation = null;
 
         public RegisterInfectionFragment()
         {
@@ -40,12 +47,20 @@ namespace Hvz
             this.client = client;
         }
 
+        public override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+
+            locationManager = this.Activity.GetSystemService(Context.LocationService) as LocationManager;
+        }
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.register_infection_fragment, container, false);
 
             humanIdInput = view.FindViewById<EditText>(Resource.Id.human_id_input);
             zombieIdInput = view.FindViewById<EditText>(Resource.Id.zombie_id_input);
+            locationStatus = view.FindViewById<TextView>(Resource.Id.location_status);
 
             var submitButton = view.FindViewById<Button>(Resource.Id.submit_button);
             submitButton.Click += Submit;
@@ -78,6 +93,28 @@ namespace Hvz
                 Toast.MakeText(this.Activity, Resource.String.api_err_bad_key, ToastLength.Long)
                     .Show();
             }
+        }
+
+        public override void OnResume()
+        {
+            base.OnResume();
+
+            Criteria locationCriteria = new Criteria();
+            locationCriteria.Accuracy = Accuracy.Fine;
+            locationCriteria.PowerRequirement = Power.High;
+
+            string locationProvider = locationManager.GetBestProvider(locationCriteria, true);
+            if (locationProvider != null)
+            {
+                locationManager.RequestLocationUpdates(locationProvider, 2000, 1, this);
+            }
+        }
+
+        public override void OnPause()
+        {
+            base.OnPause();
+
+            locationManager.RemoveUpdates(this);
         }
 
         public void Submit(object sender, EventArgs args)
@@ -113,6 +150,14 @@ namespace Hvz
                 Toast.MakeText(this.Activity, Resource.String.infect_submit, ToastLength.Short)
                     .Show();
 
+                double? latitude = null;
+                double? longitude = null;
+                if (lastLocation != null)
+                {
+                    latitude = lastLocation.Latitude;
+                    longitude = lastLocation.Longitude;
+                }
+
                 client.RegisterInfection(humanId, zombieId, response =>
                 {
                     if (this.Activity == null)
@@ -142,8 +187,28 @@ namespace Hvz
                                 break;
                         }
                     });
-                }); // TODO: location support
+                }, latitude, longitude);
             }
+        }
+
+        public void OnLocationChanged(Location location)
+        {
+            lastLocation = location;
+            locationStatus.Text = "Location: SENDING";
+        }
+
+        public void OnProviderDisabled(string provider)
+        {
+            locationStatus.Text = "Location: NOT SENDING";
+            lastLocation = null;
+        }
+
+        public void OnProviderEnabled(string provider)
+        {
+        }
+
+        public void OnStatusChanged(string provider, Availability status, Bundle extras)
+        {
         }
     }
 }

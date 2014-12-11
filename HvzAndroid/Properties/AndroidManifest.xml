@@ -4,4 +4,5 @@
 	<application android:label="HvZ @ RIT" android:icon="@drawable/Icon" android:theme="@style/HumanTheme"></application>
 	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 </manifest>
