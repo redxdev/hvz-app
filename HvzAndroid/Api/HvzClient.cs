@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
+using Android.Content;
 using Hvz.Api.Response;
 using RestSharp;
 using Newtonsoft.Json.Linq;
+using ZXing;
 
 namespace Hvz.Api
 {
@@ -172,6 +175,32 @@ namespace Hvz.Api
                 var result = ApiResponse.BuildResponse<ApiResponse>(response);
                 callback(result);
             });
+        }
+
+        public async Task<string> ScanQRId(Context context, GameUtils.Team team)
+        {
+            var options = new ZXing.Mobile.MobileBarcodeScanningOptions();
+            options.AutoRotate = false;
+            options.PossibleFormats = new List<BarcodeFormat>()
+            {
+                ZXing.BarcodeFormat.QR_CODE
+            };
+
+            var scanner = new ZXing.Mobile.MobileBarcodeScanner(context);
+            var result = await scanner.Scan(options);
+
+            if (result == null)
+                return null;
+
+            var json = JObject.Parse(result.Text);
+            switch (team)
+            {
+                case GameUtils.Team.Human:
+                    return (string) json["human"];
+
+                case GameUtils.Team.Zombie:
+                    return (string) json["zombie"];
+            }
         }
     }
 }

@@ -113,6 +113,9 @@ namespace Hvz
                 }
             };
 
+            var humanScanButton = this.View.FindViewById<Button>(Resource.Id.human_scan_button);
+
+
             if (client.ApiKey.Length != 32)
             {
                 Toast.MakeText(this.Activity, Resource.String.api_err_bad_key, ToastLength.Long)
