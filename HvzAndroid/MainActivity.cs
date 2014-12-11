@@ -88,6 +88,7 @@ namespace Hvz
                     break;
 
                 case 5:
+                    ReplaceFragment(new RulesetsFragment(client));
                     break;
 
                 case 6:

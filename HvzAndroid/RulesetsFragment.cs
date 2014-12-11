@@ -1,0 +1,93 @@
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Util;
+using Android.Views;
+using Android.Widget;
+using Android.Support.V4.Widget;
+using Android.Support.V7.Widget;
+
+using Hvz.Api;
+using Hvz.Api.Game;
+using Hvz.Api.Response;
+using Hvz.Ui;
+
+namespace Hvz
+{
+    public class RulesetsFragment : Fragment
+    {
+        private HvzClient client = null;
+
+        private RecyclerView recyclerView = null;
+
+        private LinearLayoutManager layoutManager = null;
+
+        private RulesetAdapter adapter = null;
+
+        public RulesetsFragment(HvzClient client)
+        {
+            this.client = client;
+        }
+
+        public override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+        }
+
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        {
+            return inflater.Inflate(Resource.Layout.rulesets_fragment, container, false);
+        }
+
+        public override void OnAttach(Activity activity)
+        {
+            base.OnAttach(activity);
+        }
+
+        public override void OnStart()
+        {
+            base.OnStart();
+
+            recyclerView = this.View.FindViewById<RecyclerView>(Resource.Id.recycler_view);
+
+            layoutManager = new LinearLayoutManager(this.Activity);
+            recyclerView.SetLayoutManager(layoutManager);
+
+            recyclerView.SetItemAnimator(new DefaultItemAnimator());
+
+            adapter = new RulesetAdapter(this.Activity);
+            recyclerView.SetAdapter(adapter);
+
+            client.GetRulesets(response =>
+            {
+                if (this.Activity == null)
+                    return;
+
+                this.Activity.RunOnUiThread(() =>
+                {
+                    switch (response.Status)
+                    {
+                        case ApiResponse.ResponseStatus.Ok:
+                            int start = adapter.Rulesets.Count;
+                            adapter.Rulesets.AddRange(response.Rulesets);
+                            adapter.NotifyItemRangeInserted(start, response.Rulesets.Count);
+                            break;
+
+                        case ApiResponse.ResponseStatus.Error:
+                            Toast.MakeText(this.Activity, Resource.String.api_err_ruleset_list, ToastLength.Short)
+                                .Show();
+                            break;
+                    }
+                });
+            });
+        }
+    }
+}
+

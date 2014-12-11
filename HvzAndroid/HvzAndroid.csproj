@@ -105,6 +105,7 @@
     <Compile Include="Api\Response\TeamStatusResponse.cs" />
     <Compile Include="Api\TimeUtils.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="RulesetsFragment.cs" />
     <Compile Include="MissionsFragment.cs" />
     <Compile Include="InfectionsFragment.cs" />
     <Compile Include="PlayersFragment.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="StatusFragment.cs" />
     <Compile Include="Ui\AbstractNavDrawerActivity.cs" />
     <Compile Include="Ui\INavDrawerItem.cs" />
+    <Compile Include="Ui\RulesetAdapter.cs" />
     <Compile Include="Ui\MissionAdapter.cs" />
     <Compile Include="Ui\NavDrawerAdaptor.cs" />
     <Compile Include="Ui\NavMenuItem.cs" />
@@ -142,6 +144,10 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\infection_card.axml" />
+    <AndroidResource Include="Resources\layout\rulesets_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ruleset_card.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />
