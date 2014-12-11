@@ -52,12 +52,13 @@ namespace Hvz.Ui
                 this.NavDrawerItems
             );
 
-            this.DrawerListView.ItemClick += (sender, e) => {this.SelectItem(e.Position);};
+            this.DrawerListView.ItemClick += (sender, e) => { this.SelectItem(e.Position); };
 
             this.ActionBar.SetDisplayHomeAsUpEnabled(true);
             this.ActionBar.SetHomeButtonEnabled(true);
 
             this.DrawerToggle = new NavDrawerToggle(this);
+            this.DrawerLayout.SetDrawerListener(this.DrawerToggle);
         }
 
         protected override void OnPostCreate(Bundle savedInstanceState)
@@ -74,7 +75,10 @@ namespace Hvz.Ui
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            return this.DrawerToggle.OnOptionsItemSelected(item);
+            if (this.DrawerToggle.OnOptionsItemSelected(item))
+                return true;
+
+            return base.OnOptionsItemSelected(item);
         }
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
@@ -92,6 +96,16 @@ namespace Hvz.Ui
             }
 
             return base.OnKeyDown(keyCode, e);
+        }
+
+        public override void OnBackPressed()
+        {
+            if (DrawerLayout.IsDrawerOpen(this.DrawerListView))
+            {
+                DrawerLayout.CloseDrawer(this.DrawerListView);
+            }
+
+            base.OnBackPressed();
         }
 
         private class NavDrawerToggle : ActionBarDrawerToggle

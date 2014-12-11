@@ -41,6 +41,11 @@ namespace Hvz
 
         private int currentPage = 0;
 
+        public PlayersFragment()
+        {
+            this.client = HvzClient.Instance;
+        }
+
         public PlayersFragment(HvzClient client)
         {
             this.client = client;
@@ -143,6 +148,9 @@ namespace Hvz
 
                     this.Activity.RunOnUiThread(() =>
                     {
+                        if (this.Activity == null)
+                            return;
+
                         switch (response.Status)
                         {
                             case ApiResponse.ResponseStatus.Ok:
@@ -209,6 +217,10 @@ namespace Hvz
 
                 this.Activity.RunOnUiThread(() =>
                 {
+
+                    if (this.Activity == null)
+                        return;
+
                     switch (response.Status)
                     {
                         case ApiResponse.ResponseStatus.Ok:

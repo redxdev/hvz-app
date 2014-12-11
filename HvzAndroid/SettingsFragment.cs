@@ -27,6 +27,11 @@ namespace Hvz
 
         private EditText apiKeyInput = null;
 
+        public SettingsFragment()
+        {
+            this.client = HvzClient.Instance;
+        }
+
         public SettingsFragment(HvzClient client)
         {
             this.client = client;
@@ -84,6 +89,9 @@ namespace Hvz
 
                     this.Activity.RunOnUiThread(() =>
                     {
+                        if (this.Activity == null)
+                            return;
+
                         switch (response.Status)
                         {
                             case ApiResponse.ResponseStatus.Ok:

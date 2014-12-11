@@ -12,10 +12,13 @@ namespace Hvz.Api
 {
     public class HvzClient
     {
+        public static HvzClient Instance { get; private set; }
+
         private RestClient client = null;
 
         public HvzClient()
         {
+            Instance = this;
             this.client = new RestClient(ApiConfiguration.BaseUrl + ApiConfiguration.ApiUrl);
         }
 
@@ -201,6 +204,8 @@ namespace Hvz.Api
                 case GameUtils.Team.Zombie:
                     return (string) json["zombie"];
             }
+
+            return null;
         }
     }
 }

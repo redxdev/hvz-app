@@ -26,6 +26,9 @@ namespace Hvz
 		
 		public static void UpdateIdValues()
 		{
+			global::ZXing.Mobile.Resource.Id.contentFrame = global::Hvz.Resource.Id.contentFrame;
+			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::Hvz.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::Hvz.Resource.Layout.zxingscannerfragmentlayout;
 		}
 		
 		public partial class Animation
@@ -1240,6 +1243,9 @@ namespace Hvz
 			// aapt resource value: 0x7f090017
 			public const int collapseActionView = 2131296279;
 			
+			// aapt resource value: 0x7f090060
+			public const int contentFrame = 2131296352;
+			
 			// aapt resource value: 0x7f090043
 			public const int content_frame = 2131296323;
 			
@@ -1607,6 +1613,12 @@ namespace Hvz
 			
 			// aapt resource value: 0x7f030025
 			public const int support_simple_spinner_dropdown_item = 2130903077;
+			
+			// aapt resource value: 0x7f030026
+			public const int zxingscanneractivitylayout = 2130903078;
+			
+			// aapt resource value: 0x7f030027
+			public const int zxingscannerfragmentlayout = 2130903079;
 			
 			static Layout()
 			{

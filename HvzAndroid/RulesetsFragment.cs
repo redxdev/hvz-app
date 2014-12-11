@@ -31,6 +31,11 @@ namespace Hvz
 
         private RulesetAdapter adapter = null;
 
+        private RulesetsFragment()
+        {
+            this.client = HvzClient.Instance;
+        }
+
         public RulesetsFragment(HvzClient client)
         {
             this.client = client;
@@ -72,6 +77,9 @@ namespace Hvz
 
                 this.Activity.RunOnUiThread(() =>
                 {
+                    if (this.Activity == null)
+                        return;
+
                     switch (response.Status)
                     {
                         case ApiResponse.ResponseStatus.Ok:

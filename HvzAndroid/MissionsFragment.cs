@@ -31,6 +31,11 @@ namespace Hvz
 
         private MissionAdapter adapter = null;
 
+        public MissionsFragment()
+        {
+            this.client = HvzClient.Instance;
+        }
+
         public MissionsFragment(HvzClient client)
         {
             this.client = client;
@@ -79,6 +84,9 @@ namespace Hvz
 
                     this.Activity.RunOnUiThread(() =>
                     {
+                        if (this.Activity == null)
+                            return;
+
                         switch (response.Status)
                         {
                             case ApiResponse.ResponseStatus.Ok:

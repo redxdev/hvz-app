@@ -35,6 +35,11 @@ namespace Hvz
 
         private int currentPage = 0;
 
+        public InfectionsFragment()
+        {
+            this.client = HvzClient.Instance;
+        }
+
         public InfectionsFragment(HvzClient client)
         {
             this.client = client;
@@ -88,6 +93,9 @@ namespace Hvz
 
                     this.Activity.RunOnUiThread(() =>
                     {
+                        if (this.Activity == null)
+                            return;
+
                         switch (response.Status)
                         {
                             case ApiResponse.ResponseStatus.Ok:

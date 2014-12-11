@@ -40,7 +40,7 @@ namespace Hvz.Ui
 
         public View GetItemView(View convertView, ViewGroup parentView, NavMenuItem item)
         {
-            if (convertView == null)
+            if (convertView == null || convertView.FindViewById<TextView>(Resource.Id.nav_menu_item_label) == null)
             {
                 convertView = inflater.Inflate(Resource.Layout.nav_menu_item, parentView, false);
             }
@@ -53,7 +53,7 @@ namespace Hvz.Ui
 
         public View GetSectionView(View convertView, ViewGroup parentView, NavMenuSection item)
         {
-            if(convertView == null)
+            if (convertView == null || convertView.FindViewById<TextView>(Resource.Id.nav_menu_section_label) == null)
             {
                 convertView = inflater.Inflate(Resource.Layout.nav_menu_section, parentView, false);
             }

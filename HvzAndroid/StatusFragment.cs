@@ -32,6 +32,11 @@ namespace Hvz
 
         private bool loading = false;
 
+        public StatusFragment()
+        {
+            this.client = HvzClient.Instance;
+        }
+
         public StatusFragment(HvzClient client)
         {
             this.client = client;
@@ -79,7 +84,11 @@ namespace Hvz
                     if(Activity == null)
                         return;
 
-                    this.Activity.RunOnUiThread(() => {
+                    this.Activity.RunOnUiThread(() =>
+                    {
+                        if (this.Activity == null)
+                            return;
+
                         switch(response.Status)
                         {
                             case ApiResponse.ResponseStatus.Ok:
@@ -102,7 +111,11 @@ namespace Hvz
                     if(Activity == null)
                         return;
 
-                    this.Activity.RunOnUiThread(() => {
+                    this.Activity.RunOnUiThread(() =>
+                    {
+                        if (this.Activity == null)
+                            return;
+
                         loading = false;
 
                         switch(response.Status)

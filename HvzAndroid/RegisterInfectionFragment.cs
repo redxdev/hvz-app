@@ -30,6 +30,11 @@ namespace Hvz
 
         private EditText zombieIdInput = null;
 
+        public RegisterInfectionFragment()
+        {
+            this.client = HvzClient.Instance;
+        }
+
         public RegisterInfectionFragment(HvzClient client)
         {
             this.client = client;
@@ -91,6 +96,9 @@ namespace Hvz
 
                         this.Activity.RunOnUiThread(() =>
                         {
+                            if (this.Activity == null)
+                                return;
+
                             switch (response.Status)
                             {
                                 case ApiResponse.ResponseStatus.Ok:
