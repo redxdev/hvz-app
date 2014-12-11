@@ -50,7 +50,7 @@ namespace Hvz
             var submitButton = view.FindViewById<Button>(Resource.Id.submit_button);
             submitButton.Click += Submit;
 
-            var zombieScanButton = this.View.FindViewById<Button>(Resource.Id.zombie_scan_button);
+            var zombieScanButton = view.FindViewById<Button>(Resource.Id.zombie_scan_button);
             zombieScanButton.Click += async (sender, args) =>
             {
                 string result = await client.ScanQRId(this.Activity, GameUtils.Team.Zombie);
