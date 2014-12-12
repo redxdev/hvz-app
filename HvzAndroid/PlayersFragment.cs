@@ -117,7 +117,7 @@ namespace Hvz
         {
             base.OnStart();
 
-            LoadPage(0);
+            RefreshList();
         }
 
         private void ChangeSortMethod(string newMethod)

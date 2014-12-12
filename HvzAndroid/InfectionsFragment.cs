@@ -68,7 +68,7 @@ namespace Hvz
         {
             base.OnStart();
 
-            LoadPage(0);
+            RefreshList();
         }
 
         private void LoadPage(int page)
