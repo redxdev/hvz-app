@@ -26,3 +26,5 @@ UpgradeLog.*
 
 # dotCover
 *.dotCover
+
+AppConfig.cs

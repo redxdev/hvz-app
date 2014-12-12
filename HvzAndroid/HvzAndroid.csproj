@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\ApiConfiguration.cs" />
+    <Compile Include="Api\ApiException.cs" />
     <Compile Include="Api\GameUtils.cs" />
     <Compile Include="Api\Game\Badge.cs" />
     <Compile Include="Api\Game\HumanId.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Api\Response\RulesetListResponse.cs" />
     <Compile Include="Api\Response\TeamStatusResponse.cs" />
     <Compile Include="Api\TimeUtils.cs" />
+    <Compile Include="AppConfig.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="AntivirusFragment.cs" />
     <Compile Include="RulesetsFragment.cs" />
