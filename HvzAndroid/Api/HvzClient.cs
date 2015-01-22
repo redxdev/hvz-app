@@ -4,6 +4,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Android.Content;
 using Hvz.Api.Response;
+using Newtonsoft.Json;
 using RestSharp;
 using Newtonsoft.Json.Linq;
 using ZXing;
@@ -195,17 +196,24 @@ namespace Hvz.Api
             if (result == null)
                 return null;
 
-            var json = JObject.Parse(result.Text);
-            switch (team)
+            try
             {
-                case GameUtils.Team.Human:
-                    return (string) json["human"];
+                var json = JObject.Parse(result.Text);
+                switch (team)
+                {
+                    case GameUtils.Team.Human:
+                        return (string) json["human"];
 
-                case GameUtils.Team.Zombie:
-                    return (string) json["zombie"];
+                    case GameUtils.Team.Zombie:
+                        return (string) json["zombie"];
+                }
+            }
+            catch (JsonException)
+            {
+                return "invalid";
             }
 
-            return null;
+            return "invalid";
         }
     }
 }
