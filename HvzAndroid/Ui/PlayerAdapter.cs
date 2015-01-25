@@ -52,12 +52,12 @@ namespace Hvz.Ui
             if (player.Team == GameUtils.Team.Human)
             {
                 // vh.PlayerCard.SetCardBackgroundColor(Resource.Color.human); // doesn't work for some reason
-                vh.PlayerCard.SetBackgroundResource(Resource.Color.human);
+                vh.PlayerCardLayout.SetBackgroundResource(Resource.Color.human);
             }
             else
             {
                 // vh.PlayerCard.SetCardBackgroundColor(Resource.Color.zombie); // doesn't work for some reason
-                vh.PlayerCard.SetBackgroundResource(Resource.Color.zombie);
+                vh.PlayerCardLayout.SetBackgroundResource(Resource.Color.zombie);
             }
 
             vh.PlayerName.Text = player.FullName;
@@ -78,6 +78,8 @@ namespace Hvz.Ui
         {
             public CardView PlayerCard { get; private set; }
 
+            public RelativeLayout PlayerCardLayout { get; private set; }
+
             public ImageView AvatarImage { get; private set; }
 
             public TextView PlayerName { get; private set; }
@@ -90,6 +92,7 @@ namespace Hvz.Ui
                 : base(view)
             {
                 this.PlayerCard = view.FindViewById<CardView>(Resource.Id.player_card);
+                this.PlayerCardLayout = view.FindViewById<RelativeLayout>(Resource.Id.player_card_layout);
                 this.AvatarImage = view.FindViewById<ImageView>(Resource.Id.avatar_image);
                 this.PlayerName = view.FindViewById<TextView>(Resource.Id.player_name);
                 this.HumanTags = view.FindViewById<TextView>(Resource.Id.human_tags);
