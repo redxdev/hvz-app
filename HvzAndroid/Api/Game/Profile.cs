@@ -26,6 +26,8 @@ namespace Hvz.Api.Game
                 p.Infections.Add(Infection.BuildFromJson(inf));
             }
 
+            p.QRData = (string)json["qr_data"];
+
             return p;
         }
 
@@ -45,6 +47,8 @@ namespace Hvz.Api.Game
         public List<HumanId> HumanIds { get; set; }
 
         public List<Infection> Infections { get; set; }
+
+        public string QRData { get; set; }
     }
 }
 
