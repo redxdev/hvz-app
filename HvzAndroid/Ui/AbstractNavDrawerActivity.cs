@@ -14,7 +14,7 @@ using Android.Support.V7.App;
 
 namespace Hvz.Ui
 {
-    public abstract class AbstractNavDrawerActivity : Activity
+    public abstract class AbstractNavDrawerActivity : ActionBarActivity
     {
         public abstract DrawerLayout DrawerLayout { get; }
 
@@ -35,7 +35,7 @@ namespace Hvz.Ui
 
             if (item.ShouldUpdateActionBarTitle)
             {
-                this.ActionBar.Title = item.Label;
+                this.SupportActionBar.Title = item.Label;
             }
 
             if (this.DrawerLayout.IsDrawerOpen(this.DrawerListView))
@@ -54,8 +54,8 @@ namespace Hvz.Ui
 
             this.DrawerListView.ItemClick += (sender, e) => { this.SelectItem(e.Position); };
 
-            this.ActionBar.SetDisplayHomeAsUpEnabled(true);
-            this.ActionBar.SetHomeButtonEnabled(true);
+            this.SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            this.SupportActionBar.SetHomeButtonEnabled(true);
 
             this.DrawerToggle = new NavDrawerToggle(this);
             this.DrawerLayout.SetDrawerListener(this.DrawerToggle);

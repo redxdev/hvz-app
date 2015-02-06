@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -11,7 +12,10 @@ using Android.OS;
 using Android.Support.V4.Widget;
 using Android.Support.V7.App;
 using Hvz.Api;
+using Hvz.Api.Response;
 using Hvz.Ui;
+using Java.Net;
+using Xamarin;
 
 namespace Hvz
 {
@@ -39,6 +43,8 @@ namespace Hvz
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+
+            Insights.Initialize(AppConfig.InsightsApiKey, ApplicationContext);
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.main);
@@ -73,13 +79,29 @@ namespace Hvz
                 client = HvzClient.Instance;
             }
 
+            if (apiKey != string.Empty)
+            {
+                client.GetProfile(response =>
+                {
+                    if (response.Status == ApiResponse.ResponseStatus.Ok)
+                    {
+                        Insights.Identify(apiKey, new Dictionary<string, string>
+                        {
+                            {Insights.Traits.Name, response.Profile.FullName},
+                            {Insights.Traits.Email, response.Profile.Email},
+                            {"Team", response.Profile.Team.ToString()}
+                        });
+                    }
+                });
+            }
+
             this.OnSetupNavDrawer();
 
             if (bundle == null)
             {
                 ReplaceFragment(new StatusFragment(client));
 
-                this.ActionBar.Title = "Status";
+                this.SupportActionBar.Title = "Status";
             }
             else
             {
@@ -87,13 +109,13 @@ namespace Hvz
                 if (item.Type == NavDrawerItemType.Item)
                 {
                     currentNavId = item.Id;
-                    this.ActionBar.Title = item.Label;
+                    this.SupportActionBar.Title = item.Label;
                 }
                 else
                 {
                     ReplaceFragment(new StatusFragment(client));
 
-                    this.ActionBar.Title = "Status";
+                    this.SupportActionBar.Title = "Status";
                 }
             }
         }

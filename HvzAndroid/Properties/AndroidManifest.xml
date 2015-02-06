@@ -1,8 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.1-alpha" android:installLocation="auto" package="edu.rit.hvz.android" android:versionCode="2">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0-alpha3" android:installLocation="auto" package="edu.rit.hvz.android" android:versionCode="4">
 	<uses-sdk android:minSdkVersion="15" />
 	<application android:label="HvZ @ RIT" android:theme="@style/HumanTheme" android:icon="@drawable/Icon"></application>
 	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.BATTERY_STATS" />
+	<uses-permission android:name="android.permission.READ_LOGS" />
+	<uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />
 </manifest>

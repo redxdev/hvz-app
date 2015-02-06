@@ -18,6 +18,7 @@ using Hvz.Api;
 using Hvz.Api.Game;
 using Hvz.Api.Response;
 using Hvz.Ui;
+using Xamarin;
 
 namespace Hvz
 {
@@ -96,6 +97,18 @@ namespace Hvz
                         case ApiResponse.ResponseStatus.Ok:
                             Toast.MakeText(this.Activity, Resource.String.settings_api_test_ok, ToastLength.Long)
                                 .Show();
+                            client.GetProfile(r =>
+                            {
+                                if (response.Status == ApiResponse.ResponseStatus.Ok)
+                                {
+                                    Insights.Identify(client.ApiKey, new Dictionary<string, string>
+                                    {
+                                        {Insights.Traits.Name, r.Profile.FullName},
+                                        {Insights.Traits.Email, r.Profile.Email},
+                                        {"Team", r.Profile.Team.ToString()}
+                                    });
+                                }
+                            });
                             break;
 
                         case ApiResponse.ResponseStatus.Error:
