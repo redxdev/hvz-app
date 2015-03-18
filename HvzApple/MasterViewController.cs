@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Foundation;
 using UIKit;
 
-namespace HvzApple
+namespace Hvz
 {
     public partial class MasterViewController : UITableViewController
     {

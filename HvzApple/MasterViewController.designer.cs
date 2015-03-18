@@ -6,7 +6,7 @@
 //
 using Foundation;
 
-namespace HvzApple
+namespace Hvz
 {
     [Register("MasterViewController")]
     partial class MasterViewController

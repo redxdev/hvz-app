@@ -6,17 +6,17 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace HvzApple
+namespace Hvz
 {
     [Register("DetailViewController")]
     partial class DetailViewController
     {
         [Outlet]
-        [GeneratedCodeAttribute("iOS Designer", "1.0")]
+        [GeneratedCode("iOS Designer", "1.0")]
         UIKit.UILabel detailDescriptionLabel { get; set; }
 
         [Outlet]
-        [GeneratedCodeAttribute("iOS Designer", "1.0")]
+        [GeneratedCode("iOS Designer", "1.0")]
         UIKit.UIToolbar toolbar { get; set; }
 
         void ReleaseDesignerOutlets()
