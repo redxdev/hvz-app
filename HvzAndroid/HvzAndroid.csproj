@@ -94,41 +94,17 @@
     <Reference Include="Xamarin.Android.Support.v7.RecyclerView">
       <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.21.0.0.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Insights, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xamarin.Insights.1.8.3\lib\MonoAndroid10\Xamarin.Insights.dll</HintPath>
+    <Reference Include="Xamarin.Insights">
+      <HintPath>..\packages\Xamarin.Insights.1.9.1.107\lib\MonoAndroid10\Xamarin.Insights.dll</HintPath>
     </Reference>
     <Reference Include="zxing.monoandroid">
-      <HintPath>..\Components\zxing.net.mobile-1.4.7\lib\android\zxing.monoandroid.dll</HintPath>
+      <HintPath>..\packages\ZXing.Net.Mobile.1.4.7.1\lib\MonoAndroid\zxing.monoandroid.dll</HintPath>
     </Reference>
     <Reference Include="ZXing.Net.Mobile">
-      <HintPath>..\Components\zxing.net.mobile-1.4.7\lib\android\ZXing.Net.Mobile.dll</HintPath>
+      <HintPath>..\packages\ZXing.Net.Mobile.1.4.7.1\lib\MonoAndroid\ZXing.Net.Mobile.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\ApiConfiguration.cs" />
-    <Compile Include="Api\ApiException.cs" />
-    <Compile Include="Api\GameUtils.cs" />
-    <Compile Include="Api\Game\Badge.cs" />
-    <Compile Include="Api\Game\HumanId.cs" />
-    <Compile Include="Api\Game\Infection.cs" />
-    <Compile Include="Api\Game\Mission.cs" />
-    <Compile Include="Api\Game\Player.cs" />
-    <Compile Include="Api\Game\Profile.cs" />
-    <Compile Include="Api\Game\Ruleset.cs" />
-    <Compile Include="Api\HvzClient.cs" />
-    <Compile Include="Api\Response\AntivirusResponse.cs" />
-    <Compile Include="Api\Response\ApiResponse.cs" />
-    <Compile Include="Api\Response\GameStatusResponse.cs" />
-    <Compile Include="Api\Response\InfectionListResponse.cs" />
-    <Compile Include="Api\Response\MissionListResponse.cs" />
-    <Compile Include="Api\Response\PlayerInfoResponse.cs" />
-    <Compile Include="Api\Response\PlayerListResponse.cs" />
-    <Compile Include="Api\Response\ProfileResponse.cs" />
-    <Compile Include="Api\Response\RegisterInfectionResponse.cs" />
-    <Compile Include="Api\Response\RulesetListResponse.cs" />
-    <Compile Include="Api\Response\TeamStatusResponse.cs" />
-    <Compile Include="Api\TimeUtils.cs" />
     <Compile Include="AppConfig.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="AntivirusFragment.cs" />
@@ -208,12 +184,9 @@
       <Visible>False</Visible>
       <Version>1.0.4</Version>
     </XamarinComponentReference>
-    <XamarinComponentReference Include="zxing.net.mobile">
-      <Visible>False</Visible>
-      <Version>1.4.7.2</Version>
-    </XamarinComponentReference>
   </ItemGroup>
   <ItemGroup />
+  <Import Project="..\HvzShared\HvzShared.projitems" Label="Shared" Condition="Exists('..\HvzShared\HvzShared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

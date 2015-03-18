@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>20ef2995-2b43-477b-82a0-2c1ead895f98</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>HvzShared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Api\ApiConfiguration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\ApiException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\GameUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Game\Badge.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Game\HumanId.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Game\Infection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Game\Mission.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Game\Player.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Game\Profile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Game\Ruleset.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\HvzClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Response\AntivirusResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Response\ApiResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Response\GameStatusResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Response\InfectionListResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Response\MissionListResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Response\PlayerInfoResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Response\PlayerListResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Response\ProfileResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Response\RegisterInfectionResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Response\RulesetListResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\Response\TeamStatusResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Api\TimeUtils.cs" />
+  </ItemGroup>
+</Project>

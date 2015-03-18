@@ -5,7 +5,13 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HvzAndroid", "HvzAndroid\HvzAndroid.csproj", "{3636932E-B528-403C-BD32-20871478B666}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HvzShared", "HvzShared\HvzShared.shproj", "{20EF2995-2B43-477B-82A0-2C1EAD895F98}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		HvzShared\HvzShared.projitems*{3636932e-b528-403c-bd32-20871478b666}*SharedItemsImports = 4
+		HvzShared\HvzShared.projitems*{20ef2995-2b43-477b-82a0-2c1ead895f98}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

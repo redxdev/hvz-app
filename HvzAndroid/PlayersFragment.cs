@@ -192,7 +192,7 @@ namespace Hvz
 
             if (term.Length < 3)
             {
-                Toast.MakeText(this.Activity, "Search must have a minimum of three characters", ToastLength.Long)
+                Toast.MakeText(this.Activity, "Searches have a minimum of three characters", ToastLength.Long)
                     .Show();
                 return;
             }
