@@ -105,7 +105,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppConfig.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="AntivirusFragment.cs" />
     <Compile Include="RulesetsFragment.cs" />

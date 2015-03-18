@@ -32,5 +32,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Api\Response\RulesetListResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Api\Response\TeamStatusResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Api\TimeUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppConfig.cs" />
   </ItemGroup>
 </Project>
