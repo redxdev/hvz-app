@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{03140047-4AD4-4DAE-964D-617635496D71}</ProjectGuid>
+    <ProjectGuid>{8B55760D-267C-4A7F-92BC-B2B135A6BE1A}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>Hvz</RootNamespace>
@@ -98,10 +98,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RootViewController.designer.cs">
-      <DependentUpon>RootViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RootViewController.cs" />
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
     <BundleResource Include="Resources\Default-568h%402x.png" />
   </ItemGroup>
