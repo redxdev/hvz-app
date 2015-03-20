@@ -93,6 +93,10 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="PlayersViewController.cs" />
+    <Compile Include="PlayersViewController.designer.cs">
+      <DependentUpon>PlayersViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="StatusViewController.cs" />
     <Compile Include="StatusViewController.designer.cs">
       <DependentUpon>StatusViewController.cs</DependentUpon>
