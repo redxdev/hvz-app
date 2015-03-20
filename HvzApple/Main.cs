@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace Hvz
+namespace HvzApple
 {
     public class Application
     {

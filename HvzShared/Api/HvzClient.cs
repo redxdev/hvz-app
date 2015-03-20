@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using Android.Content;
 using Hvz.Api.Response;
 using Newtonsoft.Json;
 using RestSharp;
 using Newtonsoft.Json.Linq;
 using ZXing;
+
+#if ANDROID
+using Android.Content;
+#endif
 
 namespace Hvz.Api
 {
@@ -181,7 +184,11 @@ namespace Hvz.Api
             });
         }
 
+#if ANDROID
         public async Task<string> ScanQRId(Context context, GameUtils.Team team)
+#else
+        public async Task<string> ScanQRId(GameUtils.Team team)
+#endif
         {
             var options = new ZXing.Mobile.MobileBarcodeScanningOptions();
             options.AutoRotate = false;
@@ -190,7 +197,11 @@ namespace Hvz.Api
                 ZXing.BarcodeFormat.QR_CODE
             };
 
+#if ANDROID
             var scanner = new ZXing.Mobile.MobileBarcodeScanner(context);
+#else
+            var scanner = new ZXing.Mobile.MobileBarcodeScanner();
+#endif
             var result = await scanner.Scan(options);
 
             if (result == null)
