@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Hvz.Api;
 using UIKit;
 
 namespace Hvz
@@ -13,12 +14,19 @@ namespace Hvz
     [Register("AppDelegate")]
     public partial class AppDelegate : UIApplicationDelegate
     {
-        // class-level declarations
-
         public override UIWindow Window
         {
             get;
             set;
+        }
+
+        public HvzClient ApiClient { get; private set; }
+
+        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+        {
+            ApiClient = new HvzClient();
+
+            return true;
         }
 
         //
