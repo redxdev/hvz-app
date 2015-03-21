@@ -82,6 +82,8 @@ namespace Hvz
                     }
                 });
             });
+
+            NavigationController.SetToolbarHidden(true, true);
 	    }
 	}
 }

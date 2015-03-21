@@ -17,6 +17,11 @@ namespace Hvz
 	    private bool loading = false;
 
 	    protected int currentPage = 0;
+	    protected bool lastPage = false;
+
+	    protected string sortBy = "team";
+
+	    protected string currentSearch = "";
 
 		public PlayersViewController (IntPtr handle) : base (handle)
 		{
@@ -29,7 +34,14 @@ namespace Hvz
 	        source = new PlayersTableViewSource {Controller = this};
 	        TableView.Source = source;
 
+	        sortBy = "team";
+            var button = ToolbarItems[0];
+	        button.Title = "Team";
+
 	        RefreshList();
+
+            if (NavigationController != null)
+                NavigationController.SetToolbarHidden(false, true);
 	    }
 
 	    public override void ViewDidDisappear(bool animated)
@@ -41,19 +53,20 @@ namespace Hvz
 	    }
 
 	    protected void RefreshList()
-	    {
+        {
 	        if (loading || source == null)
 	            return;
 
             source.Players.Clear();
 
 	        currentPage = 0;
+	        lastPage = false;
             LoadPage(0);
 	    }
 
 	    protected void LoadPage(int page)
 	    {
-	        if (loading || source == null)
+	        if (loading || source == null || (page >= currentPage && lastPage == true))
 	            return;
 
 	        loading = true;
@@ -73,6 +86,9 @@ namespace Hvz
                         case ApiResponse.ResponseStatus.Ok:
                             source.Players.AddRange(response.Players);
 
+                            if (response.Players.Count < 10)
+                                lastPage = true;
+
                             if (page > currentPage)
                                 currentPage = page;
 
@@ -87,8 +103,117 @@ namespace Hvz
 
                     loading = false;
                 });
+            }, 10, sortBy);
+	    }
+
+	    private void ChangeSortMethod(string newMethod)
+	    {
+	        string method = newMethod.ToLower();
+	        if (method == sortBy)
+	            return;
+
+	        sortBy = method;
+
+            RefreshList();
+	    }
+
+        partial void OnSearchButtonPressed(UIBarButtonItem sender)
+        {
+            var av = new UIAlertView("Search", "Enter your search terms.", null, "Cancel", "Search");
+            av.AlertViewStyle = UIAlertViewStyle.PlainTextInput;
+            av.GetTextField(0).Text = currentSearch;
+
+            av.Clicked += (o, args) =>
+            {
+                if(args.ButtonIndex == 1)
+                    SearchList(av.GetTextField(0).Text);
+            };
+
+            av.Show();
+        }
+
+	    private void SearchList(string term)
+	    {
+	        if (loading || source == null)
+	            return;
+
+            currentSearch = term;
+
+	        if (term.Length < 3)
+	        {
+	            var av = new UIAlertView("Error", "Searches have a minimum of three characters", null, "OK", null);
+                av.Show();
+	            return;
+	        }
+
+	        currentPage = 0;
+	        lastPage = false;
+	        loading = true;
+            sortBy = "search";
+
+            source.Players.Clear();
+            TableView.ReloadData();
+
+            HvzClient.Instance.SearchPlayerList(term, (response) =>
+            {
+                InvokeOnMainThread(() =>
+                {
+                    if (source == null || !this.IsViewLoaded || View.Window == null)
+                    {
+                        loading = false;
+                        return;
+                    }
+
+                    switch (response.Status)
+                    {
+                        case ApiResponse.ResponseStatus.Ok:
+                            source.Players.AddRange(response.Players);
+
+                            TableView.ReloadData();
+                            break;
+
+                        case ApiResponse.ResponseStatus.Error:
+                            var av = new UIAlertView("Error", "There was a problem searching the player list.", null, "OK",
+                                null);
+                            av.Show();
+                            break;
+                    }
+
+                    loading = false;
+                });
             });
 	    }
+
+        partial void OnSortButtonPressed(UIBarButtonItem sender)
+        {
+            var av = new UIAlertView("Sort By", "Select how you would like to sort players", null, "Cancel", "Team", "Clan",
+                "Mods");
+
+            av.Clicked += (o, args) =>
+            {
+                var button = ToolbarItems[0];
+
+                switch (args.ButtonIndex)
+                {
+                    case 1:
+                        button.Title = "Team";
+                        ChangeSortMethod(GameUtils.SortByTeam);
+                        break;
+
+                    case 2:
+                        button.Title = "Clan";
+                        ChangeSortMethod(GameUtils.SortByClan);
+                        break;
+
+                    case 3:
+                        button.Title = "Mods";
+                        ChangeSortMethod(GameUtils.SortByMods);
+                        break;
+                }
+            };
+
+            av.Show();
+        }
 
 	    private class PlayersTableViewSource : UITableViewSource
 	    {
@@ -126,6 +251,10 @@ namespace Hvz
                         // horrible way to do this, but idk what kind of exceptions the code can throw, and it really
                         // doesn't matter since we would want to just display an empty image anyway.
 	                }
+	            }
+	            else
+	            {
+	                cell.ImageView.Image = null;
 	            }
 
                 if(indexPath.Row == Players.Count - 1)

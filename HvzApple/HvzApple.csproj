@@ -91,6 +91,14 @@
     <DefineConstants>APPLE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="HomeViewController.cs" />
+    <Compile Include="HomeViewController.designer.cs">
+      <DependentUpon>HomeViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfectionsViewController.cs" />
+    <Compile Include="InfectionsViewController.designer.cs">
+      <DependentUpon>InfectionsViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="PlayersViewController.cs" />

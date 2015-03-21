@@ -22,7 +22,7 @@
         <!--Home-->
         <scene sceneID="349">
             <objects>
-                <tableViewController title="Home" id="350" sceneMemberID="viewController">
+                <tableViewController title="Home" id="350" sceneMemberID="viewController" customClass="HomeViewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="351">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue id="1704" destination="1282" kind="push"/>
+                                            <segue id="2303" destination="1712" kind="push"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="612" rowHeight="44" style="IBUITableViewCellStyleDefault" id="363">
@@ -86,6 +86,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue id="2569" destination="1282" kind="push"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="613" rowHeight="44" style="IBUITableViewCellStyleDefault" id="598">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -330,27 +333,28 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="HumanCount" destination="CPj-q8-6PC" id="name-outlet-CPj-q8-6PC"/>
-                        <outlet property="ZombieCount" destination="yb9-nx-boW" id="name-outlet-yb9-nx-boW"/>
                         <outlet property="DaysCount" destination="rBw-p9-j8x" id="name-outlet-rBw-p9-j8x"/>
                         <outlet property="HoursCount" destination="FYb-UA-CWW" id="name-outlet-FYb-UA-CWW"/>
+                        <outlet property="HumanCount" destination="CPj-q8-6PC" id="name-outlet-CPj-q8-6PC"/>
                         <outlet property="MinutesCount" destination="aRf-9e-ykq" id="name-outlet-aRf-9e-ykq"/>
                         <outlet property="SecondsCount" destination="TU1-YO-xww" id="name-outlet-TU1-YO-xww"/>
+                        <outlet property="ZombieCount" destination="yb9-nx-boW" id="name-outlet-yb9-nx-boW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="735" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="878" y="-452"/>
+            <point key="canvasLocation" x="631" y="-637"/>
         </scene>
+        <!--Infections-->
         <scene sceneID="1281">
             <objects>
-                <tableViewController id="1282" sceneMemberID="viewController" customClass="PlayersViewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1283" allowsSelection="NO">
+                <tableViewController title="Infections" id="1282" customClass="InfectionsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1283">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1286" rowHeight="44">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="1286">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1286" id="1287">
@@ -367,7 +371,49 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1288" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1354" y="-477"/>
+            <point key="canvasLocation" x="1306" y="-639"/>
+        </scene>
+        <!--Players-->
+        <scene sceneID="1711">
+            <objects>
+                <tableViewController title="Players" id="1712" customClass="PlayersViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1713">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="1716">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1716" id="1717">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1712" id="1714"/>
+                            <outlet property="delegate" destination="1712" id="1715"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Sort" id="CYu-3e-rEt">
+                            <connections>
+                                <action selector="OnSortButtonPressed:" destination="1712" id="2608"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="YyD-a8-MjC"/>
+                        <barButtonItem title="Search" id="moM-vz-MZx">
+                            <connections>
+                                <action selector="OnSearchButtonPressed:" destination="1712" id="2609"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1718" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968" y="-637"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

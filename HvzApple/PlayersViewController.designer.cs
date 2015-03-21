@@ -14,6 +14,14 @@ namespace Hvz
 	[Register ("PlayersViewController")]
 	partial class PlayersViewController
 	{
+		[Action ("OnSearchButtonPressed:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void OnSearchButtonPressed (UIBarButtonItem sender);
+
+		[Action ("OnSortButtonPressed:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void OnSortButtonPressed (UIBarButtonItem sender);
+
 		void ReleaseDesignerOutlets ()
 		{
 		}

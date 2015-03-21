@@ -185,10 +185,10 @@ namespace Hvz
 
         private void SearchList(string term)
         {
-            currentSearch = term;
-
             if (loading)
                 return;
+
+            currentSearch = term;
 
             if (term.Length < 3)
             {
@@ -216,7 +216,9 @@ namespace Hvz
                 {
 
                     if (this.Activity == null)
+                    {
                         return;
+                    }
 
                     switch (response.Status)
                     {
