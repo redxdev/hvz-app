@@ -40,8 +40,7 @@ namespace Hvz
 
 	        RefreshList();
 
-            if (NavigationController != null)
-                NavigationController.SetToolbarHidden(false, true);
+            NavigationController.SetToolbarHidden(false, true);
 	    }
 
 	    public override void ViewDidDisappear(bool animated)
@@ -86,7 +85,7 @@ namespace Hvz
                         case ApiResponse.ResponseStatus.Ok:
                             source.Players.AddRange(response.Players);
 
-                            if (response.Players.Count < 10)
+                            if (!response.HasMorePages)
                                 lastPage = true;
 
                             if (page > currentPage)
@@ -98,6 +97,7 @@ namespace Hvz
                         case ApiResponse.ResponseStatus.Error:
                             var av = new UIAlertView("Error", "There was a problem retrieving the player list", null,
                                 "OK", null);
+                            av.Show();
                             break;
                     }
 
@@ -230,9 +230,8 @@ namespace Hvz
 
 	        public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 	        {
-	            var cell = tableView.DequeueReusableCell(cellIdentifier);
-                if(cell == null)
-                    cell = new UITableViewCell(UITableViewCellStyle.Subtitle, cellIdentifier);
+	            var cell = tableView.DequeueReusableCell(cellIdentifier) ??
+	                       new UITableViewCell(UITableViewCellStyle.Subtitle, cellIdentifier);
 
 	            Player player = Players[indexPath.Row];
 	            cell.TextLabel.Text = player.FullName;
