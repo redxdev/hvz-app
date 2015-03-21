@@ -194,6 +194,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="2882" kind="push" id="3096"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -450,6 +453,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2622" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="853" y="773"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="2881">
+            <objects>
+                <viewController title="Settings" id="2882" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2879"/>
+                        <viewControllerLayoutGuide type="bottom" id="2880"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2883">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="API Access" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghu-kv-p2I" misplaced="YES">
+                                <rect key="frame" x="16" y="72" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Me8-da-jQz" misplaced="YES" placeholder="Api key">
+                                <rect key="frame" x="16" y="101" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't know where to look? Head to hvz.rit.edu, log in, and go to your profile page." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="633-hF-CUC" misplaced="YES">
+                                <rect key="frame" x="16" y="139" width="288" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="gmW-EI-ehu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbB-QX-JCX" misplaced="YES">
+                                <rect key="frame" x="137" y="205" width="46" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnSaveButtonPressed:" destination="2882" id="3106" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ghu-kv-p2I" secondAttribute="trailing" constant="16" id="JgK-sZ-5E1"/>
+                            <constraint firstItem="Ghu-kv-p2I" firstAttribute="leading" secondItem="2883" secondAttribute="leading" constant="16" id="MRy-Dy-OTU"/>
+                            <constraint firstItem="Me8-da-jQz" firstAttribute="top" secondItem="Ghu-kv-p2I" secondAttribute="bottom" constant="8" id="Q0u-2T-s99"/>
+                            <constraint firstItem="cbB-QX-JCX" firstAttribute="leading" secondItem="2883" secondAttribute="leading" constant="137" id="Qht-NW-qCr"/>
+                            <constraint firstItem="633-hF-CUC" firstAttribute="top" secondItem="Me8-da-jQz" secondAttribute="bottom" constant="8" id="WqD-RN-Q2s"/>
+                            <constraint firstItem="633-hF-CUC" firstAttribute="leading" secondItem="2883" secondAttribute="leading" constant="16" id="bbj-I5-RME"/>
+                            <constraint firstAttribute="trailing" secondItem="633-hF-CUC" secondAttribute="trailing" constant="16" id="dYi-1S-XJf"/>
+                            <constraint firstItem="Ghu-kv-p2I" firstAttribute="top" secondItem="2883" secondAttribute="top" constant="72" id="ifg-aQ-n0I"/>
+                            <constraint firstItem="Me8-da-jQz" firstAttribute="leading" secondItem="2883" secondAttribute="leading" constant="16" id="qe9-U2-gEu"/>
+                            <constraint firstAttribute="trailing" secondItem="cbB-QX-JCX" secondAttribute="trailing" constant="137" id="uaU-WS-32T"/>
+                            <constraint firstAttribute="trailing" secondItem="Me8-da-jQz" secondAttribute="trailing" constant="16" id="yar-su-7wX"/>
+                            <constraint firstItem="cbB-QX-JCX" firstAttribute="top" secondItem="633-hF-CUC" secondAttribute="bottom" constant="8" id="yrh-sp-C0b"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ApiTextField" destination="Me8-da-jQz" id="name-outlet-Me8-da-jQz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2884" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1280" y="780"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

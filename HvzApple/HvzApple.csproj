@@ -109,6 +109,10 @@
     <Compile Include="RulesViewController.designer.cs">
       <DependentUpon>RulesViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="SettingsViewController.cs" />
+    <Compile Include="SettingsViewController.designer.cs">
+      <DependentUpon>SettingsViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="StatusViewController.cs" />
     <Compile Include="StatusViewController.designer.cs">
       <DependentUpon>StatusViewController.cs</DependentUpon>

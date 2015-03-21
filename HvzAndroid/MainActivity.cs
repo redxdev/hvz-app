@@ -72,14 +72,16 @@ namespace Hvz
 
             if (HvzClient.Instance == null)
             {
-                client = new HvzClient() {ApiKey = apiKey};
+                client = new HvzClient();
             }
             else
             {
                 client = HvzClient.Instance;
             }
 
-            if (apiKey != string.Empty)
+            client.ApiKey = apiKey;
+
+            if (!string.IsNullOrWhiteSpace(apiKey))
             {
                 client.GetProfile(response =>
                 {

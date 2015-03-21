@@ -29,7 +29,7 @@
     </string>
     
     <string name="settings_api_key_help">
-        Don\'t know where to look? Head to hvz.rit.edu, log in, and go to your profile page. Your Api key must be activated by an admin before you can use it.
+        Don\'t know where to look? Head to hvz.rit.edu, log in, and go to your profile page.
     </string>
     
     <string name="settings_api_change">Saved api key, testing connectivity...</string>
