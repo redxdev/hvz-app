@@ -106,6 +106,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="3119" kind="push" id="3213"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="614" rowHeight="44" style="IBUITableViewCellStyleDefault" id="600">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -472,7 +475,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Me8-da-jQz" misplaced="YES" placeholder="Api key">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Api key" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Me8-da-jQz" misplaced="YES">
                                 <rect key="frame" x="16" y="101" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -492,7 +495,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="OnSaveButtonPressed:" destination="2882" id="3106" eventType="touchUpInside"/>
+                                    <action selector="OnSaveButtonPressed:" destination="2882" eventType="touchUpInside" id="3106"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -519,6 +522,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2884" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1280" y="780"/>
+        </scene>
+        <!--Missions-->
+        <scene sceneID="3118">
+            <objects>
+                <viewController title="Missions" id="3119" customClass="MissionsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3116"/>
+                        <viewControllerLayoutGuide type="bottom" id="3117"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3120">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Efs-c4-End">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Efs-c4-End" secondAttribute="bottom" id="LZG-nD-83B"/>
+                            <constraint firstItem="Efs-c4-End" firstAttribute="top" secondItem="3120" secondAttribute="top" id="coe-lW-Er5"/>
+                            <constraint firstItem="Efs-c4-End" firstAttribute="leading" secondItem="3120" secondAttribute="leading" id="kB9-GM-Zf5"/>
+                            <constraint firstAttribute="trailing" secondItem="Efs-c4-End" secondAttribute="trailing" id="tny-Dz-2JU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="WebView" destination="Efs-c4-End" id="name-outlet-Efs-c4-End"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3121" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="943" y="58"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

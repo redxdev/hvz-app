@@ -81,8 +81,10 @@ namespace Hvz
                     {
                         case ApiResponse.ResponseStatus.Ok:
                             int start = adapter.Rulesets.Count;
+                            adapter.Rulesets.Clear();
+                            adapter.NotifyItemRangeRemoved(0, start);
                             adapter.Rulesets.AddRange(response.Rulesets);
-                            adapter.NotifyItemRangeInserted(start, response.Rulesets.Count);
+                            adapter.NotifyItemRangeInserted(0, response.Rulesets.Count);
                             break;
 
                         case ApiResponse.ResponseStatus.Error:
