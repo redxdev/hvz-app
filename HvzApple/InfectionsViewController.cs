@@ -121,7 +121,7 @@ namespace Hvz
                     infection.ZombieName,
                     TimeUtils.PrettyDate(infection.Time)
 	                );
-	            cell.TextLabel.Lines = 3;
+	            cell.TextLabel.Lines = 0;
 
                 if(indexPath.Row == Infections.Count - 1)
                     Controller.LoadPage(Controller.currentPage + 1);
