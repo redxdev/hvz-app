@@ -8,12 +8,23 @@
         android:layout_height="wrap_content"
         style="?android:attr/listSeparatorTextViewStyle"
         android:text="Api Access" />
-    <EditText
-        android:id="@+id/api_key_input"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:hint="Api key" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/api_key_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:hint="Api key" />
+        <Button
+            android:id="@+id/api_key_scan_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan" />
+    </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

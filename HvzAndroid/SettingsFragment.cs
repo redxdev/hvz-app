@@ -52,6 +52,14 @@ namespace Hvz
             var settings = this.Activity.GetSharedPreferences(MainActivity.PrefsName, 0);
             apiKeyInput.Text = settings.GetString("apikey", string.Empty);
 
+            var scanButton = view.FindViewById<Button>(Resource.Id.api_key_scan_button);
+            scanButton.Click += async (sender, args) =>
+            {
+                string result = await client.ScanQRApiKey(this.Activity);
+                if (result != null)
+                    apiKeyInput.Text = result;
+            };
+
             var saveButton = view.FindViewById<Button>(Resource.Id.save_button);
             saveButton.Click += Submit;
 

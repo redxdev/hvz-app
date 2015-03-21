@@ -226,6 +226,42 @@ namespace Hvz.Api
 
             return "invalid";
         }
+
+#if ANDROID
+        public async Task<string> ScanQRApiKey(Context context)
+#else
+        public async Task<string> ScanQRApiKey()
+#endif
+        {
+            var options = new ZXing.Mobile.MobileBarcodeScanningOptions();
+            options.AutoRotate = false;
+            options.PossibleFormats = new List<BarcodeFormat>()
+            {
+                ZXing.BarcodeFormat.QR_CODE
+            };
+
+#if ANDROID
+            var scanner = new ZXing.Mobile.MobileBarcodeScanner(context);
+#else
+            var scanner = new ZXing.Mobile.MobileBarcodeScanner();
+#endif
+            var result = await scanner.Scan(options);
+
+            if (result == null)
+                return null;
+
+            if (!result.Text.StartsWith("apikey:"))
+                return "invalid";
+
+            try
+            {
+                return result.Text.Substring("apikey:".Length);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                return "invalid";
+            }
+        }
     }
 }
 
