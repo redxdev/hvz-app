@@ -236,6 +236,9 @@ namespace Hvz
 	            Player player = Players[indexPath.Row];
 	            cell.TextLabel.Text = player.FullName;
 	            cell.DetailTextLabel.Text = "Tags: " + player.HumansTagged + ", Clan: " + (string.IsNullOrWhiteSpace(player.Clan) ? "none" : player.Clan);
+	            cell.BackgroundColor = player.Team == GameUtils.Team.Human
+	                ? UIColor.FromRGB(255, 117, 25)
+	                : UIColor.FromRGB(49, 230, 54);
 
 	            if (!string.IsNullOrWhiteSpace(player.Avatar))
 	            {

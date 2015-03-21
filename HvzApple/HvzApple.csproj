@@ -109,6 +109,10 @@
     <Compile Include="PlayersViewController.designer.cs">
       <DependentUpon>PlayersViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegisterInfectionViewController.cs" />
+    <Compile Include="RegisterInfectionViewController.designer.cs">
+      <DependentUpon>RegisterInfectionViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="RulesViewController.cs" />
     <Compile Include="RulesViewController.designer.cs">
       <DependentUpon>RulesViewController.cs</DependentUpon>

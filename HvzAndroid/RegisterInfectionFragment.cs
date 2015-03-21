@@ -179,11 +179,6 @@ namespace Hvz
                             case ApiResponse.ResponseStatus.Error:
                                 Toast.MakeText(this.Activity, Resource.String.infect_err_generic, ToastLength.Short)
                                     .Show();
-                                foreach (string error in response.Errors)
-                                {
-                                    Toast.MakeText(this.Activity, error, ToastLength.Short)
-                                        .Show();
-                                }
                                 break;
                         }
                     });
