@@ -28,6 +28,16 @@ namespace Hvz
             NavigationController.SetToolbarHidden(true, true);
 	    }
 
+	    partial void OnScanButtonPressed(UIButton sender)
+	    {
+            InvokeOnMainThread(async () =>
+            {
+                string result = await HvzClient.Instance.ScanQRApiKey();
+                if (result != null)
+                    ApiTextField.Text = result;
+            });
+	    }
+
 	    partial void OnSaveButtonPressed(UIButton sender)
 	    {
 	        ResignFirstResponder();

@@ -22,6 +22,10 @@ namespace Hvz
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void OnSaveButtonPressed (UIButton sender);
 
+		[Action ("OnScanButtonPressed:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void OnScanButtonPressed (UIButton sender);
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (ApiTextField != null) {
