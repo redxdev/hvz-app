@@ -64,8 +64,11 @@ namespace Hvz
 
             if (client.ApiKey.Length != 32)
             {
-                Toast.MakeText(this.Activity, Resource.String.api_err_bad_key, ToastLength.Long)
-                    .Show();
+                new AlertDialog.Builder(this.Activity)
+                    .SetTitle("Error")
+                    .SetMessage(Resource.String.api_err_bad_key)
+                    .SetPositiveButton("OK", (s, a) => { })
+                    .Create();
             }
             else
             {
@@ -90,8 +93,11 @@ namespace Hvz
                                 break;
 
                             case ApiResponse.ResponseStatus.Error:
-                                Toast.MakeText(this.Activity, Resource.String.api_err_mission_list, ToastLength.Short)
-                                    .Show();
+                                new AlertDialog.Builder(this.Activity)
+                                    .SetTitle("Error")
+                                    .SetMessage(Resource.String.api_err_mission_list)
+                                    .SetPositiveButton("OK", (s, a) => { })
+                                    .Create();
                                 break;
                         }
                     });

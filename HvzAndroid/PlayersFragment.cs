@@ -160,8 +160,11 @@ namespace Hvz
                                 break;
 
                             case ApiResponse.ResponseStatus.Error:
-                                Toast.MakeText(this.Activity, Resource.String.api_err_player_list, ToastLength.Short)
-                                    .Show();
+                                new AlertDialog.Builder(this.Activity)
+                                    .SetTitle("Error")
+                                    .SetMessage(Resource.String.api_err_player_list)
+                                    .SetPositiveButton("OK", (s, a) => { })
+                                    .Create();
                                 break;
                         }
 
@@ -192,8 +195,11 @@ namespace Hvz
 
             if (term.Length < 3)
             {
-                Toast.MakeText(this.Activity, "Searches have a minimum of three characters", ToastLength.Long)
-                    .Show();
+                new AlertDialog.Builder(this.Activity)
+                    .SetTitle("Error")
+                    .SetMessage("Searches have a minimum of three characters")
+                    .SetPositiveButton("OK", (s, a) => { })
+                    .Create();
                 return;
             }
 
@@ -229,8 +235,11 @@ namespace Hvz
                             break;
 
                         case ApiResponse.ResponseStatus.Error:
-                            Toast.MakeText(this.Activity, Resource.String.api_err_player_list, ToastLength.Short)
-                                .Show();
+                            new AlertDialog.Builder(this.Activity)
+                                .SetTitle("Error")
+                                .SetMessage(Resource.String.api_err_player_list)
+                                .SetPositiveButton("OK", (s, a) => { })
+                                .Create();
                             break;
                     }
 

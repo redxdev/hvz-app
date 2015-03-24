@@ -74,8 +74,11 @@ namespace Hvz
             string apikey = apiKeyInput.Text.Trim();
             if (apikey.Length != 32)
             {
-                Toast.MakeText(this.Activity, "Api key must be 32 characters long", ToastLength.Long)
-                    .Show();
+                new AlertDialog.Builder(this.Activity)
+                        .SetTitle("Error")
+                        .SetMessage("Api key must be 32 characters long")
+                        .SetPositiveButton("OK", (s, a) => { })
+                        .Create();
                 return;
             }
 
@@ -103,8 +106,12 @@ namespace Hvz
                     switch (response.Status)
                     {
                         case ApiResponse.ResponseStatus.Ok:
-                            Toast.MakeText(this.Activity, Resource.String.settings_api_test_ok, ToastLength.Long)
-                                .Show();
+                            new AlertDialog.Builder(this.Activity)
+                                .SetTitle("Success")
+                                .SetMessage(Resource.String.settings_api_test_ok)
+                                .SetPositiveButton("OK", (s, a) => { })
+                                .Create();
+
                             client.GetProfile(r =>
                             {
                                 if (response.Status == ApiResponse.ResponseStatus.Ok)
@@ -120,8 +127,11 @@ namespace Hvz
                             break;
 
                         case ApiResponse.ResponseStatus.Error:
-                            Toast.MakeText(this.Activity, Resource.String.settings_api_test_error, ToastLength.Long)
-                                .Show();
+                            new AlertDialog.Builder(this.Activity)
+                                .SetTitle("Error")
+                                .SetMessage(Resource.String.settings_api_test_error)
+                                .SetPositiveButton("OK", (s, a) => { })
+                                .Create();
                             break;
                     }
                 });
