@@ -6,7 +6,7 @@
     <SharedGUID>20ef2995-2b43-477b-82a0-2c1ead895f98</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>HvzShared</Import_RootNamespace>
+    <Import_RootNamespace>Hvz</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Api\ApiConfiguration.cs" />
