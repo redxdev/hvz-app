@@ -100,8 +100,11 @@ namespace Hvz
                                 break;
 
                             case ApiResponse.ResponseStatus.Error:
-                                Toast.MakeText(this.Activity, Resource.String.api_err_infection_list, ToastLength.Short)
-                                    .Show();
+                                new AlertDialog.Builder(this.Activity)
+                                    .SetTitle("Error")
+                                    .SetMessage(Resource.String.api_err_infection_list)
+                                    .SetPositiveButton("OK", (s, a) => { })
+                                    .Create();
                                 break;
                         }
 

@@ -67,8 +67,11 @@ namespace Hvz
 
             if (client.ApiKey.Length != 32)
             {
-                Toast.MakeText(this.Activity, Resource.String.api_err_bad_key, ToastLength.Long)
-                    .Show();
+                new AlertDialog.Builder(this.Activity)
+                    .SetTitle("Error")
+                    .SetMessage(Resource.String.api_err_bad_key)
+                    .SetPositiveButton("OK", (s, a) => { })
+                    .Create();
             }
         }
 
@@ -80,8 +83,11 @@ namespace Hvz
 
             if (client.ApiKey.Length != 32)
             {
-                Toast.MakeText(this.Activity, Resource.String.api_err_bad_key, ToastLength.Long)
-                    .Show();
+                new AlertDialog.Builder(this.Activity)
+                    .SetTitle("Error")
+                    .SetMessage(Resource.String.api_err_bad_key)
+                    .SetPositiveButton("OK", (s, a) => { })
+                    .Create();
             }
             else
             {
@@ -90,15 +96,21 @@ namespace Hvz
 
                 if (antivirusId.Length != 8)
                 {
-                    Toast.MakeText(this.Activity, Resource.String.infect_err_antivirus_id_length, ToastLength.Long)
-                        .Show();
+                    new AlertDialog.Builder(this.Activity)
+                        .SetTitle("Error")
+                        .SetMessage(Resource.String.infect_err_antivirus_id_length)
+                        .SetPositiveButton("OK", (s, a) => { })
+                        .Create();
                     return;
                 }
 
                 if (zombieId.Length != 8)
                 {
-                    Toast.MakeText(this.Activity, Resource.String.infect_err_zombie_id_length, ToastLength.Long)
-                        .Show();
+                    new AlertDialog.Builder(this.Activity)
+                        .SetTitle("Error")
+                        .SetMessage(Resource.String.infect_err_zombie_id_length)
+                        .SetPositiveButton("OK", (s, a) => { })
+                        .Create();
                     return;
                 }
 
@@ -120,18 +132,19 @@ namespace Hvz
                             case ApiResponse.ResponseStatus.Ok:
                                 antivirusIdInput.Text = string.Empty;
                                 zombieIdInput.Text = string.Empty;
-                                Toast.MakeText(this.Activity, string.Format("{0} has taken an antivirus and become human once more!", response.ZombieName), ToastLength.Long)
-                                    .Show();
+                                new AlertDialog.Builder(this.Activity)
+                                    .SetTitle("Success")
+                                    .SetMessage(string.Format("{0} has taken an antivirus and become human once more!", response.ZombieName))
+                                    .SetPositiveButton("OK", (s, a) => { })
+                                    .Create();
                                 break;
 
                             case ApiResponse.ResponseStatus.Error:
-                                Toast.MakeText(this.Activity, Resource.String.infect_err_antivirus_generic, ToastLength.Short)
-                                    .Show();
-                                foreach (string error in response.Errors)
-                                {
-                                    Toast.MakeText(this.Activity, error, ToastLength.Short)
-                                        .Show();
-                                }
+                                new AlertDialog.Builder(this.Activity)
+                                    .SetTitle("Error")
+                                    .SetMessage(Resource.String.infect_err_antivirus_generic)
+                                    .SetPositiveButton("OK", (s, a) => { })
+                                    .Create();
                                 break;
                         }
                     });
