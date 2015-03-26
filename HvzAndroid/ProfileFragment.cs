@@ -88,7 +88,7 @@ namespace Hvz
                                 nameText.Text = response.Profile.FullName;
                                 emailText.Text = "Email: " + response.Profile.Email;
                                 clanText.Text = "Clan: " +
-                                                (string.IsNullOrEmpty(response.Profile.Clan)
+                                                (string.IsNullOrWhitespace(response.Profile.Clan)
                                                     ? "none"
                                                     : response.Profile.Clan);
 

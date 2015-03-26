@@ -11,24 +11,16 @@ using UIKit;
 
 namespace Hvz
 {
-	[Register ("RegisterInfectionViewController")]
-	partial class RegisterInfectionViewController
+	[Register ("AntivirusViewController")]
+	partial class AntivirusViewController
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField HumanIdText { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LocationLabel { get; set; }
+		UITextField AntivirusText { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextField ZombieIdText { get; set; }
-
-		[Action ("OnHumanScanButtonPressed:")]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		partial void OnHumanScanButtonPressed (UIButton sender);
 
 		[Action ("OnSubmitButtonPressed:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -40,13 +32,9 @@ namespace Hvz
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (HumanIdText != null) {
-				HumanIdText.Dispose ();
-				HumanIdText = null;
-			}
-			if (LocationLabel != null) {
-				LocationLabel.Dispose ();
-				LocationLabel = null;
+			if (AntivirusText != null) {
+				AntivirusText.Dispose ();
+				AntivirusText = null;
 			}
 			if (ZombieIdText != null) {
 				ZombieIdText.Dispose ();

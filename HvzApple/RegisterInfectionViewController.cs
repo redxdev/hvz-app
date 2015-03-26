@@ -82,6 +82,26 @@ namespace Hvz
 	        }
 	    }
 
+	    partial void OnHumanScanButtonPressed(UIButton sender)
+	    {
+            InvokeOnMainThread(async () =>
+            {
+                string result = await HvzClient.Instance.ScanQRId(GameUtils.Team.Human);
+                if (result != null)
+                    HumanIdText.Text = result;
+            });
+	    }
+
+	    partial void OnZombieScanButtonPressed(UIButton sender)
+	    {
+	        InvokeOnMainThread(async () =>
+	        {
+	            string result = await HvzClient.Instance.ScanQRId(GameUtils.Team.Zombie);
+	            if (result != null)
+	                ZombieIdText.Text = result;
+	        });
+	    }
+
 	    partial void OnSubmitButtonPressed(UIButton sender)
 	    {
 	        ResignFirstResponder();
@@ -153,6 +173,8 @@ namespace Hvz
                                 infectErr.Show();
                                 break;
                         }
+
+                        loading = false;
                     });
                 }, latitude, longitude);
 	        }
