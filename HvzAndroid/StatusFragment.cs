@@ -95,7 +95,7 @@ namespace Hvz
                                     .SetTitle("Error")
                                     .SetMessage(Resource.String.api_err_team_status)
                                     .SetPositiveButton("OK", (s, a) => { })
-                                    .Create();
+                                    .Show();
                                 break;
                         }
                     });
@@ -141,7 +141,7 @@ namespace Hvz
                                     .SetTitle("Error")
                                     .SetMessage(Resource.String.api_err_game_status)
                                     .SetPositiveButton("OK", (s, a) => { })
-                                    .Create();
+                                    .Show();
                                 break;
                         }
                     });

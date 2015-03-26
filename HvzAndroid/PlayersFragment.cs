@@ -164,7 +164,7 @@ namespace Hvz
                                     .SetTitle("Error")
                                     .SetMessage(Resource.String.api_err_player_list)
                                     .SetPositiveButton("OK", (s, a) => { })
-                                    .Create();
+                                    .Show();
                                 break;
                         }
 
@@ -199,7 +199,7 @@ namespace Hvz
                     .SetTitle("Error")
                     .SetMessage("Searches have a minimum of three characters")
                     .SetPositiveButton("OK", (s, a) => { })
-                    .Create();
+                    .Show();
                 return;
             }
 
@@ -239,7 +239,7 @@ namespace Hvz
                                 .SetTitle("Error")
                                 .SetMessage(Resource.String.api_err_player_list)
                                 .SetPositiveButton("OK", (s, a) => { })
-                                .Create();
+                                .Show();
                             break;
                     }
 

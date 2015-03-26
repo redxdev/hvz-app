@@ -104,7 +104,7 @@ namespace Hvz
                                     .SetTitle("Error")
                                     .SetMessage(Resource.String.api_err_infection_list)
                                     .SetPositiveButton("OK", (s, a) => { })
-                                    .Create();
+                                    .Show();
                                 break;
                         }
 

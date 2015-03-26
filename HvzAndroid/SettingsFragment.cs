@@ -75,10 +75,10 @@ namespace Hvz
             if (apikey.Length != 32)
             {
                 new AlertDialog.Builder(this.Activity)
-                        .SetTitle("Error")
-                        .SetMessage("Api key must be 32 characters long")
-                        .SetPositiveButton("OK", (s, a) => { })
-                        .Create();
+                    .SetTitle("Error")
+                    .SetMessage("Api key must be 32 characters long")
+                    .SetPositiveButton("OK", (s, a) => { })
+                    .Show();
                 return;
             }
 
@@ -110,7 +110,7 @@ namespace Hvz
                                 .SetTitle("Success")
                                 .SetMessage(Resource.String.settings_api_test_ok)
                                 .SetPositiveButton("OK", (s, a) => { })
-                                .Create();
+                                .Show();
 
                             client.GetProfile(r =>
                             {
@@ -131,7 +131,7 @@ namespace Hvz
                                 .SetTitle("Error")
                                 .SetMessage(Resource.String.settings_api_test_error)
                                 .SetPositiveButton("OK", (s, a) => { })
-                                .Create();
+                                .Show();
                             break;
                     }
                 });

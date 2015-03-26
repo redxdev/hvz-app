@@ -68,7 +68,7 @@ namespace Hvz
                     .SetTitle("Error")
                     .SetMessage(Resource.String.api_err_bad_key)
                     .SetPositiveButton("OK", (s, a) => { })
-                    .Create();
+                    .Show();
             }
             else
             {
@@ -97,7 +97,7 @@ namespace Hvz
                                     .SetTitle("Error")
                                     .SetMessage(Resource.String.api_err_mission_list)
                                     .SetPositiveButton("OK", (s, a) => { })
-                                    .Create();
+                                    .Show();
                                 break;
                         }
                     });

@@ -94,7 +94,7 @@ namespace Hvz
                     .SetTitle("Error")
                     .SetMessage(Resource.String.api_err_bad_key)
                     .SetPositiveButton("OK", (s, a) => { })
-                    .Create();
+                    .Show();
             }
         }
 
@@ -132,7 +132,7 @@ namespace Hvz
                     .SetTitle("Error")
                     .SetMessage(Resource.String.api_err_bad_key)
                     .SetPositiveButton("OK", (s, a) => { })
-                    .Create();
+                    .Show();
             }
             else
             {
@@ -145,7 +145,7 @@ namespace Hvz
                         .SetTitle("Error")
                         .SetMessage(Resource.String.infect_err_human_id_length)
                         .SetPositiveButton("OK", (s, a) => { })
-                        .Create();
+                        .Show();
                     return;
                 }
 
@@ -155,7 +155,7 @@ namespace Hvz
                         .SetTitle("Error")
                         .SetMessage(Resource.String.infect_err_zombie_id_length)
                         .SetPositiveButton("OK", (s, a) => { })
-                        .Create();
+                        .Show();
                     return;
                 }
 
@@ -186,9 +186,10 @@ namespace Hvz
                                 humanIdInput.Text = string.Empty;
                                 new AlertDialog.Builder(this.Activity)
                                     .SetTitle("Success")
-                                    .SetMessage(string.Format("{0} has joined the horde, courtesy of {1}", response.HumanName, response.ZombieName))
+                                    .SetMessage(string.Format("{0} has joined the horde, courtesy of {1}",
+                                        response.HumanName, response.ZombieName))
                                     .SetPositiveButton("OK", (s, a) => { })
-                                    .Create();
+                                    .Show();
                                 break;
 
                             case ApiResponse.ResponseStatus.Error:
@@ -196,7 +197,7 @@ namespace Hvz
                                     .SetTitle("Error")
                                     .SetMessage(Resource.String.infect_err_generic)
                                     .SetPositiveButton("OK", (s, a) => { })
-                                    .Create();
+                                    .Show();
                                 break;
                         }
                     });

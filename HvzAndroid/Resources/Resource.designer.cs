@@ -26,6 +26,8 @@ namespace Hvz
 		
 		public static void UpdateIdValues()
 		{
+			global::Xamarin.InsightsCore.Resource.String.ApplicationName = global::Hvz.Resource.String.ApplicationName;
+			global::Xamarin.InsightsCore.Resource.String.Hello = global::Hvz.Resource.String.Hello;
 			global::ZXing.Mobile.Resource.Id.contentFrame = global::Hvz.Resource.Id.contentFrame;
 			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::Hvz.Resource.Layout.zxingscanneractivitylayout;
 			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::Hvz.Resource.Layout.zxingscannerfragmentlayout;
@@ -1657,6 +1659,12 @@ namespace Hvz
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f0b0011
+			public const int ApplicationName = 2131427345;
+			
+			// aapt resource value: 0x7f0b0010
+			public const int Hello = 2131427344;
+			
 			// aapt resource value: 0x7f0b0000
 			public const int abc_action_bar_home_description = 2131427328;
 			
@@ -1705,71 +1713,71 @@ namespace Hvz
 			// aapt resource value: 0x7f0b000f
 			public const int abc_toolbar_collapse_description = 2131427343;
 			
-			// aapt resource value: 0x7f0b0013
-			public const int api_err_bad_key = 2131427347;
-			
 			// aapt resource value: 0x7f0b0015
-			public const int api_err_game_status = 2131427349;
+			public const int api_err_bad_key = 2131427349;
 			
 			// aapt resource value: 0x7f0b0017
-			public const int api_err_infection_list = 2131427351;
+			public const int api_err_game_status = 2131427351;
 			
 			// aapt resource value: 0x7f0b0019
-			public const int api_err_mission_list = 2131427353;
-			
-			// aapt resource value: 0x7f0b0016
-			public const int api_err_player_list = 2131427350;
-			
-			// aapt resource value: 0x7f0b001a
-			public const int api_err_profile = 2131427354;
-			
-			// aapt resource value: 0x7f0b0018
-			public const int api_err_ruleset_list = 2131427352;
-			
-			// aapt resource value: 0x7f0b0014
-			public const int api_err_team_status = 2131427348;
-			
-			// aapt resource value: 0x7f0b0010
-			public const int app_name = 2131427344;
-			
-			// aapt resource value: 0x7f0b001c
-			public const int infect_antivirus_submit = 2131427356;
-			
-			// aapt resource value: 0x7f0b0020
-			public const int infect_err_antivirus_generic = 2131427360;
-			
-			// aapt resource value: 0x7f0b001f
-			public const int infect_err_antivirus_id_length = 2131427359;
-			
-			// aapt resource value: 0x7f0b0021
-			public const int infect_err_generic = 2131427361;
-			
-			// aapt resource value: 0x7f0b001d
-			public const int infect_err_human_id_length = 2131427357;
-			
-			// aapt resource value: 0x7f0b001e
-			public const int infect_err_zombie_id_length = 2131427358;
+			public const int api_err_infection_list = 2131427353;
 			
 			// aapt resource value: 0x7f0b001b
-			public const int infect_submit = 2131427355;
+			public const int api_err_mission_list = 2131427355;
+			
+			// aapt resource value: 0x7f0b0018
+			public const int api_err_player_list = 2131427352;
+			
+			// aapt resource value: 0x7f0b001c
+			public const int api_err_profile = 2131427356;
+			
+			// aapt resource value: 0x7f0b001a
+			public const int api_err_ruleset_list = 2131427354;
+			
+			// aapt resource value: 0x7f0b0016
+			public const int api_err_team_status = 2131427350;
 			
 			// aapt resource value: 0x7f0b0012
-			public const int nav_drawer_close = 2131427346;
+			public const int app_name = 2131427346;
 			
-			// aapt resource value: 0x7f0b0011
-			public const int nav_drawer_open = 2131427345;
-			
-			// aapt resource value: 0x7f0b0023
-			public const int settings_api_change = 2131427363;
+			// aapt resource value: 0x7f0b001e
+			public const int infect_antivirus_submit = 2131427358;
 			
 			// aapt resource value: 0x7f0b0022
-			public const int settings_api_key_help = 2131427362;
+			public const int infect_err_antivirus_generic = 2131427362;
+			
+			// aapt resource value: 0x7f0b0021
+			public const int infect_err_antivirus_id_length = 2131427361;
+			
+			// aapt resource value: 0x7f0b0023
+			public const int infect_err_generic = 2131427363;
+			
+			// aapt resource value: 0x7f0b001f
+			public const int infect_err_human_id_length = 2131427359;
+			
+			// aapt resource value: 0x7f0b0020
+			public const int infect_err_zombie_id_length = 2131427360;
+			
+			// aapt resource value: 0x7f0b001d
+			public const int infect_submit = 2131427357;
+			
+			// aapt resource value: 0x7f0b0014
+			public const int nav_drawer_close = 2131427348;
+			
+			// aapt resource value: 0x7f0b0013
+			public const int nav_drawer_open = 2131427347;
 			
 			// aapt resource value: 0x7f0b0025
-			public const int settings_api_test_error = 2131427365;
+			public const int settings_api_change = 2131427365;
 			
 			// aapt resource value: 0x7f0b0024
-			public const int settings_api_test_ok = 2131427364;
+			public const int settings_api_key_help = 2131427364;
+			
+			// aapt resource value: 0x7f0b0027
+			public const int settings_api_test_error = 2131427367;
+			
+			// aapt resource value: 0x7f0b0026
+			public const int settings_api_test_ok = 2131427366;
 			
 			static String()
 			{
