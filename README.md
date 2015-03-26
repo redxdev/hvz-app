@@ -1,7 +1,7 @@
 HvZ App
 =======
 
-What's that? An app for hvzsite? No way!
+This project is an app for both iOS and Android built on top of Xamarin made to interface with https://github.com/redxdev/hvzsite. Each app has its own native UI, but shares code that deals with interacting with the website's api.
 
 License
 =======
