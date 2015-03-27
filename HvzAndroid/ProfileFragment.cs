@@ -18,6 +18,8 @@ using Hvz.Api;
 using Hvz.Api.Game;
 using Hvz.Api.Response;
 using Hvz.Ui;
+using ZXing;
+using ZXing.Common;
 
 namespace Hvz
 {
@@ -34,6 +36,14 @@ namespace Hvz
         private TextView teamText = null;
 
         private TextView clanText = null;
+
+        private TextView humanId1Text = null;
+
+        private TextView humanId2Text = null;
+
+        private TextView zombieIdText = null;
+
+        private ImageView qrImageView = null;
 
         public ProfileFragment()
         {
@@ -54,6 +64,11 @@ namespace Hvz
             emailText = view.FindViewById<TextView>(Resource.Id.player_email);
             teamText = view.FindViewById<TextView>(Resource.Id.player_team);
             clanText = view.FindViewById<TextView>(Resource.Id.player_clan);
+
+            humanId1Text = view.FindViewById<TextView>(Resource.Id.human_id_1);
+            humanId2Text = view.FindViewById<TextView>(Resource.Id.human_id_2);
+            zombieIdText = view.FindViewById<TextView>(Resource.Id.zombie_id);
+            qrImageView = view.FindViewById<ImageView>(Resource.Id.qr_image);
 
             return view;
         }
@@ -88,7 +103,7 @@ namespace Hvz
                                 nameText.Text = response.Profile.FullName;
                                 emailText.Text = "Email: " + response.Profile.Email;
                                 clanText.Text = "Clan: " +
-                                                (string.IsNullOrWhitespace(response.Profile.Clan)
+                                                (string.IsNullOrWhiteSpace(response.Profile.Clan)
                                                     ? "none"
                                                     : response.Profile.Clan);
 
@@ -102,6 +117,26 @@ namespace Hvz
                                     playerCard.SetBackgroundResource(Resource.Color.zombie);
                                     teamText.Text = "Team: Zombie";
                                 }
+
+                                zombieIdText.Text = "Zombie id: " + response.Profile.ZombieId;
+                                if (response.Profile.HumanIds.Count >= 1)
+                                    humanId1Text.Text = "Human id: " + response.Profile.HumanIds[0].Id;
+
+                                if (response.Profile.HumanIds.Count >= 2)
+                                    humanId2Text.Text = "Human id: " + response.Profile.HumanIds[1].Id;
+
+                                var writer = new ZXing.BarcodeWriter
+                                {
+                                    Format = BarcodeFormat.QR_CODE,
+                                    Options = new EncodingOptions
+                                    {
+                                        Height = 400,
+                                        Width = 400
+                                    }
+                                };
+
+                                var bitmap = writer.Write(response.Profile.QRData);
+                                qrImageView.SetImageBitmap(bitmap);
                                 break;
 
                             case ApiResponse.ResponseStatus.Error:

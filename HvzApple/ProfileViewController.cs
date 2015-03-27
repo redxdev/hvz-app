@@ -5,6 +5,8 @@ using UIKit;
 
 using Hvz.Api;
 using Hvz.Api.Response;
+using ZXing;
+using ZXing.Common;
 
 namespace Hvz
 {
@@ -68,6 +70,26 @@ namespace Hvz
 	                            {
 	                                TeamLabel.Text = "Team: Zombie";
 	                            }
+
+	                            ZombieIdText.Text = "Zombie id: " + response.Profile.ZombieId;
+
+	                            if (response.Profile.HumanIds.Count >= 1)
+	                                HumanId1Text.Text = "Human id: " + response.Profile.HumanIds[0].Id;
+	                            if (response.Profile.HumanIds.Count >= 2)
+	                                HumanId2Text.Text = "Human id: " + response.Profile.HumanIds[1].Id;
+
+	                            var writer = new ZXing.BarcodeWriter
+	                            {
+                                    Format = BarcodeFormat.QR_CODE,
+                                    Options = new EncodingOptions
+                                    {
+                                        Height = 240,
+                                        Width = 240
+                                    }
+	                            };
+
+	                            var bitmap = writer.Write(response.Profile.QRData);
+	                            QRImage.Image = UIImage.LoadFromData(NSData.FromStream(bitmap.AsPNG().AsStream()));
 	                            break;
 
                             case ApiResponse.ResponseStatus.Error:
