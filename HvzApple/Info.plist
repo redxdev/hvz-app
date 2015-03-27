@@ -24,7 +24,7 @@
 	<array>
 		<string>armv7</string>
 		<string>location-services</string>
-        <string>front-facing-camera</string>
+		<string>front-facing-camera</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
@@ -37,9 +37,6 @@
 		<string>Icon@2x.png</string>
 		<string>Icon.png</string>
 		<string>Icon-60@2x.png</string>
-		<string>Default.png</string>
-		<string>Default@2x.png</string>
-		<string>Default-568h@2x.png</string>
 		<string>Icon-Small@2x.png</string>
 		<string>Icon-Small.png</string>
 		<string>Icon-Small-40@2x.png</string>
