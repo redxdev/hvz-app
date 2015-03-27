@@ -150,7 +150,8 @@
     <Reference Include="PLCrashReporterUnifiedBinding">
       <HintPath>..\packages\Xamarin.Insights.1.9.1.107\lib\Xamarin.iOS10\PLCrashReporterUnifiedBinding.dll</HintPath>
     </Reference>
-    <Reference Include="RestSharp.MonoTouch">
+    <Reference Include="RestSharp.MonoTouch, Version=105.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Components\restsharp-105.0.1.0\lib\ios-unified\RestSharp.MonoTouch.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -184,6 +185,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
+  <ItemGroup>
     <XamarinComponentReference Include="json.net">
       <Visible>False</Visible>
       <Version>6.0.8.1</Version>
@@ -192,9 +196,6 @@
       <Visible>False</Visible>
       <Version>105.0.1.0</Version>
     </XamarinComponentReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
   <Import Project="..\HvzShared\HvzShared.projitems" Label="Shared" Condition="Exists('..\HvzShared\HvzShared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
