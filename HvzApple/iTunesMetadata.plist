@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>UIRequiredDeviceCapabilities</key>
+    <dict>
+        <key>armv7</key>
+        <true/>
+        <key>front-facing-camera</key>
+        <true/>
+        <key>location-services</key>
+        <true/>
+    </dict>
+    <key>artistName</key>
+    <string>Sam Bloomberg</string>
+    <key>bundleDisplayName</key>
+    <string>HvZ at RIT</string>
+    <key>bundleShortVersionString</key>
+    <string>1.0</string>
+    <key>bundleVersion</key>
+    <string>1.0</string>
+    <key>copyright</key>
+    <string>© 2015 Sam Bloomberg</string>
+    <key>drmVersionNumber</key>
+    <integer>0</integer>
+    <key>fileExtension</key>
+    <string>.app</string>
+    <key>gameCenterEnabled</key>
+    <false/>
+    <key>gameCenterEverEnabled</key>
+    <false/>
+    <key>genre</key>
+    <string>Entertainment</string>
+    <key>genreId</key>
+    <integer>6016</integer>
+    <key>itemName</key>
+    <string>HvZ at RIT</string>
+    <key>kind</key>
+    <string>software</string>
+    <key>playlistArtistName</key>
+    <string>Sam Bloomberg</string>
+    <key>playlistName</key>
+    <string>HvZ at RIT</string>
+    <key>releaseDate</key>
+    <string>2015-11-18T03:23:10Z</string>
+    <key>s</key>
+    <integer>143441</integer>
+    <key>softwareIconNeedsShine</key>
+    <true/>
+    <key>softwareSupportedDeviceIds</key>
+    <array>
+        <integer>9</integer>
+    </array>
+    <key>softwareVersionBundleId</key>
+    <string>edu.rit.hvz.apple</string>
+    <key>versionRestrictions</key>
+    <integer>16843008</integer>
+</dict>
+</plist>

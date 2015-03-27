@@ -24,6 +24,7 @@
 	<array>
 		<string>armv7</string>
 		<string>location-services</string>
+        <string>front-facing-camera</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
