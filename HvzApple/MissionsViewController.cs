@@ -28,6 +28,8 @@ namespace Hvz
 	        {
 	            Refresh();
 	        }
+
+            NavigationController.SetToolbarHidden(true, true);
 	    }
 
 	    private void Refresh()
