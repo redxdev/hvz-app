@@ -14,7 +14,6 @@ using Android.Support.V7.App;
 using Hvz.Api;
 using Hvz.Api.Response;
 using Hvz.Ui;
-using Java.Net;
 using Xamarin;
 
 namespace Hvz
@@ -62,7 +61,8 @@ namespace Hvz
                     NavMenuItem.Create(6, "Antivirus", this),
                     NavMenuItem.Create(7, "Profile", this),
                     NavMenuItem.Create(8, "Rules", this),
-                    NavMenuItem.Create(9, "Settings", this)
+                    NavMenuItem.Create(9, "Settings", this),
+                    NavMenuItem.Create(10, "Contact the Admins", this, true, false)
             };
 
             var settings = GetSharedPreferences(PrefsName, 0);
@@ -168,6 +168,24 @@ namespace Hvz
 
                 case 9:
                     ReplaceFragment(new SettingsFragment(client));
+                    break;
+
+                case 10:
+                    var email = new Intent(Android.Content.Intent.ActionSendto);
+                    email.PutExtra(Android.Content.Intent.ExtraEmail, new string[] {"hvz@rit.edu"});
+                    email.SetData(Android.Net.Uri.Parse("mailto:"));
+                    if (email.ResolveActivity(PackageManager) != null)
+                    {
+                        StartActivity(email);
+                    }
+                    else
+                    {
+                        new AlertDialog.Builder(this)
+                            .SetTitle("Error")
+                            .SetMessage("It doesn't look like you have an email client :(")
+                            .SetPositiveButton("OK", (s, a) => { })
+                            .Show();
+                    }
                     break;
             }
         }
