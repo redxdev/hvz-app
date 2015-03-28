@@ -62,6 +62,9 @@ namespace Hvz
             zombieIdInput = view.FindViewById<EditText>(Resource.Id.zombie_id_input);
             locationStatus = view.FindViewById<TextView>(Resource.Id.location_status);
 
+            var autofillButton = view.FindViewById<Button>(Resource.Id.autofill_button);
+            autofillButton.Click += Autofill;
+
             var submitButton = view.FindViewById<Button>(Resource.Id.submit_button);
             submitButton.Click += Submit;
 
@@ -118,6 +121,73 @@ namespace Hvz
             base.OnPause();
 
             locationManager.RemoveUpdates(this);
+        }
+
+        public void Autofill(object sender, EventArgs args)
+        {
+            if (client.ApiKey.Length != 32)
+            {
+                new AlertDialog.Builder(this.Activity)
+                    .SetTitle("Error")
+                    .SetMessage(Resource.String.api_err_bad_key)
+                    .SetPositiveButton("OK", (s, a) => { })
+                    .Show();
+            }
+            else
+            {
+                Toast.MakeText(this.Activity, Resource.String.infect_profile_retrieve, ToastLength.Short)
+                    .Show();
+
+                client.GetProfile(response =>
+                {
+                    if (this.Activity == null)
+                        return;
+
+                    this.Activity.RunOnUiThread(() =>
+                    {
+                        if (this.Activity == null)
+                            return;
+
+                        switch (response.Status)
+                        {
+                            case ApiResponse.ResponseStatus.Ok:
+                                switch (response.Profile.Team)
+                                {
+                                    case GameUtils.Team.Human:
+                                        string id = "error";
+                                        foreach (HumanId hid in response.Profile.HumanIds)
+                                        {
+                                            if (hid.Active)
+                                            {
+                                                id = hid.Id;
+                                                break;
+                                            }
+                                        }
+
+                                        humanIdInput.Text = id;
+                                        break;
+
+                                    case GameUtils.Team.Zombie:
+                                        zombieIdInput.Text = response.Profile.ZombieId;
+                                        break;
+                                }
+
+                                Toast.MakeText(this.Activity, Resource.String.infect_profile_retrieve_success,
+                                    ToastLength.Short)
+                                    .Show();
+                                break;
+
+                            case ApiResponse.ResponseStatus.Error:
+                                new AlertDialog.Builder(this.Activity)
+                                    .SetTitle("Error")
+                                    .SetMessage(Resource.String.api_err_profile)
+                                    .SetPositiveButton("OK", (s, a) => { })
+                                    .Show();
+                                break;
+                        }
+                    });
+                });
+            }
         }
 
         public void Submit(object sender, EventArgs args)
