@@ -26,6 +26,10 @@ namespace Hvz
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextField ZombieIdText { get; set; }
 
+		[Action ("OnAutofillButtonPressed:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void OnAutofillButtonPressed (UIButton sender);
+
 		[Action ("OnHumanScanButtonPressed:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void OnHumanScanButtonPressed (UIButton sender);

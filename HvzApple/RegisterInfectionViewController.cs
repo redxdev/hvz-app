@@ -102,6 +102,61 @@ namespace Hvz
 	        });
 	    }
 
+	    partial void OnAutofillButtonPressed(UIButton sender)
+	    {
+	        if (HvzClient.Instance.ApiKey.Length != 32)
+	        {
+                var av = new UIAlertView("Error", "You don't have a valid api key set. Head to the settings page!", null,
+                    "OK", null);
+                av.Show();
+	        }
+	        else
+	        {
+	            HvzClient.Instance.GetProfile(response =>
+	            {
+                    InvokeOnMainThread(() =>
+                    {
+                        if (!this.IsViewLoaded || View.Window == null)
+                        {
+                            loading = false;
+                            return;
+                        }
+
+                        switch (response.Status)
+                        {
+                            case ApiResponse.ResponseStatus.Ok:
+                                switch (response.Profile.Team)
+                                {
+                                    case GameUtils.Team.Human:
+                                        string id = "error";
+                                        foreach (HumanId hid in response.Profile.HumanIds)
+                                        {
+                                            if (hid.Active)
+                                            {
+                                                id = hid.Id;
+                                                break;
+                                            }
+                                        }
+
+                                        HumanIdText.Text = id;
+                                        break;
+
+                                    case GameUtils.Team.Zombie:
+                                        ZombieIdText.Text = response.Profile.ZombieId;
+                                        break;
+                                }
+                                break;
+
+                            case ApiResponse.ResponseStatus.Error:
+                                var profileErr = new UIAlertView("Error", "Unable to retrieve profile. Is your api key correct?", null, "OK", null);
+                                profileErr.Show();
+                                break;
+                        }
+                    });
+	            });
+	        }
+	    }
+
 	    partial void OnSubmitButtonPressed(UIButton sender)
 	    {
 	        ResignFirstResponder();
