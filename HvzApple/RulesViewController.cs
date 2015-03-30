@@ -40,7 +40,7 @@ namespace Hvz
 	            foreach (Ruleset ruleset in response.Rulesets)
 	            {
 	                html += string.Format(
-                        "<h1>{0}</h1>{1}",
+                        "<h1>{0}</h1>{1}<hr>",
                         ruleset.Title,
                         ruleset.Body
 	                    );

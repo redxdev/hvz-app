@@ -43,7 +43,7 @@ namespace Hvz
 	            foreach (Mission mission in response.Missions)
 	            {
 	                html += string.Format(
-                        "<h1>{0}</h1>{1}",
+                        "<h1>{0}</h1>{1}<hr>",
                         mission.Title,
                         mission.Body
 	                    );
