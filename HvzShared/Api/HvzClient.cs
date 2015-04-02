@@ -23,6 +23,8 @@ namespace Hvz.Api
         public HvzClient()
         {
             Instance = this;
+            //TODO: Remove this when we actually have the hvz.rit.edu domain
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) => true;
             this.client = new RestClient(ApiConfiguration.BaseUrl + ApiConfiguration.ApiUrl);
         }
 
