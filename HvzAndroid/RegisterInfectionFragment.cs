@@ -40,11 +40,13 @@ namespace Hvz
         public RegisterInfectionFragment()
         {
             this.client = HvzClient.Instance;
+            RetainInstance = true;
         }
 
         public RegisterInfectionFragment(HvzClient client)
         {
             this.client = client;
+            RetainInstance = true;
         }
 
         public override void OnCreate(Bundle savedInstanceState)

@@ -33,11 +33,13 @@ namespace Hvz
         public AntivirusFragment()
         {
             this.client = HvzClient.Instance;
+            RetainInstance = true;
         }
 
         public AntivirusFragment(HvzClient client)
         {
             this.client = client;
+            RetainInstance = true;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

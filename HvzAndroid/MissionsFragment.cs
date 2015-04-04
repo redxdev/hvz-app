@@ -34,11 +34,13 @@ namespace Hvz
         public MissionsFragment()
         {
             this.client = HvzClient.Instance;
+            RetainInstance = true;
         }
 
         public MissionsFragment(HvzClient client)
         {
             this.client = client;
+            RetainInstance = true;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

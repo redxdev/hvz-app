@@ -35,11 +35,13 @@ namespace Hvz
         public StatusFragment()
         {
             this.client = HvzClient.Instance;
+            RetainInstance = true;
         }
 
         public StatusFragment(HvzClient client)
         {
             this.client = client;
+            RetainInstance = true;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

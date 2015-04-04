@@ -38,11 +38,13 @@ namespace Hvz
         public InfectionsFragment()
         {
             this.client = HvzClient.Instance;
+            RetainInstance = true;
         }
 
         public InfectionsFragment(HvzClient client)
         {
             this.client = client;
+            RetainInstance = true;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

@@ -44,11 +44,13 @@ namespace Hvz
         public PlayersFragment()
         {
             this.client = HvzClient.Instance;
+            RetainInstance = true;
         }
 
         public PlayersFragment(HvzClient client)
         {
             this.client = client;
+            RetainInstance = true;
         }
 
         public override void OnCreate(Bundle savedInstanceState)
