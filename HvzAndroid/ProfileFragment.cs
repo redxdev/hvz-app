@@ -29,6 +29,8 @@ namespace Hvz
 
         private CardView playerCard = null;
 
+        private LinearLayout playerCardLayout = null;
+
         private TextView nameText = null;
 
         private TextView emailText = null;
@@ -62,6 +64,7 @@ namespace Hvz
             var view = inflater.Inflate(Resource.Layout.profile_fragment, container, false);
 
             playerCard = view.FindViewById<CardView>(Resource.Id.player_card);
+            playerCardLayout = view.FindViewById<LinearLayout>(Resource.Id.player_card_layout);
             nameText = view.FindViewById<TextView>(Resource.Id.player_name);
             emailText = view.FindViewById<TextView>(Resource.Id.player_email);
             teamText = view.FindViewById<TextView>(Resource.Id.player_team);
@@ -111,12 +114,16 @@ namespace Hvz
 
                                 if (response.Profile.Team == GameUtils.Team.Human)
                                 {
-                                    playerCard.SetBackgroundResource(Resource.Color.human);
+                                    // removed: breaks stuff on older devices
+                                    //playerCard.SetBackgroundResource(Resource.Color.human);
+                                    playerCardLayout.SetBackgroundResource(Resource.Color.human);
                                     teamText.Text = "Team: Human";
                                 }
                                 else
                                 {
-                                    playerCard.SetBackgroundResource(Resource.Color.zombie);
+                                    // removed: breaks stuff on older devices
+                                    //playerCard.SetBackgroundResource(Resource.Color.zombie);
+                                    playerCardLayout.SetBackgroundResource(Resource.Color.zombie);
                                     teamText.Text = "Team: Zombie";
                                 }
 

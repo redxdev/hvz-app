@@ -140,6 +140,9 @@ namespace Hvz
 
             loading = true;
 
+            if (client == null)
+                client = HvzClient.Instance;
+
             client.GetPlayerList(page, (response) =>
                 {
                     if (Activity == null)

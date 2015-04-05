@@ -12,6 +12,7 @@
         card_view:cardBackgroundColor="#fff"
         card_view:cardElevation="2dp">
         <LinearLayout
+            android:id="@+id/player_card_layout"
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
