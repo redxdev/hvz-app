@@ -43,6 +43,8 @@ namespace Hvz
         {
             base.OnCreate(bundle);
 
+            this.RequestedOrientation = ScreenOrientation.Portrait;
+
             Insights.Initialize(AppConfig.InsightsApiKey, ApplicationContext);
 
             // Set our view from the "main" layout resource
