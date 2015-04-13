@@ -30,6 +30,8 @@ namespace Hvz
         private TextView minuteCount = null;
         private TextView secondCount = null;
 
+        private CountdownTimer timer = null;
+
         private bool loading = false;
 
         public StatusFragment()
@@ -66,10 +68,38 @@ namespace Hvz
             RefreshStatus();
         }
 
+        public override void OnDetach()
+        {
+            base.OnDetach();
+
+            if (timer != null)
+            {
+                timer.Stop();
+                timer = null;
+            }
+        }
+
+        private void TimerCallback(int days, int hours, int minutes, int seconds)
+        {
+            this.Activity.RunOnUiThread(() =>
+            {
+                dayCount.Text = days.ToString() + " DAYS";
+                hourCount.Text = hours.ToString() + " HOURS";
+                minuteCount.Text = minutes.ToString() + " MINUTES";
+                secondCount.Text = seconds.ToString() + " SECONDS";
+            });
+        }
+
         public void RefreshStatus()
         {
             if (loading)
                 return;
+
+            if (timer != null)
+            {
+                timer.Stop();
+                timer = null;
+            }
 
             loading = true;
 
@@ -124,6 +154,10 @@ namespace Hvz
                                     hourCount.Text = response.Hours.ToString() + " HOURS";
                                     minuteCount.Text = response.Minutes.ToString() + " MINUTES";
                                     secondCount.Text = response.Seconds.ToString() + " SECONDS";
+
+                                    timer = new CountdownTimer();
+                                    timer.Callback = TimerCallback;
+                                    timer.Start(response.Days, response.Hours, response.Minutes, response.Seconds);
                                 }
                                 else
                                 {
