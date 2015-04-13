@@ -10,6 +10,8 @@ namespace Hvz
 {
 	partial class StatusViewController : UIViewController
 	{
+	    private CountdownTimer timer = null;
+
 		public StatusViewController (IntPtr handle) : base (handle)
 		{
 		}
@@ -17,6 +19,12 @@ namespace Hvz
 	    public override void ViewDidAppear(bool animated)
 	    {
             base.ViewDidAppear(animated);
+
+	        if (timer != null)
+	        {
+	            timer.Stop();
+	            timer = null;
+	        }
 
             HvzClient.Instance.GetTeamStatus((response) =>
             {
@@ -59,6 +67,10 @@ namespace Hvz
                                 HoursCount.Text = response.Hours.ToString() + " HOURS";
                                 MinutesCount.Text = response.Minutes.ToString() + " MINUTES";
                                 SecondsCount.Text = response.Seconds.ToString() + " SECONDS";
+
+                                timer = new CountdownTimer();
+                                timer.Callback = TimerCallback;
+                                timer.Start(response.Days, response.Hours, response.Minutes, response.Seconds);
                             }
                             else
                             {
@@ -85,5 +97,27 @@ namespace Hvz
 
             NavigationController.SetToolbarHidden(true, true);
 	    }
+
+	    public override void ViewDidDisappear(bool animated)
+	    {
+	        base.ViewDidDisappear(animated);
+
+	        if (timer != null)
+	        {
+	            timer.Stop();
+	            timer = null;
+	        }
+	    }
+
+        private void TimerCallback(int days, int hours, int minutes, int seconds)
+        {
+            InvokeOnMainThread(() =>
+            {
+                DaysCount.Text = days + " DAYS";
+                HoursCount.Text = hours + " HOURS";
+                MinutesCount.Text = minutes + " MINUTES";
+                SecondsCount.Text = seconds + " SECONDS";
+            });
+        }
 	}
 }
