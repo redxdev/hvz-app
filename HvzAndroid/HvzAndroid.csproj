@@ -129,7 +129,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Proguard.cfg" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\nav_menu_section.axml" />
@@ -188,7 +187,6 @@
   <ItemGroup />
   <Import Project="..\HvzShared\HvzShared.projitems" Label="Shared" Condition="Exists('..\HvzShared\HvzShared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
-  <Import Project="..\packages\XamGuard.1.0.3\Proguard.targets" Condition="'$(Configuration)' != 'Debug'" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

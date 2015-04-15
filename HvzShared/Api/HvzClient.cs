@@ -24,6 +24,7 @@ namespace Hvz.Api
         {
             Instance = this;
             this.client = new RestClient(ApiConfiguration.BaseUrl + ApiConfiguration.ApiUrl);
+            this.ApiKey = string.Empty;
         }
 
         public string ApiKey { get; set; }
