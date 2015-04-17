@@ -120,7 +120,7 @@ namespace Hvz
         {
             var aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;
             if (aps != null)
-                new UIAlertView("HvZ Announcement", aps.ObjectForKey(new NSString("alert")) as NSString, null, "OK", null).Show();
+                new UIAlertView("HvZ Announcement", aps.ObjectForKey(new NSString("alert")).ToString(), null, "OK", null).Show();
         }
     }
 }
