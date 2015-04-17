@@ -59,7 +59,6 @@ namespace Hvz
             {
                 try
                 {
-                    hub.UnregisterAll(registrationId);
                     hub.Register(registrationId, "announcements");
                 }
                 catch (Exception e)

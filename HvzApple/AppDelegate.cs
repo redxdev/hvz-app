@@ -113,7 +113,7 @@ namespace Hvz
 
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
         {
-            new UIAlertView("HvZ Announcement", userInfo["alert"] as NSString, null, "OK", null).Show();
+            new UIAlertView("HvZ Announcement", userInfo["alert"].ToString(), null, "OK", null).Show();
         }
     }
 }
