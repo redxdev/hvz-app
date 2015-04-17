@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using WindowsAzure.Messaging;
 using Foundation;
 using Hvz.Api;
 using Hvz.Api.Response;
@@ -45,6 +45,8 @@ namespace Hvz
                 });
             }
 
+            UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound | UIRemoteNotificationType.Badge);
+
             return true;
         }
 
@@ -72,6 +74,27 @@ namespace Hvz
         // This method is called when the application is about to terminate. Save data, if needed. 
         public override void WillTerminate(UIApplication application)
         {
+        }
+
+        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        {
+            var cs =
+                SBConnectionString.CreateListenAccess(new NSUrl(AppConfig.NotificationHubUri),
+                    AppConfig.NotificationHubKey);
+
+            var hub = new SBNotificationHub(cs, AppConfig.NotificationHubName);
+            hub.UnregisterAllAsync(deviceToken, e =>
+            {
+                hub.RegisterNativeAsync(deviceToken, new NSSet("announcements"), err =>
+                {
+                    if (err != null)
+                        Console.WriteLine("Error: " + err.Description);
+                    else
+                    {
+                        Console.WriteLine("Registered for notifications");
+                    }
+                });
+            });
         }
     }
 }
