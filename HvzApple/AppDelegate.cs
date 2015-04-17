@@ -45,7 +45,11 @@ namespace Hvz
                 });
             }
 
-            UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound | UIRemoteNotificationType.Badge);
+            var settings =
+                UIUserNotificationSettings.GetSettingsForTypes(
+                    UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, null);
+            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+            UIApplication.SharedApplication.RegisterForRemoteNotifications();
 
             return true;
         }
