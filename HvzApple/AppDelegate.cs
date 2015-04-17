@@ -113,11 +113,14 @@ namespace Hvz
 
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
         {
-            foreach(NSObject key in userInfo.Keys)
-            {
-                new UIAlertView("Key/Value", key.ToString() + " = " + userInfo[key].ToString(), null, "OK", null).Show();
-            }
-            //new UIAlertView("HvZ Announcement", userInfo., null, "OK", null).Show();
+            new UIAlertView("HvZ Announcement", userInfo., null, "OK", null).Show();
+        }
+
+        public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
+        {
+            var aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;
+            if (aps != null)
+                new UIAlertView("HvZ Announcement", aps.ObjectForKey(new NSString("alert")) as NSString, null, "OK", null).Show();
         }
     }
 }
