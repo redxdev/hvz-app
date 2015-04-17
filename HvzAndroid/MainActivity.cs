@@ -43,9 +43,21 @@ namespace Hvz
         {
             base.OnCreate(bundle);
 
+            if (HvzClient.Instance == null)
+            {
+                client = new HvzClient();
+            }
+            else
+            {
+                client = HvzClient.Instance;
+            }
+
             this.RequestedOrientation = ScreenOrientation.Portrait;
 
-            Insights.Initialize(AppConfig.InsightsApiKey, ApplicationContext);
+            if (!Insights.IsInitialized)
+            {
+                Insights.Initialize(AppConfig.InsightsApiKey, ApplicationContext);
+            }
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.main);
@@ -71,15 +83,6 @@ namespace Hvz
             var apiKey = settings.GetString("apikey", string.Empty);
 
             Log.Debug("HvzAndroid", "Using api key \"" + apiKey + "\"");
-
-            if (HvzClient.Instance == null)
-            {
-                client = new HvzClient();
-            }
-            else
-            {
-                client = HvzClient.Instance;
-            }
 
             client.ApiKey = apiKey;
 
