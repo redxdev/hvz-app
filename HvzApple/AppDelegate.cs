@@ -92,17 +92,17 @@ namespace Hvz
                     AppConfig.NotificationHubKey);
 
             var hub = new SBNotificationHub(cs, AppConfig.NotificationHubName);
-            hub.UnregisterAllAsync(deviceToken, e =>
+            hub.RegisterNativeAsync(deviceToken, new NSSet("announcements"), err =>
             {
-                hub.RegisterNativeAsync(deviceToken, new NSSet("announcements"), err =>
-                {
-                    if (err != null)
-                        Console.WriteLine("Error: " + err.Description);
-                    else
+                if (err != null)
+                    InvokeOnMainThread(() =>
                     {
-                        Console.WriteLine("Registered for notifications");
-                    }
-                });
+                        new UIAlertView("Error registering push notifications", err.LocalizedDescription, null, "OK", null).Show();
+                    });
+                else
+                {
+                    Console.WriteLine("Registered for notifications");
+                }
             });
         }
 
