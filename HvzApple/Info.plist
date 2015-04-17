@@ -7,11 +7,11 @@
 	<key>CFBundleIdentifier</key>
 	<string>edu.rit.hvz.apple</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.1</string>
+	<string>1.0.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>8.0</string>
+	<string></string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -40,6 +40,6 @@
 		<string>Icon-Small-40@2x.png</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>6</string>
+	<string>8</string>
 </dict>
 </plist>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using WindowsAzure.Messaging;
 using Foundation;
 using Hvz.Api;
 using Hvz.Api.Response;
@@ -45,6 +45,12 @@ namespace Hvz
                 });
             }
 
+            var settings =
+                UIUserNotificationSettings.GetSettingsForTypes(
+                    UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, null);
+            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+            UIApplication.SharedApplication.RegisterForRemoteNotifications();
+
             return true;
         }
 
@@ -72,6 +78,48 @@ namespace Hvz
         // This method is called when the application is about to terminate. Save data, if needed. 
         public override void WillTerminate(UIApplication application)
         {
+        }
+
+        public override void DidRegisterUserNotificationSettings(UIApplication application, UIUserNotificationSettings notificationSettings)
+        {
+            application.RegisterForRemoteNotifications();
+        }
+
+        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        {
+            var cs =
+                SBConnectionString.CreateListenAccess(new NSUrl(AppConfig.NotificationHubUri),
+                    AppConfig.NotificationHubKey);
+
+            var hub = new SBNotificationHub(cs, AppConfig.NotificationHubName);
+            hub.RegisterNativeAsync(deviceToken, new NSSet("announcements"), err =>
+            {
+                if (err != null)
+                    InvokeOnMainThread(() =>
+                    {
+                        new UIAlertView("Error registering push notifications", err.LocalizedDescription, null, "OK", null).Show();
+                    });
+                else
+                {
+                    Console.WriteLine("Registered for notifications");
+                }
+            });
+        }
+
+        public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error)
+        {
+            new UIAlertView("Error registering push notifications", error.LocalizedDescription, null, "OK", null).Show();
+        }
+
+        public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
+        {
+            var aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;
+            if (aps != null)
+            {
+                var alert = aps.ObjectForKey(new NSString("alert")) as NSString;
+                if (alert != null)
+                    new UIAlertView("HvZ Announcement", alert.ToString(), null, "OK", null).Show();
+            }
         }
     }
 }

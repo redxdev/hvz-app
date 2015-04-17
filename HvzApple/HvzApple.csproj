@@ -156,6 +156,9 @@
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.WindowsAzure.Messaging.iOS">
+      <HintPath>..\Components\azure-messaging-1.1.5.3\lib\ios-unified\Microsoft.WindowsAzure.Messaging.iOS.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -198,6 +201,10 @@
     <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
   <ItemGroup>
+    <XamarinComponentReference Include="azure-messaging">
+      <Visible>False</Visible>
+      <Version>1.1.5.3</Version>
+    </XamarinComponentReference>
     <XamarinComponentReference Include="json.net">
       <Version>6.0.8.1</Version>
       <Visible>False</Visible>
