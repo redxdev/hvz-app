@@ -80,6 +80,11 @@ namespace Hvz
         {
         }
 
+        public override void DidRegisterUserNotificationSettings(UIApplication application, UIUserNotificationSettings notificationSettings)
+        {
+            application.RegisterForRemoteNotifications();
+        }
+
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
             var cs =
