@@ -111,10 +111,10 @@ namespace Hvz
             new UIAlertView("Error registering push notifications", error.LocalizedDescription, null, "OK", null).Show();
         }
 
-        public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
+        /*public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
         {
-            new UIAlertView("HvZ Announcement", userInfo., null, "OK", null).Show();
-        }
+            //new UIAlertView("HvZ Announcement", userInfo., null, "OK", null).Show();
+        }*/
 
         public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
