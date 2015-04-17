@@ -62,6 +62,9 @@ namespace Hvz
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.main);
 
+            HvzGcmService.Initialize(this);
+            HvzGcmService.Register(this);
+
             this.drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             this.drawerListView = FindViewById<ListView>(Resource.Id.left_drawer);
             this.navDrawerItems = new INavDrawerItem[]

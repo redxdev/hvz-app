@@ -63,6 +63,9 @@
     <MonoDroidExtraArgs />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.WindowsAzure.Messaging.Android">
+      <HintPath>..\Components\azure-messaging-1.1.5.3\lib\android\Microsoft.WindowsAzure.Messaging.Android.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -105,6 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HvzGcmService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="AntivirusFragment.cs" />
     <Compile Include="RulesetsFragment.cs" />
@@ -171,6 +175,10 @@
     <AndroidResource Include="Resources\drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <XamarinComponentReference Include="azure-messaging">
+      <Visible>False</Visible>
+      <Version>1.1.5.3</Version>
+    </XamarinComponentReference>
     <XamarinComponentReference Include="json.net">
       <Visible>False</Visible>
       <Version>6.0.8.1</Version>
