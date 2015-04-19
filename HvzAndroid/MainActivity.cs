@@ -59,6 +59,15 @@ namespace Hvz
                 Insights.Initialize(AppConfig.InsightsApiKey, ApplicationContext);
             }
 
+            if (!string.IsNullOrWhiteSpace(Intent.Extras.GetString("notification-message", null)))
+            {
+                new AlertDialog.Builder(this)
+                    .SetTitle("Announcement")
+                    .SetMessage(Intent.Extras.GetString("notification-message"))
+                    .SetPositiveButton("OK", (s, a) => { })
+                    .Show();
+            }
+
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.main);
 

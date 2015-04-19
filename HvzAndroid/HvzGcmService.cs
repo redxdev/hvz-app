@@ -94,6 +94,7 @@ namespace Hvz
                     Console.WriteLine("Null msg");
 
                 Intent appIntent = new Intent(this, typeof(MainActivity));
+                appIntent.PutExtra("notification-message", message);
                 PendingIntent pendingIntent = PendingIntent.GetActivity(context, 0, appIntent,
                     PendingIntentFlags.OneShot);
 
