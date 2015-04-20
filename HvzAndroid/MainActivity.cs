@@ -59,7 +59,7 @@ namespace Hvz
                 Insights.Initialize(AppConfig.InsightsApiKey, ApplicationContext);
             }
 
-            if (!string.IsNullOrWhiteSpace(Intent.Extras.GetString("notification-message", null)))
+            if (Intent.Extras != null && !string.IsNullOrWhiteSpace(Intent.Extras.GetString("notification-message", null)))
             {
                 new AlertDialog.Builder(this)
                     .SetTitle("Announcement")
